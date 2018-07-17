@@ -2,18 +2,26 @@ package com.util;
 
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class JDBCDAO {
-    public void viewAll() throws Exception {
+
+    public List<Student> viewAll() throws Exception {
         System.out.println("JDBCDAO>viewAll");
         Connection con = ConnectionManager.getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from student");
+        List<Student> list = new ArrayList<Student>();
         while(rs.next()){
-            String name = rs.getString("name");
-            String id = rs.getString("id");
-            System.out.println(id + " "+ name);
+            Student std = new Student();
+            std.id = Integer.parseInt(rs.getString("id"));
+            std.name = rs.getString("name");
+            std.cgpa = Float.parseFloat(rs.getString("cgpa"));
+            list.add(std);
         }
         con.close();
+        return  list;
     }
 
     public void addStudent(Student std) throws Exception {

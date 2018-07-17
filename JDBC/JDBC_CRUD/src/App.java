@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
+import java.util.List;
 
 public class App {
 
@@ -43,6 +44,7 @@ public class App {
             System.out.println("Student added successfully...");
         }
         else if(choice == 2){
+            System.out.println("Delete Student");
             System.out.println("ID : ");
             inputString = in.readLine();
             id = Integer.parseInt(inputString);
@@ -50,7 +52,10 @@ public class App {
             System.out.println("Student deleted successfully...");
         }
         else if(choice == 3){
-            dao.viewAll();
+            List<Student> list = dao.viewAll();
+            for(int i=0; i<list.size();i++){
+                System.out.println(list.get(i));
+            }
         }
 
     }
