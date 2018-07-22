@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -32,9 +33,6 @@
          </children>
       </VBox>
    </top>
-   <left>
-      <TreeView BorderPane.alignment="CENTER" />
-   </left>
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
@@ -45,4 +43,11 @@
    <center>
       <Button mnemonicParsing="false" onAction="#homeButtonClicked" text="Home" BorderPane.alignment="CENTER" />
    </center>
+   <left>
+      <ImageView fitHeight="355.0" fitWidth="223.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@12274showing.jpg" />
+         </image>
+      </ImageView>
+   </left>
 </BorderPane>
