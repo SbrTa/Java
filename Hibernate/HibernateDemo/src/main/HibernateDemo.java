@@ -52,8 +52,8 @@ public class HibernateDemo {
 */
 
         //HQL (Hibernate row SQL)
-        Query query = session.createQuery("FROM Student where id >= :idParam");
-        query.setParameter("idParam",1);
+        Query query = session.createQuery("FROM Student where id >= :var");
+        query.setParameter("var",1);
         List<Student> studentList = query.list();
         for (Student student : studentList){
             System.out.println(student);
