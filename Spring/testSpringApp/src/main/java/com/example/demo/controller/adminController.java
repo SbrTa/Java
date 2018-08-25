@@ -14,12 +14,11 @@ public class adminController {
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String index(Model model) {
         System.out.println("-----------index-------------");
-
         model.addAttribute("myMessage","Hey we have run it successfully.....");
-
-
         return "index";
     }
+
+
 
 
 
