@@ -1,0 +1,291 @@
+body{
+    padding: 0% 10vw;
+    margin: 0px;
+}
+.do-flex{
+    display: flex;
+}
+
+p{
+    margin: 0px;
+}
+.margin-0{
+    margin: 0px;
+}
+
+.margin-bottom-0{
+    margin-bottom: 0px;
+}
+
+.blank-div{
+    margin: 0px;
+    padding: 1vw;
+}
+
+.div-line{
+    background-color: lightskyblue;
+    margin-left: 7%;
+    margin-right: 7%;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.div-line-2{
+    background-color: lightskyblue;
+    padding: 1px;
+}
+
+
+/* header : name + designation*/
+.head{
+    border-style: solid;
+    border-color: lightskyblue;
+    border-width: 5px 10px;
+    background-color: lightskyblue;
+}
+
+.name  {
+    display: flex;
+    padding-left: 10%;
+    margin-bottom: 0px;
+    font-size: 5vw;
+    text-shadow: 2px 2px 2px mediumpurple;
+    font-variant: small-caps;
+}
+
+.name .first{
+    border-style: solid;
+    border-width: 2px 0px;
+}
+.name .last{
+    padding-left: 10px;
+    padding-top: 2px;
+}
+
+.designation{
+    font-size: 1.5vw;
+    padding-left: 10%;
+    margin-top: 0px;
+    font-family: "Courier New", Lucida Console, Monospace;
+}
+
+
+/*body*/
+/*profile pic and education*/
+
+.class-body {
+    background-color: white;
+    background-image: url("background-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.pic-edu{
+    margin-top: 20px;
+    padding: 0px 50px;
+}
+
+.profile-pic{
+    padding-left: 5%;
+    padding-right: 7%;
+}
+
+.pro-pic{
+    width: 7vw;
+    height: 7vw;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 50%;
+    border-color: darkgrey;
+
+    object-fit: fill;
+    border-radius: 50%;
+}
+
+.section-name{
+    font-variant: small-caps;
+    text-shadow: 2px 2px 2px mediumpurple;
+    font-size: 2.5vw;
+    font-weight: bold;
+}
+
+.my-degree{
+    margin: 0px;
+}
+
+.degree{
+    padding-left: 5vw;
+    border-style: solid;
+    border-width: 0px 0px 0px 2px;
+}
+
+.degree-details{
+    display: flex;
+}
+
+.honors {
+
+}
+
+.text-info{
+    margin: 0px;
+    font-size: 1vw;
+    line-height: 1.2vw;
+}
+
+.text-info-title{
+    margin: 0px;
+    font-size: 1.5vw;
+}
+
+.masters{
+    padding-left: 5vw;
+}
+
+
+/*social media*/
+
+.social-media-background{
+    border-style: solid;
+    border-color: dodgerblue;
+    border-width: 5px 10px;
+    background-color: dodgerblue;
+}
+
+.social-media{
+    display: table;
+    margin: 0 auto;
+}
+
+.fa {
+    padding: 5px;
+    width: 1.7vw;
+    height: 1.5vw;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    border-radius: 50%;
+}
+
+.fa:hover{
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-google-plus {
+    background: #dd4b39;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+.fa-pinterest {
+    background: #cb2027;
+    color: white;
+}
+
+/*experience*/
+.experience{
+    padding-left: 5vw;
+}
+
+.job-exp{
+
+}
+
+.job-list{
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
+.job-duration{
+    padding-left: 5vw;
+    padding-top: .5vw;
+}
+
+
+/*professional skill*/
+
+.rating{
+    margin-bottom: 0.5vw;
+}
+.item-set p{
+    font-weight: bold;
+}
+.rating span {
+    background: darkgreen;
+    display: inline-block;
+    margin: 0 0.15vw;
+    height: 0.4vw;
+    width: 0.4vw;
+    position: relative;
+    border-radius: 50%;
+}
+
+.rating span.transparent {
+    background: limegreen;
+}
+
+.skill-padding{
+    padding-left: 5vw;
+    padding-right: 3vw;
+}
+
+/*footer*/
+
+.item-list{
+    list-style-type: circle;
+    font-weight: bold;
+}
+
+ul li::before {
+    content: "\2022";
+    color: dodgerblue;
+    display: inline-block;
+    width: 1vw;
+    margin-left: -1vw;
+}
+
+.hobby{
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+.contact{
+    margin-bottom: 0px;
+    padding-left : 5vw;
+    border-style: solid;
+    border-width: 0px 0px 0px .1vw;
+    border-color: dodgerblue;
+}
+
+.contact-info p .fa{
+    padding: 0px;
+    margin: 0px;
+}
+
+#git{
+    text-decoration: none;
+}
+
+.end-div{
+    background-color: lightskyblue;
+}
+
