@@ -11,11 +11,20 @@
 <body>
 	<h1>Login successfull...</h1>
 	
+	
+<%-- 	
 	<%
 	//User user = (User) session.getAttribute("user");
 	User user = (User) request.getAttribute("user");
 	%>
-
 	Hello <%=user.getUserName() %>
+	
+ --%>
+ 
+ 	<!-- JSTL -->
+	<jsp:useBean id="user" class="org.sbrta.roy.dto.User" scope="request">
+		<jsp:setProperty property="userName" name="user" value="NewUser"/>
+	</jsp:useBean> 	
+	Hello <jsp:getProperty property="userName" name="user"/>
 </body>
 </html>
