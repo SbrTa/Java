@@ -25,7 +25,13 @@ public class UserService {
         Connection con = ConnectionManager.getConnection();
         PreparedStatement st = con.prepareStatement(sql);
         st.setString(1,str);
-        ResultSet rs = st.executeQuery();
+
+        ResultSet rs=null;
+        try{
+            rs = st.executeQuery();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         User user = new User();
         int cnt=0;
         while (rs.next()){
@@ -33,17 +39,12 @@ public class UserService {
             user.setPassword(rs.getString(2));
             user.setRole(rs.getString(3));
             cnt++;
-
-            System.out.println("user found : "+rs.getString(1));
         }
-        System.out.println("cnt = "+cnt);
         if(cnt==0){
             user.setUserName("no");
             user.setPassword("no");
             user.setRole("no");
-            System.out.println("innn");
         }
-        System.out.println(user.getUserName());
         return user;
     }
 

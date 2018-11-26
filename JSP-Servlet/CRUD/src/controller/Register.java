@@ -28,14 +28,10 @@ public class Register extends HttpServlet {
             e.printStackTrace();
         }
 
-        if(user2.getUserName().equals("no")){
+        if(!user2.getUserName().equals("no")){
             response.sendRedirect("register.jsp");
             return;
         }
-
-        System.out.println("user 2 :: "+user2.toString());
-
-
 
         try {
             userService.saveUser(user);
