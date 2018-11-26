@@ -21,19 +21,19 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("login servlet post method..");
-        String userId, password;
+        String userName, password;
 
-        userId = request.getParameter("userId");
+        userName = request.getParameter("userName");
         password = request.getParameter("password");
 
-        System.out.println("user id = "+userId);
+        System.out.println("userName = "+userName);
         System.out.println("password = "+password);
 
         LoginService loginService = new LoginService();
-        boolean result = loginService.authenticate(userId, password);
+        boolean result = loginService.authenticate(userName, password);
 
         if(result){
-            User user = loginService.getUserDetails(userId);
+            User user = loginService.getUserDetails(userName);
             //request.getSession().setAttribute("user", user);
             //response.sendRedirect("success.jsp");
             request.setAttribute("user", user);

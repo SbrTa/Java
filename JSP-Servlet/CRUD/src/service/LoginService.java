@@ -9,8 +9,6 @@ public class LoginService {
     HashMap<String,String> users = new HashMap();
 
     public LoginService(){
-        users.put("SbrTa","Subrata Roy");
-        users.put("test", "Tester");
     }
 
     public boolean authenticate(String userId, String password){
