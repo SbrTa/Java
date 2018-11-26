@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="JspServletCrudApp:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/JspServletCrudApp_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="JspServletCrudApp/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="JspServletCrudApp" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
