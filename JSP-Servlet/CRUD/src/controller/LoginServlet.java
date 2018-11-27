@@ -3,6 +3,7 @@ package controller;
 import dto.User;
 import service.LoginService;
 
+import javax.jws.soap.SOAPBinding;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,24 +27,19 @@ public class LoginServlet extends HttpServlet {
         userName = request.getParameter("userName");
         password = request.getParameter("password");
 
-        System.out.println("userName = "+userName);
-        System.out.println("password = "+password);
-
         LoginService loginService = new LoginService();
-        boolean result = loginService.authenticate(userName, password);
+        User user = loginService.authenticate(userName, password);
 
-        if(result){
-            User user = loginService.getUserDetails(userName);
-            //request.getSession().setAttribute("user", user);
-            //response.sendRedirect("success.jsp");
+        if(user.getUserName().equals(userName) && user.getPassword().equals(password)){
+            System.out.println("user name & password matched.. login success..");
             request.setAttribute("user", user);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("userLoggedIn.jsp");
             dispatcher.forward(request, response);
             System.out.println("success page "+user.getUserName());
             return;
         }
         else{
-            System.out.println("login page");
+            System.out.println("User name or password miss matched...");
             response.sendRedirect("login.jsp");
             return;
         }

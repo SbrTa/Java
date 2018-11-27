@@ -12,12 +12,8 @@ import java.io.IOException;
 
 public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("in register servlet.......");
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
-
-        System.out.println("user name : "+userName);
-        System.out.println("password : "+password);
 
         User user = new User(userName,password,"user");
         UserService userService = new UserService();
@@ -29,6 +25,7 @@ public class Register extends HttpServlet {
         }
 
         if(!user2.getUserName().equals("no")){
+            System.out.println("User Name already exist. Plz enter another username...");
             response.sendRedirect("register.jsp");
             return;
         }
@@ -38,6 +35,7 @@ public class Register extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("User Created..");
         response.sendRedirect("userSaved.jsp");
         return;
     }

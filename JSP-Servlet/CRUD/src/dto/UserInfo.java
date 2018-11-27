@@ -1,20 +1,27 @@
 package dto;
 
 public class UserInfo {
-    public String userId;
+    public String userName;
     public String name;
     public String age;
     public String nationality;
 
-
     public UserInfo() {
     }
 
-    public UserInfo(String name, String age, String nationality, String userId) {
+    public UserInfo(String userName, String name, String age, String nationality) {
+        this.userName = userName;
         this.name = name;
         this.age = age;
         this.nationality = nationality;
-        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getName() {
@@ -41,11 +48,13 @@ public class UserInfo {
         this.nationality = nationality;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "userName='" + userName + '\'' +
+                ", name='" + name + '\'' +
+                ", age='" + age + '\'' +
+                ", nationality='" + nationality + '\'' +
+                '}';
     }
 }

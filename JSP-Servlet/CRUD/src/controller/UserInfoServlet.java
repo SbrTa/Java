@@ -1,7 +1,7 @@
 package controller;
 
 import dto.UserInfo;
-import service.SaveDB;
+import service.UserInfoService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,9 +23,9 @@ public class UserInfoServlet extends HttpServlet {
         System.out.println("nationality = "+nationality);
 
         UserInfo userInfo = new UserInfo("id",name,age,nationality);
-        SaveDB saveDB = new SaveDB();
+        UserInfoService userInfoService = new UserInfoService();
         try{
-            saveDB.saveObject(userInfo);
+            userInfoService.saveObject(userInfo);
         }catch (Exception e){
             e.printStackTrace();
         }

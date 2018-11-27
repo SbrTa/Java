@@ -18,5 +18,9 @@
         <br>Password : <input type="text" name="password"/>
         <br>Register : <input type="submit"/>
     </form>
+
+    <form action="login.jsp">
+        <br> Login :  <input type="submit"/>
+    </form>
 </body>
 </html>

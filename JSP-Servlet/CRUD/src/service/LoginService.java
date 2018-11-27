@@ -11,11 +11,17 @@ public class LoginService {
     public LoginService(){
     }
 
-    public boolean authenticate(String userId, String password){
-        if((userId.equals("SbrTa") || userId.equals("test")) && password.equals("12345")){
-            return true;
+
+    UserService userService = new UserService();
+
+    public User authenticate(String userName, String password){
+        User user = null;
+        try {
+            user = userService.findUser(userName);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return false;
+        return user;
     }
 
     public User getUserDetails(String userId){
