@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -32,9 +33,18 @@ public class LoginServlet extends HttpServlet {
 
         if(user.getUserName().equals(userName) && user.getPassword().equals(password)){
             System.out.println("user name & password matched.. login success..");
-            request.setAttribute("user", user);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("userLoggedIn.jsp");
-            dispatcher.forward(request, response);
+            HttpSession session = request.getSession();
+            session.setAttribute("user",user);
+
+            if(user.getRole().equals("admin")){
+                response.sendRedirect("/admin");
+                System.out.println("success page ADMIN "+user.getUserName());
+                return;
+            }
+
+            /*RequestDispatcher dispatcher = request.getRequestDispatcher("userLoggedIn.jsp");
+            dispatcher.forward(request, response);*/
+            response.sendRedirect("/userServlet");
             System.out.println("success page "+user.getUserName());
             return;
         }

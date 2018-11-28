@@ -22,4 +22,48 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>controller.Logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>PostStory</servlet-name>
+        <servlet-class>controller.PostStory</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostStory</servlet-name>
+        <url-pattern>/postStory</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>controller.Admin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AdminAction</servlet-name>
+        <servlet-class>controller.AdminAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminAction</servlet-name>
+        <url-pattern>/adminAction</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>controller.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/userServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

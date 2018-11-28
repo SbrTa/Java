@@ -10,7 +10,7 @@
 	<form action="login" method="post">
 		<br>User Id : <input type="text" placeholder="SbrTa" name="userName"/>
 		<br>Password : <input type="text" placeholder="12345" name="password"/>
-		<br>Login : <input type="submit"/>
+		<br><input type="submit" value="Login"/>
 	</form>
 </body>
 </html>

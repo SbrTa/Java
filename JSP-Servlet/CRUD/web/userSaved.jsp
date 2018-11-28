@@ -14,10 +14,10 @@
     <h2>User saved successfully...</h2>
 
     <form action="login.jsp">
-        <br> Login :  <input type="submit"/>
+        <br> Log in to enter the portal : <input type="submit" value="Login"/>
     </form>
     <form action="register.jsp">
-        <br> Register :  <input type="submit"/>
+        <br>Create another account : <input type="submit" value="Register"/>
     </form>
 
 

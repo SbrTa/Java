@@ -16,11 +16,7 @@
     <form action="register" method="post">
         <br>User Name : <input type="text" name="userName"/>
         <br>Password : <input type="text" name="password"/>
-        <br>Register : <input type="submit"/>
-    </form>
-
-    <form action="login.jsp">
-        <br> Login :  <input type="submit"/>
+        <br><input type="submit" value="Register"/>
     </form>
 </body>
 </html>

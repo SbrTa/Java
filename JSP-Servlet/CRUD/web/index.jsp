@@ -11,15 +11,16 @@
     <title>JspServletCrudApp</title>
   </head>
 
+  <body>
+
+  <h1>JSP Servlet CRUD app</h1>
+
   <form action="login.jsp">
-    <br> Login :  <input type="submit"/>
+    <br> Log in to enter the portal : <input type="submit" value="Login"/>
   </form>
   <form action="register.jsp">
-    <br> Register :  <input type="submit"/>
+    <br>Create a new account : <input type="submit" value="Register"/>
   </form>
 
-
-
-  <body>
   </body>
 </html>
