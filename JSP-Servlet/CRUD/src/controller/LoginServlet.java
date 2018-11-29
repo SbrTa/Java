@@ -21,7 +21,44 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = new User();
+        HttpSession session = request.getSession();
+        user = (User) session.getAttribute("user");
+        System.out.println("login servlet GET method..");
+        session.removeAttribute("user");
+
+        String userName, password;
+        userName = user.getUserName();
+        password = user.getPassword();
+
+        LoginService loginService = new LoginService();
+        user = loginService.authenticate(userName, password);
+
+        if(user.getUserName().equals(userName) && user.getPassword().equals(password)){
+            System.out.println("user name & password matched.. login success..");
+            session.setAttribute("user",user);
+
+            if(user.getRole().equals("admin")){
+                response.sendRedirect("/admin");
+                System.out.println("success page ADMIN "+user.getUserName());
+                return;
+            }
+
+            /*RequestDispatcher dispatcher = request.getRequestDispatcher("userLoggedIn.jsp");
+            dispatcher.forward(request, response);*/
+            response.sendRedirect("/userServlet");
+            System.out.println("success page "+user.getUserName());
+            return;
+        }
+        else{
+            System.out.println("User name or password miss matched...");
+            response.sendRedirect("login.jsp");
+            return;
+        }
+    }
+
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("login servlet post method..");
         String userName, password;
 

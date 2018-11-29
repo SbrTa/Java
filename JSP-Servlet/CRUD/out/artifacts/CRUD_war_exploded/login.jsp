@@ -7,6 +7,19 @@
 <title>Login Page</title>
 </head>
 <body>
+	<%
+		response.setHeader("Cache-Control","no-cache, no-store, must-validate");
+		response.setHeader("Cache-Control","no-cache");
+		response.setHeader("Cache-Control","no-store");
+		response.setHeader("Pragma","no-cache");
+		response.setDateHeader ("Expires", 0);
+		System.out.println("login jsp;;;");
+
+		if(session.getAttribute("user")!=null){
+			response.sendRedirect("login");
+		}
+	%>
+
 	<form action="login" method="post">
 		<br>User Id : <input type="text" placeholder="SbrTa" name="userName"/>
 		<br>Password : <input type="text" placeholder="12345" name="password"/>

@@ -13,6 +13,10 @@
 
 	<%
 		response.setHeader("Cache-Control","no-cache, no-store, must-validate");
+		response.setHeader("Cache-Control","no-cache");
+		response.setHeader("Cache-Control","no-store");
+		response.setHeader("Pragma","no-cache");
+		response.setDateHeader ("Expires", 0);
 		if(session.getAttribute("user")==null){
 		    response.sendRedirect("login.jsp");
 		}
@@ -24,11 +28,17 @@
 
 	<%
 		User user = (User) session.getAttribute("user");
+		String userName = null;
+		try{
+		    user.getUserName();
+		}catch (Exception e){
+		    e.printStackTrace();
+		}
 	%>
 
 
 	<form action="logout">
-		Hello <%=user.getUserName() %> <input type="submit" value="Log Out"/>
+		Hello <%=userName %> <input type="submit" value="Log Out"/>
 	</form>
 
 	<form action="postStory" method="post">
@@ -43,9 +53,9 @@
 	<br>
 	<br>
 
-	<table>
+	<table cellspacing="20">
 		<col width="50">
-		<col width="300">
+		<col width="280">
 		<col width="400">
 		<thead>
 		<tr>
@@ -56,12 +66,30 @@
 		</thead>
 		<tbody>
 		<%
-			List<Story> book = (List<Story>) session.getAttribute("userBook");
-			for(Story story : book){ %>
+			List<Story> book = null;
+			try{
+				book = (List<Story>) session.getAttribute("userBook");
+			}catch (Exception e){
+			    e.printStackTrace();
+			}
+			System.out.println(book.size());
+			for(Story s : book){
+			    String sName=null;
+			    String sDate=null;
+			    String sStory=null;
+			    try{
+			        sName=s.getUserName();
+			        sDate=s.getDate();
+			        sStory=s.getStory();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+		%>
+
 		<tr>
-			<td><%=story.getUserName()%></td>
-			<td><%=story.getDate()%></td>
-			<td><%=story.getStory()%></td>
+			<td><%=sName%></td>
+			<td><%=sDate%></td>
+			<td><%=sStory%></td>
 		</tr>
 		<tr>
 			<br>
