@@ -9,14 +9,6 @@
     <bean id="patient" class="org.roy.spring.Patient" scope="prototype"
           p:id="101"
           p:name="Anik">
-        <property name="emergencyContactNames">
-            <list>
-                <value>Name 1</value>
-                <value>Name 2</value>
-                <value>Name 3</value>
-                <value>Name 4</value>
-            </list>
-        </property>
     </bean>
 
 
