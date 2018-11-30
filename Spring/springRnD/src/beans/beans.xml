@@ -8,7 +8,4 @@
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     <context:component-scan base-package="org.roy.spring"/>
 
-    <bean class="org.roy.spring.Logger" id="logger"></bean>
-    <bean class="org.roy.spring.FileWriter" id="fileWriter"></bean>
-    <bean class="org.roy.spring.ConsoleWriter" id="consoleWriter"></bean>
 </beans>
