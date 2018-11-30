@@ -3,20 +3,17 @@ package org.roy.spring;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        System.out.println( "Start..." );
 
         ApplicationContext context = new FileSystemXmlApplicationContext("src/beans/beans.xml");
-        Patient patient = (Patient)context.getBean("patient");
-        System.out.println(patient);
-
+        Logger logger = (Logger) context.getBean("logger");
+        System.out.println(logger);
+        logger.writeFile("main file writer ");
+        logger.writeConsole("main console writer");
         ((FileSystemXmlApplicationContext)context).close();
     }
 }
