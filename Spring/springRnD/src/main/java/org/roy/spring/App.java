@@ -10,10 +10,9 @@ public class App
         System.out.println( "Start..." );
 
         ApplicationContext context = new FileSystemXmlApplicationContext("src/beans/beans.xml");
-        Logger logger = (Logger) context.getBean("logger");
-        System.out.println(logger);
-        logger.writeFile("main file writer ");
-        logger.writeConsole("main console writer");
+
+        Cat cat = (Cat)context.getBean("cat");
+        cat.speak();
         ((FileSystemXmlApplicationContext)context).close();
     }
 }
