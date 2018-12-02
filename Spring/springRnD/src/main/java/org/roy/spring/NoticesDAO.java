@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;
@@ -61,6 +62,7 @@ public class NoticesDAO {
         return jdbc.update("insert into notices (name,email,text) values (:name, :email, :text)",param) == 1;
     }
 
+    @Transactional
     public int[] create(List<Notice> notices){
         SqlParameterSource[] param = SqlParameterSourceUtils.createBatch(notices.toArray());
         return jdbc.batchUpdate("insert into notices (name,email,text) values (:name, :email, :text)",param);

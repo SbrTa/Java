@@ -26,18 +26,18 @@
       <file leaf-file-name="beans.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/beans/beans.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+            <state relative-caret-position="459">
+              <caret line="27" column="53" lean-forward="false" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/roy/spring/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+            <state relative-caret-position="408">
+              <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,28 +57,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NoticesDAO.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NoticesDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/roy/spring/NoticesDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="921">
-              <caret line="65" column="32" lean-forward="true" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+            <state relative-caret-position="377">
+              <caret line="67" column="54" lean-forward="false" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#557#558#0" expanded="true" />
-                <element signature="e#621#622#0" expanded="true" />
-                <element signature="e#712#1147#0" expanded="true" />
-                <element signature="e#1146#1147#0" expanded="true" />
-                <element signature="e#1374#1809#0" expanded="true" />
-                <element signature="e#1808#1809#0" expanded="true" />
-                <marker date="1543744159696" expanded="true" signature="688:708" ph="select * fro... notices" />
-                <marker date="1543744159696" expanded="true" signature="688:709" ph="select * fro... notices" />
-                <marker date="1543744159696" expanded="true" signature="1330:1362" ph="select * fro... notices" />
-                <marker date="1543744159696" expanded="true" signature="1330:1364" ph="select * fro... notices" />
-                <marker date="1543744159696" expanded="true" signature="1982:2014" ph="delete from notices... " />
-                <marker date="1543744159696" expanded="true" signature="2198:2265" ph="insert into notices... " />
-                <marker date="1543744159696" expanded="true" signature="2460:2527" ph="insert into notices... " />
-                <marker date="1543744159696" expanded="true" signature="2705:2760" ph="update notices... " />
-                <marker date="1543744159696" expanded="true" signature="2705:2773" ph="update notices... " />
+                <element signature="e#622#623#0" expanded="true" />
+                <element signature="e#686#687#0" expanded="true" />
+                <element signature="e#777#1212#0" expanded="true" />
+                <element signature="e#1211#1212#0" expanded="true" />
+                <element signature="e#1439#1874#0" expanded="true" />
+                <element signature="e#1873#1874#0" expanded="true" />
+                <marker date="1543745687556" expanded="true" signature="753:773" ph="select * fro... notices" />
+                <marker date="1543745687556" expanded="true" signature="753:774" ph="select * fro... notices" />
+                <marker date="1543745687556" expanded="true" signature="1395:1427" ph="select * fro... notices" />
+                <marker date="1543745687556" expanded="true" signature="1395:1429" ph="select * fro... notices" />
+                <marker date="1543745687556" expanded="true" signature="2047:2079" ph="delete from notices... " />
+                <marker date="1543745687556" expanded="true" signature="2263:2330" ph="insert into notices... " />
+                <marker date="1543745687556" expanded="true" signature="2544:2611" ph="insert into notices... " />
+                <marker date="1543745687556" expanded="true" signature="2789:2844" ph="update notices... " />
+                <marker date="1543745687556" expanded="true" signature="2789:2857" ph="update notices... " />
               </folding>
             </state>
           </provider>
@@ -120,12 +120,12 @@
         <option value="$PROJECT_DIR$/src/main/java/org/roy/spring/RandomSpeech.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/roy/spring/props/jdbc.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/props/jdbc.properties" />
-        <option value="$PROJECT_DIR$/src/beans/beans.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/roy/spring/Parrot.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/roy/spring/NoticesDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/roy/spring/NoticesDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/roy/spring/Notice.java" />
+        <option value="$PROJECT_DIR$/src/beans/beans.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/roy/spring/NoticesDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/roy/spring/App.java" />
       </list>
     </option>
@@ -379,12 +379,12 @@
       <updated>1543484891683</updated>
       <workItem from="1543484896087" duration="10733000" />
       <workItem from="1543558440847" duration="11312000" />
-      <workItem from="1543728840544" duration="11614000" />
+      <workItem from="1543728840544" duration="12846000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33659000" />
+    <option name="totallyTimeSpent" value="34891000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -620,19 +620,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/beans/beans.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+        <state relative-caret-position="459">
+          <caret line="27" column="53" lean-forward="false" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/roy/spring/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -648,25 +638,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/roy/spring/NoticesDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="921">
-          <caret line="65" column="32" lean-forward="true" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+        <state relative-caret-position="377">
+          <caret line="67" column="54" lean-forward="false" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#557#558#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#712#1147#0" expanded="true" />
-            <element signature="e#1146#1147#0" expanded="true" />
-            <element signature="e#1374#1809#0" expanded="true" />
-            <element signature="e#1808#1809#0" expanded="true" />
-            <marker date="1543744159696" expanded="true" signature="688:708" ph="select * fro... notices" />
-            <marker date="1543744159696" expanded="true" signature="688:709" ph="select * fro... notices" />
-            <marker date="1543744159696" expanded="true" signature="1330:1362" ph="select * fro... notices" />
-            <marker date="1543744159696" expanded="true" signature="1330:1364" ph="select * fro... notices" />
-            <marker date="1543744159696" expanded="true" signature="1982:2014" ph="delete from notices... " />
-            <marker date="1543744159696" expanded="true" signature="2198:2265" ph="insert into notices... " />
-            <marker date="1543744159696" expanded="true" signature="2460:2527" ph="insert into notices... " />
-            <marker date="1543744159696" expanded="true" signature="2705:2760" ph="update notices... " />
-            <marker date="1543744159696" expanded="true" signature="2705:2773" ph="update notices... " />
+            <element signature="e#622#623#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#777#1212#0" expanded="true" />
+            <element signature="e#1211#1212#0" expanded="true" />
+            <element signature="e#1439#1874#0" expanded="true" />
+            <element signature="e#1873#1874#0" expanded="true" />
+            <marker date="1543745687556" expanded="true" signature="753:773" ph="select * fro... notices" />
+            <marker date="1543745687556" expanded="true" signature="753:774" ph="select * fro... notices" />
+            <marker date="1543745687556" expanded="true" signature="1395:1427" ph="select * fro... notices" />
+            <marker date="1543745687556" expanded="true" signature="1395:1429" ph="select * fro... notices" />
+            <marker date="1543745687556" expanded="true" signature="2047:2079" ph="delete from notices... " />
+            <marker date="1543745687556" expanded="true" signature="2263:2330" ph="insert into notices... " />
+            <marker date="1543745687556" expanded="true" signature="2544:2611" ph="insert into notices... " />
+            <marker date="1543745687556" expanded="true" signature="2789:2844" ph="update notices... " />
+            <marker date="1543745687556" expanded="true" signature="2789:2857" ph="update notices... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/roy/spring/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
