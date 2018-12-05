@@ -24,4 +24,7 @@ public class UserPostService {
     public List<UserPost> getPending(){
         return userPostDAO.getPending();
     }
+    public UserPost getPending(int id){
+        return userPostDAO.getPending(id);
+    }
 }

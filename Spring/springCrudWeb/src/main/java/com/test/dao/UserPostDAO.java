@@ -5,6 +5,7 @@ import com.test.dto.UserPost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +39,24 @@ public class UserPostDAO {
                         resultSet.getString("userName"),
                         resultSet.getString("email"),
                         resultSet.getString("content"));
+                return post;
+            }
+        });
+    }
+
+    public UserPost getPending(int id){
+        MapSqlParameterSource source = new MapSqlParameterSource();
+        source.addValue("id",id);
+        return jdbc.queryForObject("select * from pending where id=:id", source, new RowMapper<UserPost>() {
+            @Override
+            public UserPost mapRow(ResultSet resultSet, int i) throws SQLException {
+                UserPost post = new UserPost(
+                        resultSet.getInt("id"),
+                        resultSet.getString("time"),
+                        resultSet.getString("userName"),
+                        resultSet.getString("email"),
+                        resultSet.getString("content")
+                );
                 return post;
             }
         });

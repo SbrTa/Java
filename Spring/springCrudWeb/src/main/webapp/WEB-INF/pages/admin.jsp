@@ -36,15 +36,26 @@
             </thead>
             <tbody>
             <% int i=1; %>
-            <c:forEach var="notice" items="${pending}">
+            <c:forEach var="req" items="${pending}">
                 <tr>
                     <td><%=i%></td>
-                    <td>${notice.time}</td>
-                    <td>${notice.userName}</td>
-                    <td>${notice.email}</td>
-                    <td>${notice.content}</td>
-                    <td><button>Accept</button></td>
-                    <td><button>Ignore</button></td>
+                    <td>${req.time}</td>
+                    <td>${req.userName}</td>
+                    <td>${req.email}</td>
+                    <td>${req.content}</td>
+                    <td>
+                        <form action="${pageContext.request.contextPath}/pendingAction" method="post">
+                            <input type="hidden" name="id" value="${req.id}"/>
+                            <input class="btn btn-success" type="submit" value="accept" name="action"/>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="${pageContext.request.contextPath}/pendingAction" method="post">
+                            <input type="hidden" name="id" value="${req.id}"/>
+                            <input class="btn btn-danger" type="submit" value="ignore" name="action"/>
+                        </form>
+                    </td>
+
                 </tr>
                 <%i++;%>
             </c:forEach>
