@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.test.dto.User" %><%--
   Created by IntelliJ IDEA.
   User: BS-033
   Date: 12/5/2018
@@ -19,15 +19,18 @@
 
 
 <div class="row">
+    <%
+        User user = (User) session.getAttribute("user");
+    %>
     <div class="col-xs-6 col-sm-2"></div>
     <div class="col-xs-6 col-sm-8">
-        <h2>User Home......</h2>
+        <h2>Welcome <%=user.getName()%></h2>
         <br/>
         <div>
-        <form class="row" action="${pageContext.request.contextPath}/login" method="post">
+        <form class="row" action="${pageContext.request.contextPath}/createPost" method="post">
             <!-- Textarea -->
             <div class="form-group col-sm-6">
-                    <textarea class="form-control" id="textarea" name="textarea">Whats on your mind !</textarea>
+                    <textarea class="form-control" id="content" name="content" placeholder="Whats on your mind !"></textarea>
             </div>
 
             <!-- Button -->
