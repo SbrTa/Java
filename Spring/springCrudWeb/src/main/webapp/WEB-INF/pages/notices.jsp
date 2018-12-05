@@ -11,9 +11,11 @@
 <html>
 <head>
     <link href="${pageContext.request.contextPath}/resources/lib/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/resources/css/background.css" rel="stylesheet" type="text/css">
+
     <title>Notices</title>
 </head>
-<body>
+<body id="body-img">
 
 
 <div class="row">
@@ -22,7 +24,7 @@
         <h2>Notices......</h2>
         <br/>
         <br/>
-        <table class="table table-striped table-dark table-hover table-bordered">
+        <table class="table table-striped table-hover table-bordered">
             <thead>
             <th>id</th>
             <th>Name</th>
@@ -30,13 +32,15 @@
             <th>Message</th>
             </thead>
             <tbody>
+            <% int i=1; %>
             <c:forEach var="notice" items="${notices}">
                 <tr>
-                    <td>${notice.id}</td>
+                    <td><%=i%></td>
                     <td>${notice.name}</td>
                     <td>${notice.email}</td>
                     <td>${notice.text}</td>
                 </tr>
+                <%i++;%>
             </c:forEach>
 
             </tbody>

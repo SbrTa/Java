@@ -12,9 +12,10 @@
 <html>
 <head>
     <title>Create Notice</title>
+    <link href="${pageContext.request.contextPath}/resources/css/background.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/lib/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body id="body-img">
 
 <div class="row">
     <div class="col-sm-2"></div>

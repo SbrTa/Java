@@ -9,12 +9,20 @@
 <html>
 <head>
     <title>Notice Created</title>
+    <link href="${pageContext.request.contextPath}/resources/lib/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/resources/css/background.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body id="body-img">
 
-<h1>Notice Created</h1>
+<div class="row">
+    <div class="col-xs-6 col-sm-2"></div>
+    <div class="col-xs-6 col-sm-8">
+        <h1>Notice Created</h1>
 
-<a href="${pageContext.request.contextPath}/notices">Notices</a>
+        <a href="${pageContext.request.contextPath}/notices">Notices</a>
+    </div>
+    <div class="col-xs-6 col-sm-2"></div>
+</div>
 
 </body>
 </html>
