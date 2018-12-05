@@ -4,6 +4,7 @@ import com.test.dao.Notice;
 import com.test.dto.User;
 import com.test.dto.UserPost;
 import com.test.service.NoticesService;
+import com.test.service.UserPostService;
 import com.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,14 @@ public class UserController {
     @Autowired
     public void setUserService(UserService userService){
         this.userService=userService;
+    }
+
+
+    private UserPostService userPostService;
+
+    @Autowired
+    public void setUserPostService(UserPostService userPostService){
+        this.userPostService = userPostService;
     }
 
 
@@ -64,23 +73,14 @@ public class UserController {
         }
 
         if(user.getRole().equals("admin")){
+            List<UserPost> pending = userPostService.getPending();
+            for(UserPost post:pending){
+                System.out.println(post);
+            }
+            model.addAttribute("pending",pending);
 
             return "admin";
         }
-
-        return "user";
-    }
-
-    @RequestMapping(value = "/createPost")
-    public String createPost(HttpSession session, @RequestParam("content") String content){
-
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String date = format.format(new Date());
-
-        User user = (User)session.getAttribute("user");
-        UserPost post = new UserPost(1,date,user.getUserName(),user.getEmail(),content);
-
-        System.out.println(post);
 
         return "user";
     }

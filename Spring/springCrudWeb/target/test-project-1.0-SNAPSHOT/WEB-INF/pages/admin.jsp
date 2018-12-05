@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.test.dto.UserPost" %><%--
   Created by IntelliJ IDEA.
   User: BS-033
   Date: 12/5/2018
@@ -19,6 +19,7 @@
 
 
 <div class="row">
+
     <div class="col-xs-6 col-sm-2"></div>
     <div class="col-xs-6 col-sm-8">
         <h2>Admin panel......</h2>
@@ -34,23 +35,14 @@
             <th>Content</th>
             </thead>
             <tbody>
-            <tr>
-                <td>0</td>
-                <td>time</td>
-                <td>name</td>
-                <td>email</td>
-                <td>content kuyfg gdfsdhjj fcas jkdkgf asdkjk gfdsvsd af dtfhgfh.</td>
-                <td><button>Accept</button></td>
-                <td><button>Ignore</button></td>
-            </tr>
             <% int i=1; %>
-            <c:forEach var="req" items="${notices}">
+            <c:forEach var="notice" items="${pending}">
                 <tr>
                     <td><%=i%></td>
-                    <td>${req.time}</td>
-                    <td>${req.name}</td>
-                    <td>${req.email}</td>
-                    <td>${req.content}</td>
+                    <td>${notice.time}</td>
+                    <td>${notice.userName}</td>
+                    <td>${notice.email}</td>
+                    <td>${notice.content}</td>
                     <td><button>Accept</button></td>
                     <td><button>Ignore</button></td>
                 </tr>
