@@ -85,8 +85,15 @@
         <span style="color:red;">${password}</span>
     </div>    <br/>
     <div class="jumbotron">
-        <h1 class="display-3">Jumbotron heading</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <h1 class="display-3">Lorem ipsum</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget risus nec magna hendrerit vestibulum at et ex.
+            Duis posuere elit ligula, sit amet bibendum purus suscipit ut. Aliquam erat volutpat. Aliquam sem nunc, pulvinar vitae massa et,
+            ornare egestas tortor. Aliquam tristique in massa vel sollicitudin. Integer at luctus lacus, quis placerat lorem. Mauris at elit
+            eget nisl dictum tempus sit amet nec mi. Phasellus interdum lorem ut mollis convallis.</p>
+
+         <p class="lead">Curabitur quis nisl quam. In blandit erat eu ex cursus ornare. Donec quis dui laoreet, ultricies neque eget, consectetur tortor.
+            Curabitur sagittis eleifend arcu quis cursus. Nulla pharetra iaculis augue sed cursus. Nunc bibendum nisl vitae augue luctus malesuada.
+            Quisque dapibus velit augue, non consectetur metus tristique vel.</p>
         <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/signup" role="button">Sign up today</a></p>
     </div>
 
@@ -96,13 +103,19 @@
     </div>
 
     <br/>
+    <br/>
 
+    <blockquote class="blockquote text-center">
+        <p>Hardle is easier when you have the right key.</p>
+        <footer class="blockquote-footer">Some famous one</footer>
+    </blockquote>
+
+    <br/>
+    <br/>
     <footer class="footer">
         <p>© Company 2017</p>
     </footer>
 
-    <br/>
-    <br/>
     <br/>
     <br/>
 </div><!-- /container -->
