@@ -83,7 +83,10 @@ public class UserController {
         return "user";
     }
 
-
-
+    @RequestMapping(value = "/logout")
+    public String logout(){
+        System.out.println("loging out...");
+        return "home";
+    }
 
 }

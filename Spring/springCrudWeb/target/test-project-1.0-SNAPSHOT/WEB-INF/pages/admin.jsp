@@ -23,6 +23,9 @@
     <div class="col-xs-6 col-sm-2"></div>
     <div class="col-xs-6 col-sm-8">
         <h2>Admin panel......</h2>
+        <form action="${pageContext.request.contextPath}/logout">
+            <button class="btn btn-danger" type="submit">Log Out</button>
+        </form>
         <br/>
         <br/>
         <h4>Pending Requests : </h4>

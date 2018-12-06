@@ -25,6 +25,9 @@
     <div class="col-xs-6 col-sm-2"></div>
     <div class="col-xs-6 col-sm-8">
         <h2>Welcome <%=user.getName()%></h2>
+        <form action="${pageContext.request.contextPath}/logout">
+            <button class="btn btn-danger" type="submit">Log Out</button>
+        </form>
         <br/>
         <div>
         <form class="row" action="${pageContext.request.contextPath}/createPost" method="post">
