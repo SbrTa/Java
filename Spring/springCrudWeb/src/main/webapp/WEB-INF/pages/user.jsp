@@ -43,33 +43,34 @@
 
         <br/>
         <h4>News feed </h4>
-        <table class="table table-striped table-hover">
+        <table class="table table-hover table-borderless">
+            <col width="150">
+            <col width="250">
             <thead>
-            <th></th>
-            <th></th>
-            <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
             </thead>
             <tbody>
-            <tr>
-                <td>name</td>
-                <td>time</td>
-                <td>content kuyfg gdfsdhjj fcas jkdkgf asdkjk gfdsvsd af dtfhgfh.</td>
-                <td><button>Accept</button></td>
-                <td><button>Ignore</button></td>
-            </tr>
-            <br/><br/>
-            <% int i=1; %>
-            <c:forEach var="req" items="${notices}">
+            <c:forEach var="req" items="${finalPost}">
                 <tr>
-                    <td><%=i%></td>
+                    <td>${req.userName}</td>
                     <td>${req.time}</td>
-                    <td>${req.name}</td>
-                    <td>${req.email}</td>
                     <td>${req.content}</td>
-                    <td><button>Accept</button></td>
-                    <td><button>Ignore</button></td>
+                    <%--<td>
+                        <form action="${pageContext.request.contextPath}/pendingAction" method="post">
+                            <input type="hidden" name="id" value="${req.id}"/>
+                            <input class="btn btn-success" type="submit" value="accept" name="action"/>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="${pageContext.request.contextPath}/pendingAction" method="post">
+                            <input type="hidden" name="id" value="${req.id}"/>
+                            <input class="btn btn-danger" type="submit" value="ignore" name="action"/>
+                        </form>
+                    </td>--%>
+
                 </tr>
-                <%i++;%>
             </c:forEach>
 
             </tbody>

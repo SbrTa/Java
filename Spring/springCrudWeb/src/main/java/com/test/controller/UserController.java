@@ -74,14 +74,12 @@ public class UserController {
 
         if(user.getRole().equals("admin")){
             List<UserPost> pending = userPostService.getPending();
-            for(UserPost post:pending){
-                System.out.println(post);
-            }
             model.addAttribute("pending",pending);
-
             return "admin";
         }
 
+        List<UserPost> finalPost = userPostService.getFinal();
+        model.addAttribute("finalPost",finalPost);
         return "user";
     }
 

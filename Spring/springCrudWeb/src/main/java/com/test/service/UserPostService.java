@@ -18,7 +18,7 @@ public class UserPostService {
     }
 
     public void createPending(UserPost userPost){
-        userPostDAO.createPaending(userPost);
+        userPostDAO.createPending(userPost);
     }
 
     public List<UserPost> getPending(){
@@ -26,5 +26,17 @@ public class UserPostService {
     }
     public UserPost getPending(int id){
         return userPostDAO.getPending(id);
+    }
+
+    public void deletePending(int id) {
+        userPostDAO.deletePending(id);
+    }
+
+    public void createFinal(UserPost post) {
+        userPostDAO.createFinal(post);
+    }
+
+    public List<UserPost> getFinal() {
+        return userPostDAO.getFinal();
     }
 }
