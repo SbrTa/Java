@@ -2,6 +2,7 @@ package com.test.controller;
 
 import com.test.dao.Notice;
 import com.test.dto.User;
+import com.test.dto.UserDetails;
 import com.test.dto.UserPost;
 import com.test.service.NoticesService;
 import com.test.service.UserPostService;
@@ -55,6 +56,8 @@ public class UserController {
         }
 
         userService.create(user);
+        userService.createUserDetails(new UserDetails(1,user.getUserName(),user.getName(),"","","","","","",""));
+        //userService.createUserDetails(new UserDetails(1,user.getUserName(),user.getName(),"dob","blood","gender","city","contact","relation","bio"));
 
         return "home";
     }
@@ -80,6 +83,8 @@ public class UserController {
 
         List<UserPost> finalPost = userPostService.getFinal();
         model.addAttribute("finalPost",finalPost);
+        UserDetails userDetails = userService.getUserDetails(user.getUserName());
+        model.addAttribute("userDetails",userDetails);
         return "user";
     }
 
@@ -87,6 +92,22 @@ public class UserController {
     public String logout(){
         System.out.println("loging out...");
         return "home";
+    }
+
+
+    @RequestMapping(value = "/editUserDetails", method = RequestMethod.POST)
+    public String editUserDetails(HttpSession session, Model model, UserDetails userDetails){
+        System.out.println("edit user details :");
+        User user = (User) session.getAttribute("user");
+        userDetails.setUserName(user.getUserName());
+        System.out.println(userDetails);
+        userService.saveUserDetails(userDetails);
+
+        userDetails = userService.getUserDetails(user.getUserName());
+        model.addAttribute("userDetails",userDetails);
+        List<UserPost> finalPost = userPostService.getFinal();
+        model.addAttribute("finalPost",finalPost);
+        return "user";
     }
 
 }
