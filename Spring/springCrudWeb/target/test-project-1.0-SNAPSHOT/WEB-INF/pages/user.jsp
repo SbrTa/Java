@@ -147,6 +147,7 @@
     </div>
     <div class="col-xs-6 col-sm-1"></div>
     <div class="col-xs-6 col-sm-6">
+        <div>
         <h2>Welcome ${userDetails.name}</h2>
         <form action="${pageContext.request.contextPath}/logout">
             <button class="btn btn-danger" type="submit">Log Out</button>
@@ -169,6 +170,7 @@
 
         <br/>
         <h4>News feed </h4>
+        </div>
 <%--
         <table class="table table-hover table-borderless">
             <col width="150">
@@ -203,8 +205,10 @@
             </tbody>
         </table>
 --%>
-
-        <div class="news-feed">
+        <div class="news-feed" style="  background-image: url('/resources/img/bgi3.jpg');
+                                        background-size: cover;
+                                        opacity: 0.5;
+                                        background-repeat: no-repeat;">
             <c:forEach var="req" items="${finalPost}">
                 <div class="col-sm-12" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px">${req.userName}</label>
