@@ -206,15 +206,15 @@
 
         <div class="news-feed">
             <c:forEach var="req" items="${finalPost}">
-                <div class="col-sm-12">
+                <div class="col-sm-12" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px">${req.userName}</label>
-                    <label class="col-sm-5">${req.time}</label>
+                    <label class="col-sm-5" style="padding-left: 0px">${req.time}</label>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
-                    <label class="col-sm-9">${req.content}</>
+                    <label class="col-sm-9" style="padding-left: 0px">${req.content}</>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
                     <label class="">0</label>
                     <label class="">like</label>
