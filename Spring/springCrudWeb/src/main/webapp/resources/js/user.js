@@ -12,11 +12,6 @@ $(document).ready(function(){
     })
 
 
-    $("#postEditBtn").click(function () {
-        alert("clicked......");
-        $(".beforeEditPost").hide();
-        $(".editPost").show();
-    })
 })
 
 

@@ -35,19 +35,19 @@ public class UserPostService {
     public void createFinal(UserPost post) {
         userPostDAO.createFinal(post);
     }
-
+    public void updateFinal(UserPost post) { userPostDAO.updateFinal(post); }
     public UserPost getFinal(String time) {
         return userPostDAO.getFinal(time);
     }
     public List<UserPost> getFinal() {
         return userPostDAO.getFinal();
     }
-
+    public UserPost getFinal(int postid) {
+        return userPostDAO.getFinal(postid);
+    }
     public void deleteFinal(int postid) {
         userPostDAO.deleteFinal(postid);
     }
 
-    public UserPost getFinal(int postid) {
-        return userPostDAO.getFinal(postid);
-    }
+
 }

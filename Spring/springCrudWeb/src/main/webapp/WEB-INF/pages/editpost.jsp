@@ -147,26 +147,10 @@
 
     </div>
     <div class="col-xs-6 col-sm-1"></div>
-    <div class="col-xs-6 col-sm-6" >
+    <div class="col-xs-6 col-sm-6">
         <div>
             <h2>Welcome ${userDetails.name}</h2>
-            <form action="${pageContext.request.contextPath}/logout">
-                <button class="btn btn-danger" type="submit">Log Out</button>
-            </form>
-            <br/>
-            <div>
-                <form class="row" action="${pageContext.request.contextPath}/createPost" method="post">
-                    <!-- Textarea -->
-                    <div class="form-group col-sm-6">
-                            <textarea class="form-control" id="content" name="content" placeholder="Whats on your mind !"></textarea>
-                    </div>
 
-                    <!-- Button -->
-                    <div class="form-group col-sm-2">
-                        <input class="btn-block btn btn-primary" type="submit" value="post"/>
-                    </div>
-                </form>
-            </div>
             <br/>
             <h4>News feed </h4>
         </div>
@@ -176,67 +160,30 @@
                                         background-size: cover;
                                         opacity: 0.5;
                                         background-repeat: no-repeat;
-                                        padding: 10px;
-                                        border-style: solid; border-radius: 1%; border-color: #c4c3c0;"">
-            <c:forEach var="req" items="${finalPost}">
+                                        padding: 10px">
+
                 <div class="col-sm-12" style="padding-left: 0px">
-                    <label class="col-sm-2" style="padding-left: 0px">${req.userName}</label>
-                    <label class="col-sm-5" style="padding-left: 0px">${req.time}</label>
+                    <label class="col-sm-2" style="padding-left: 0px">${userPost.userName}</label>
+                    <label class="col-sm-5" style="padding-left: 0px">${userPost.time}</label>
                 </div>
                 <div class="col-sm-12 beforeEditPost" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
-                    <label class="col-sm-9" style="padding-left: 0px">${req.content}</label>
+                    <div class="col-sm-9">
+                        <form  action="${pageContext.request.contextPath}/saveEditedPost" method="post">
+                            <!-- Textarea -->
+                            <div class="form-group col-sm-10">
+                                <input type="hidden" name="postid" value="${userPost.id}"/>
+                                <textarea rows="8" cols="100" class="form-control" id="content" name="content" >${userPost.content}</textarea>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="form-group col-sm-2">
+                                <input class="btn-block btn btn-primary" type="submit" value="Save"/>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <%--<div class="col-sm-12" style="padding-left: 0px">
-                    <label class="col-sm-2" style="padding-left: 0px"></label>
-                    <label class="">0</label>
-                    <label class="">like</label>
-                    <label class="">unlike</label>
-                    <label class="">edit</label>
-                    <label class="">delete</label>
-                </div>--%>
-                <div class="beforeEditPost" style="display: flex">
-                    <label class="col-sm-2" style="padding-left: 0px"></label>
-                    <a href="${pageContext.request.contextPath}/likepost?postid=${req.id}">
-                        <img src="${pageContext.request.contextPath}/resources/icon/like.png"
-                             class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0; border:0px;"
-                        >
-                    </a>
-                    <label style="padding-right: 10px">${likers.get(req.id).size()-1}</label>
-                    <a href="${pageContext.request.contextPath}/dislikepost?postid=${req.id}">
-                        <img src="${pageContext.request.contextPath}/resources/icon/dislike.png"
-                             class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0; border:0px;"
-                        >
-                    </a>
-                    <label style="padding-right: 10px">${dislikers.get(req.id).size()-1}</label>
-
-                    <a href="${pageContext.request.contextPath}/editpost?postid=${req.id}">
-                        <img src="${pageContext.request.contextPath}/resources/icon/edit.png"
-                             class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0; border:0px;"
-                        >
-                    </a>
-                    <label style="padding-right: 10px"></label>
-
-                    <a href="${pageContext.request.contextPath}/deletepost?postid=${req.id}">
-                        <img src="${pageContext.request.contextPath}/resources/icon/delete.png"
-                             class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0; border:0px;"
-                        >
-                    </a>
-                </div>
-
-                <%--<div>
-                    <label>id = ${req.id}</label>
-                    <label>like = ${likers.get(req.id)}</label>
-                    <label>liker = ${likers.get(req.id).size()-1}</label>
-
-                    <label>disliker = ${dislikers.get(req.id).size()-1}</label>
-                </div>--%>
                 <br/>
-            </c:forEach>
         </div>
     </div>
     <div class="col-xs-6 col-sm-2"></div>

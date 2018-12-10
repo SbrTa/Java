@@ -140,6 +140,39 @@ public class CounterController {
     @RequestMapping(value = "/editpost")
     public String editpost(Model model, HttpSession session, @RequestParam("postid") int postid){
         System.out.println("EDIT......");
+        User user = (User) session.getAttribute("user");
+        UserDetails userDetails = userService.getUserDetails(user.getUserName());
+        model.addAttribute("userDetails",userDetails);
+        UserPost userPost = userPostService.getFinal(postid);
+
+        if(!userPost.getUserName().equals(user.getUserName())){
+            List<UserPost> finalPost = userPostService.getFinal();
+            model.addAttribute("finalPost",finalPost);
+            Map<Integer,List<Integer>> likers = new HashMap<Integer, List<Integer>>();
+            Map<Integer,List<Integer>> dislikers = new HashMap<Integer, List<Integer>>();
+            List<Counter> counters = counterService.getCounterList();
+            for(Counter x:counters){
+                List<Integer> lll = counterService.getIntList(x.getLiker());
+                List<Integer> ddd = counterService.getIntList(x.getDisliker());
+                likers.put(x.getPost(),lll);
+                dislikers.put(x.getPost(),ddd);
+            }
+            model.addAttribute("likers",likers);
+            model.addAttribute("dislikers",dislikers);
+            return "user";
+        }
+
+        model.addAttribute("userPost",userPost);
+
+        return "editpost";
+    }
+
+    @RequestMapping(value = "/saveEditedPost")
+    public String saveEditedPost(Model model, HttpSession session, @RequestParam("postid") int postid, @RequestParam("content") String content){
+        System.out.println("Save edited post......"+postid+" \n "+content);
+        UserPost userPost = userPostService.getFinal(postid);
+        userPost.setContent(content);
+        userPostService.updateFinal(userPost);
 
         User user = (User) session.getAttribute("user");
         List<UserPost> finalPost = userPostService.getFinal();
@@ -159,6 +192,7 @@ public class CounterController {
         model.addAttribute("dislikers",dislikers);
         return "user";
     }
+
 
     @RequestMapping(value = "/deletepost")
     public String deletepost(Model model, HttpSession session, @RequestParam("postid") int postid){

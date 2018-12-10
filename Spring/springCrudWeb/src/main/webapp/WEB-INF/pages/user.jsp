@@ -147,7 +147,7 @@
 
     </div>
     <div class="col-xs-6 col-sm-1"></div>
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-6 col-sm-6" >
         <div>
             <h2>Welcome ${userDetails.name}</h2>
             <form action="${pageContext.request.contextPath}/logout">
@@ -170,46 +170,14 @@
             <br/>
             <h4>News feed </h4>
         </div>
-<%--
-        <table class="table table-hover table-borderless">
-            <col width="150">
-            <col width="250">
-            <thead>
-                <th></th>
-                <th></th>
-                <th></th>
-            </thead>
-            <tbody>
-            <c:forEach var="req" items="${finalPost}">
-                <tr>
-                    <td>${req.userName}</td>
-                    <td>${req.time}</td>
-                    <td>${req.content}</td>
-                    &lt;%&ndash;<td>
-                        <form action="${pageContext.request.contextPath}/pendingAction" method="post">
-                            <input type="hidden" name="id" value="${req.id}"/>
-                            <input class="btn btn-success" type="submit" value="accept" name="action"/>
-                        </form>
-                    </td>
-                    <td>
-                        <form action="${pageContext.request.contextPath}/pendingAction" method="post">
-                            <input type="hidden" name="id" value="${req.id}"/>
-                            <input class="btn btn-danger" type="submit" value="ignore" name="action"/>
-                        </form>
-                    </td>&ndash;%&gt;
 
-                </tr>
-            </c:forEach>
-
-            </tbody>
-        </table>
---%>
         <div class="news-feed" style="  /*background-image: url('/resources/img/bg5.png');*/
                                         background-color: #c4c3c0;
                                         background-size: cover;
                                         opacity: 0.5;
                                         background-repeat: no-repeat;
-                                        padding: 10px">
+                                        padding: 10px;
+                                        border-style: solid; border-radius: 1%; border-color: #c4c3c0;"">
             <c:forEach var="req" items="${finalPost}">
                 <div class="col-sm-12" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px">${req.userName}</label>
@@ -232,14 +200,14 @@
                     <a href="${pageContext.request.contextPath}/likepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/like.png"
                              class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0;"
+                             style="background-color: #c4c3c0; border:0px;"
                         >
                     </a>
                     <label style="padding-right: 10px">${likers.get(req.id).size()-1}</label>
                     <a href="${pageContext.request.contextPath}/dislikepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/dislike.png"
                              class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0;"
+                             style="background-color: #c4c3c0; border:0px;"
                         >
                     </a>
                     <label style="padding-right: 10px">${dislikers.get(req.id).size()-1}</label>
@@ -247,7 +215,7 @@
                     <a href="${pageContext.request.contextPath}/editpost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/edit.png"
                              class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0;"
+                             style="background-color: #c4c3c0; border:0px;"
                         >
                     </a>
                     <label style="padding-right: 10px"></label>
@@ -255,7 +223,7 @@
                     <a href="${pageContext.request.contextPath}/deletepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/delete.png"
                              class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0;"
+                             style="background-color: #c4c3c0; border:0px;"
                         >
                     </a>
                 </div>

@@ -131,4 +131,10 @@ public class UserPostDAO {
             }
         });
     }
+
+
+    public boolean updateFinal(UserPost post) {
+        BeanPropertySqlParameterSource parameterSource = new BeanPropertySqlParameterSource(post);
+        return jdbc.update("update final set content=:content where id=:id",parameterSource)==1;
+    }
 }
