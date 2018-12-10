@@ -149,23 +149,23 @@
     <div class="col-xs-6 col-sm-1"></div>
     <div class="col-xs-6 col-sm-6">
         <div>
-        <h2>Welcome ${userDetails.name}</h2>
-        <form action="${pageContext.request.contextPath}/logout">
-            <button class="btn btn-danger" type="submit">Log Out</button>
-        </form>
-        <br/>
-        <div>
-        <form class="row" action="${pageContext.request.contextPath}/createPost" method="post">
-            <!-- Textarea -->
-            <div class="form-group col-sm-6">
-                    <textarea class="form-control" id="content" name="content" placeholder="Whats on your mind !"></textarea>
-            </div>
+            <h2>Welcome ${userDetails.name}</h2>
+            <form action="${pageContext.request.contextPath}/logout">
+                <button class="btn btn-danger" type="submit">Log Out</button>
+            </form>
+            <br/>
+            <div>
+            <form class="row" action="${pageContext.request.contextPath}/createPost" method="post">
+                <!-- Textarea -->
+                <div class="form-group col-sm-6">
+                        <textarea class="form-control" id="content" name="content" placeholder="Whats on your mind !"></textarea>
+                </div>
 
-            <!-- Button -->
-            <div class="form-group col-sm-2">
-                <input class="btn-block btn btn-primary" type="submit" value="post"/>
-            </div>
-        </form>
+                <!-- Button -->
+                <div class="form-group col-sm-2">
+                    <input class="btn-block btn btn-primary" type="submit" value="post"/>
+                </div>
+            </form>
         </div>
 
 
@@ -219,7 +219,7 @@
                 </div>
                 <div class="col-sm-12" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
-                    <label class="col-sm-9" style="padding-left: 0px">${req.content}</>
+                    <label class="col-sm-9" style="padding-left: 0px">${req.content}</label>
                 </div>
                 <%--<div class="col-sm-12" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
@@ -231,31 +231,43 @@
                 </div>--%>
                 <div class="" style="display: flex">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
-                    <a href="${pageContext.request.contextPath}/likepost">
+                    <a href="${pageContext.request.contextPath}/likepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/like.png"
                              class="img-thumbnail" width="30px" height="30px"
                              style="background-color: #c4c3c0;"
                         >
                     </a>
-                    <a href="${pageContext.request.contextPath}/dislikepost">
+                    <label style="padding-right: 10px">${likers.get(req.id).size()-1}</label>
+                    <a href="${pageContext.request.contextPath}/dislikepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/dislike.png"
                              class="img-thumbnail" width="30px" height="30px"
                              style="background-color: #c4c3c0;"
                         >
                     </a>
-                    <a href="${pageContext.request.contextPath}/editpost">
+                    <label style="padding-right: 10px">${dislikers.get(req.id).size()-1}</label>
+
+                    <a href="${pageContext.request.contextPath}/editpost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/edit.png"
                              class="img-thumbnail" width="30px" height="30px"
                              style="background-color: #c4c3c0;"
                         >
                     </a>
-                    <a href="${pageContext.request.contextPath}/deletepost">
+                    <label style="padding-right: 10px"></label>
+
+                    <a href="${pageContext.request.contextPath}/deletepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/delete.png"
                              class="img-thumbnail" width="30px" height="30px"
                              style="background-color: #c4c3c0;"
                         >
                     </a>
                 </div>
+                <%--<div>
+                    <label>id = ${req.id}</label>
+                    <label>like = ${likers.get(req.id)}</label>
+                    <label>liker = ${likers.get(req.id).size()-1}</label>
+
+                    <label>disliker = ${dislikers.get(req.id).size()-1}</label>
+                </div>--%>
                 <br/>
             </c:forEach>
         </div>

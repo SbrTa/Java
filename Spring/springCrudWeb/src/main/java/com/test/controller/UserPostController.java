@@ -52,53 +52,6 @@ public class UserPostController {
     }
 
 
-    @RequestMapping(value = "/likepost")
-    public String likepost(Model model){
-        System.out.println("LIKED......");
-
-        User user = new User();
-        List<UserPost> finalPost = userPostService.getFinal();
-        model.addAttribute("finalPost",finalPost);
-        UserDetails userDetails = userService.getUserDetails(user.getUserName());
-        model.addAttribute("userDetails",userDetails);
-        return "user";
-    }
-
-    @RequestMapping(value = "/dislikepost")
-    public String dislikepost(Model model){
-        System.out.println("DISLIKED......");
-
-        User user = new User();
-        List<UserPost> finalPost = userPostService.getFinal();
-        model.addAttribute("finalPost",finalPost);
-        UserDetails userDetails = userService.getUserDetails(user.getUserName());
-        model.addAttribute("userDetails",userDetails);
-        return "user";
-    }
-
-    @RequestMapping(value = "/editpost")
-    public String editpost(Model model){
-        System.out.println("EDIT......");
-
-        User user = new User();
-        List<UserPost> finalPost = userPostService.getFinal();
-        model.addAttribute("finalPost",finalPost);
-        UserDetails userDetails = userService.getUserDetails(user.getUserName());
-        model.addAttribute("userDetails",userDetails);
-        return "user";
-    }
-
-    @RequestMapping(value = "/deletepost")
-    public String deletepost(Model model){
-        System.out.println("DELETED......");
-
-        User user = new User();
-        List<UserPost> finalPost = userPostService.getFinal();
-        model.addAttribute("finalPost",finalPost);
-        UserDetails userDetails = userService.getUserDetails(user.getUserName());
-        model.addAttribute("userDetails",userDetails);
-        return "user";
-    }
 
 
 }

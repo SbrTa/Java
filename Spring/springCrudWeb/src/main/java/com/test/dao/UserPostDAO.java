@@ -74,6 +74,24 @@ public class UserPostDAO {
         return jdbc.update("insert into final (time, userName, email, content) values (:time, :userName, :email, :content)",source)==1;
     }
 
+    public UserPost getFinal(String time) {
+        MapSqlParameterSource source = new MapSqlParameterSource();
+        source.addValue("time",time);
+        return jdbc.queryForObject("select * from final where time=:time", source, new RowMapper<UserPost>() {
+            @Override
+            public UserPost mapRow(ResultSet resultSet, int i) throws SQLException {
+                UserPost post = new UserPost(
+                        resultSet.getInt("id"),
+                        resultSet.getString("time"),
+                        resultSet.getString("userName"),
+                        resultSet.getString("email"),
+                        resultSet.getString("content")
+                );
+                return post;
+            }
+        });
+    }
+
     public List<UserPost> getFinal() {
         return jdbc.query("select * from final order by time", new RowMapper<UserPost>() {
             @Override

@@ -36,6 +36,9 @@ public class UserPostService {
         userPostDAO.createFinal(post);
     }
 
+    public UserPost getFinal(String time) {
+        return userPostDAO.getFinal(time);
+    }
     public List<UserPost> getFinal() {
         return userPostDAO.getFinal();
     }

@@ -1,9 +1,8 @@
 package com.test.controller;
 
 import com.test.dao.Notice;
-import com.test.dto.User;
-import com.test.dto.UserDetails;
-import com.test.dto.UserPost;
+import com.test.dto.*;
+import com.test.service.CounterService;
 import com.test.service.NoticesService;
 import com.test.service.UserPostService;
 import com.test.service.UserService;
@@ -18,13 +17,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 @Controller
 public class UserController {
+
+    private CounterService counterService;
+
+    @Autowired
+    public void setCounterService(CounterService counterService){
+        this.counterService = counterService;
+    }
 
     private UserService userService;
 
@@ -85,6 +89,20 @@ public class UserController {
         model.addAttribute("finalPost",finalPost);
         UserDetails userDetails = userService.getUserDetails(user.getUserName());
         model.addAttribute("userDetails",userDetails);
+
+
+        Map<Integer,List<Integer>> likers = new HashMap<Integer, List<Integer>>();
+        Map<Integer,List<Integer>> dislikers = new HashMap<Integer, List<Integer>>();
+        List<Counter> counters = counterService.getCounterList();
+        for(Counter x:counters){
+            System.out.println(x);
+            List<Integer> lll = counterService.getIntList(x.getLiker());
+            List<Integer> ddd = counterService.getIntList(x.getDisliker());
+            likers.put(x.getPost(),lll);
+            dislikers.put(x.getPost(),ddd);
+        }
+        model.addAttribute("likers",likers);
+        model.addAttribute("dislikers",dislikers);
         return "user";
     }
 
@@ -107,6 +125,19 @@ public class UserController {
         model.addAttribute("userDetails",userDetails);
         List<UserPost> finalPost = userPostService.getFinal();
         model.addAttribute("finalPost",finalPost);
+
+
+        Map<Integer,List<Integer>> likers = new HashMap<Integer, List<Integer>>();
+        Map<Integer,List<Integer>> dislikers = new HashMap<Integer, List<Integer>>();
+        List<Counter> counters = counterService.getCounterList();
+        for(Counter x:counters){
+            List<Integer> lll = counterService.getIntList(x.getLiker());
+            List<Integer> ddd = counterService.getIntList(x.getDisliker());
+            likers.put(x.getPost(),lll);
+            dislikers.put(x.getPost(),ddd);
+        }
+        model.addAttribute("likers",likers);
+        model.addAttribute("dislikers",dislikers);
         return "user";
     }
 
