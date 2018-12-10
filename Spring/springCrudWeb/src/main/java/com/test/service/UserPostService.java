@@ -42,4 +42,12 @@ public class UserPostService {
     public List<UserPost> getFinal() {
         return userPostDAO.getFinal();
     }
+
+    public void deleteFinal(int postid) {
+        userPostDAO.deleteFinal(postid);
+    }
+
+    public UserPost getFinal(int postid) {
+        return userPostDAO.getFinal(postid);
+    }
 }

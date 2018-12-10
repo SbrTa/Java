@@ -65,4 +65,16 @@ public class CounterDAO {
             }
         });
     }
+
+    public boolean deleteFinal(int id) {
+        MapSqlParameterSource source = new MapSqlParameterSource();
+        source.addValue("id",id);
+        return jdbc.update("delete from final where id=:id",source)==1;
+    }
+
+    public boolean deleteCounter(int postid) {
+        MapSqlParameterSource source = new MapSqlParameterSource();
+        source.addValue("postid",postid);
+        return jdbc.update("delete from counter where post=:postid",source)==1;
+    }
 }

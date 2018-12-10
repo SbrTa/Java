@@ -71,4 +71,8 @@ public class CounterService {
     public List<Counter> getCounterList() {
         return  counterDAO.getCounterList();
     }
+
+    public void deleteCounter(int postid) {
+        counterDAO.deleteCounter(postid);
+    }
 }

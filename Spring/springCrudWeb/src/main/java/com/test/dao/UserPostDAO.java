@@ -107,4 +107,28 @@ public class UserPostDAO {
             }
         });
     }
+
+    public boolean deleteFinal(int id) {
+        MapSqlParameterSource source = new MapSqlParameterSource();
+        source.addValue("id",id);
+        return jdbc.update("delete from final where id=:id",source)==1;
+    }
+
+    public UserPost getFinal(int id) {
+        MapSqlParameterSource source = new MapSqlParameterSource();
+        source.addValue("id",id);
+        return jdbc.queryForObject("select * from final where id=:id", source, new RowMapper<UserPost>() {
+            @Override
+            public UserPost mapRow(ResultSet resultSet, int i) throws SQLException {
+                UserPost post = new UserPost(
+                        resultSet.getInt("id"),
+                        resultSet.getString("time"),
+                        resultSet.getString("userName"),
+                        resultSet.getString("email"),
+                        resultSet.getString("content")
+                );
+                return post;
+            }
+        });
+    }
 }

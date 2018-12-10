@@ -155,22 +155,20 @@
             </form>
             <br/>
             <div>
-            <form class="row" action="${pageContext.request.contextPath}/createPost" method="post">
-                <!-- Textarea -->
-                <div class="form-group col-sm-6">
-                        <textarea class="form-control" id="content" name="content" placeholder="Whats on your mind !"></textarea>
-                </div>
+                <form class="row" action="${pageContext.request.contextPath}/createPost" method="post">
+                    <!-- Textarea -->
+                    <div class="form-group col-sm-6">
+                            <textarea class="form-control" id="content" name="content" placeholder="Whats on your mind !"></textarea>
+                    </div>
 
-                <!-- Button -->
-                <div class="form-group col-sm-2">
-                    <input class="btn-block btn btn-primary" type="submit" value="post"/>
-                </div>
-            </form>
-        </div>
-
-
-        <br/>
-        <h4>News feed </h4>
+                    <!-- Button -->
+                    <div class="form-group col-sm-2">
+                        <input class="btn-block btn btn-primary" type="submit" value="post"/>
+                    </div>
+                </form>
+            </div>
+            <br/>
+            <h4>News feed </h4>
         </div>
 <%--
         <table class="table table-hover table-borderless">
@@ -217,7 +215,7 @@
                     <label class="col-sm-2" style="padding-left: 0px">${req.userName}</label>
                     <label class="col-sm-5" style="padding-left: 0px">${req.time}</label>
                 </div>
-                <div class="col-sm-12" style="padding-left: 0px">
+                <div class="col-sm-12 beforeEditPost" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
                     <label class="col-sm-9" style="padding-left: 0px">${req.content}</label>
                 </div>
@@ -229,7 +227,7 @@
                     <label class="">edit</label>
                     <label class="">delete</label>
                 </div>--%>
-                <div class="" style="display: flex">
+                <div class="beforeEditPost" style="display: flex">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
                     <a href="${pageContext.request.contextPath}/likepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/like.png"
@@ -261,6 +259,7 @@
                         >
                     </a>
                 </div>
+
                 <%--<div>
                     <label>id = ${req.id}</label>
                     <label>like = ${likers.get(req.id)}</label>

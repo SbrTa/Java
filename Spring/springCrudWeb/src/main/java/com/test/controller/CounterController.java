@@ -56,10 +56,16 @@ public class CounterController {
         List<Integer> liker = counterService.getIntList(counter.getLiker());
         List<Integer> disliker = counterService.getIntList(counter.getDisliker());
 
-        if(disliker.contains(user.getId())){
+        if(liker.contains(user.getId())){
+            String newLiker = counterService.remove(liker, user.getId());
+            counter.setLiker(newLiker);
+            counterService.updateCounter(counter);
+        }
+        else if(disliker.contains(user.getId())){
             String newDisliker = counterService.remove(disliker, user.getId());
-            System.out.println(newDisliker);
             counter.setDisliker(newDisliker);
+            String newLiker = counterService.add(liker, counter.getLiker(), user.getId());
+            counter.setLiker(newLiker);
             counterService.updateCounter(counter);
         }
         else{
@@ -98,15 +104,20 @@ public class CounterController {
         List<Integer> liker = counterService.getIntList(counter.getLiker());
         List<Integer> disliker = counterService.getIntList(counter.getDisliker());
 
-        if(liker.contains(user.getId())){
+        if(disliker.contains(user.getId())){
+            String newDisliker = counterService.remove(disliker, user.getId());
+            counter.setDisliker(newDisliker);
+            counterService.updateCounter(counter);
+        }
+        else if(liker.contains(user.getId())){
             String newLiker = counterService.remove(liker, user.getId());
-            System.out.println(newLiker);
             counter.setLiker(newLiker);
+            String newDisliker = counterService.add(disliker, counter.getDisliker(), user.getId());
+            counter.setDisliker(newDisliker);
             counterService.updateCounter(counter);
         }
         else{
             String newDisliker = counterService.add(disliker, counter.getDisliker(), user.getId());
-            System.out.println(newDisliker);
             counter.setDisliker(newDisliker);
             counterService.updateCounter(counter);
         }
@@ -135,6 +146,17 @@ public class CounterController {
         model.addAttribute("finalPost",finalPost);
         UserDetails userDetails = userService.getUserDetails(user.getUserName());
         model.addAttribute("userDetails",userDetails);
+        Map<Integer,List<Integer>> likers = new HashMap<Integer, List<Integer>>();
+        Map<Integer,List<Integer>> dislikers = new HashMap<Integer, List<Integer>>();
+        List<Counter> counters = counterService.getCounterList();
+        for(Counter x:counters){
+            List<Integer> lll = counterService.getIntList(x.getLiker());
+            List<Integer> ddd = counterService.getIntList(x.getDisliker());
+            likers.put(x.getPost(),lll);
+            dislikers.put(x.getPost(),ddd);
+        }
+        model.addAttribute("likers",likers);
+        model.addAttribute("dislikers",dislikers);
         return "user";
     }
 
@@ -143,10 +165,30 @@ public class CounterController {
         System.out.println("DELETED......");
 
         User user = (User) session.getAttribute("user");
+        UserPost deletePost = userPostService.getFinal(postid);
+
+        if(deletePost.getUserName().equals(user.getUserName())){
+            userPostService.deleteFinal(postid);
+            counterService.deleteCounter(postid);
+        }else {
+            System.out.println("user can delete only his/her own post.");
+        }
+
         List<UserPost> finalPost = userPostService.getFinal();
         model.addAttribute("finalPost",finalPost);
         UserDetails userDetails = userService.getUserDetails(user.getUserName());
         model.addAttribute("userDetails",userDetails);
+        Map<Integer,List<Integer>> likers = new HashMap<Integer, List<Integer>>();
+        Map<Integer,List<Integer>> dislikers = new HashMap<Integer, List<Integer>>();
+        List<Counter> counters = counterService.getCounterList();
+        for(Counter x:counters){
+            List<Integer> lll = counterService.getIntList(x.getLiker());
+            List<Integer> ddd = counterService.getIntList(x.getDisliker());
+            likers.put(x.getPost(),lll);
+            dislikers.put(x.getPost(),ddd);
+        }
+        model.addAttribute("likers",likers);
+        model.addAttribute("dislikers",dislikers);
         return "user";
     }
 

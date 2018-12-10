@@ -10,6 +10,13 @@ $(document).ready(function(){
         $("#viewInfo").show();
         $("#editInfo").hide();
     })
+
+
+    $("#postEditBtn").click(function () {
+        alert("clicked......");
+        $(".beforeEditPost").hide();
+        $(".editPost").show();
+    })
 })
 
 
