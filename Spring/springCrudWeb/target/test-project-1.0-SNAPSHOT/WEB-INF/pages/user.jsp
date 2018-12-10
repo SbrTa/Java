@@ -13,6 +13,7 @@
 <head>
     <link href="${pageContext.request.contextPath}/resources/lib/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/css/background.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="${pageContext.request.contextPath}/resources/js/lib/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/user.js"></script>
 
@@ -205,10 +206,12 @@
             </tbody>
         </table>
 --%>
-        <div class="news-feed" style="  background-image: url('/resources/img/bgi3.jpg');
+        <div class="news-feed" style="  /*background-image: url('/resources/img/bg5.png');*/
+                                        background-color: #c4c3c0;
                                         background-size: cover;
                                         opacity: 0.5;
-                                        background-repeat: no-repeat;">
+                                        background-repeat: no-repeat;
+                                        padding: 10px">
             <c:forEach var="req" items="${finalPost}">
                 <div class="col-sm-12" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px">${req.userName}</label>
@@ -218,13 +221,40 @@
                     <label class="col-sm-2" style="padding-left: 0px"></label>
                     <label class="col-sm-9" style="padding-left: 0px">${req.content}</>
                 </div>
-                <div class="col-sm-12" style="padding-left: 0px">
+                <%--<div class="col-sm-12" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
                     <label class="">0</label>
                     <label class="">like</label>
                     <label class="">unlike</label>
                     <label class="">edit</label>
                     <label class="">delete</label>
+                </div>--%>
+                <div class="" style="display: flex">
+                    <label class="col-sm-2" style="padding-left: 0px"></label>
+                    <a href="${pageContext.request.contextPath}/likepost">
+                        <img src="${pageContext.request.contextPath}/resources/icon/like.png"
+                             class="img-thumbnail" width="30px" height="30px"
+                             style="background-color: #c4c3c0;"
+                        >
+                    </a>
+                    <a href="${pageContext.request.contextPath}/dislikepost">
+                        <img src="${pageContext.request.contextPath}/resources/icon/dislike.png"
+                             class="img-thumbnail" width="30px" height="30px"
+                             style="background-color: #c4c3c0;"
+                        >
+                    </a>
+                    <a href="${pageContext.request.contextPath}/editpost">
+                        <img src="${pageContext.request.contextPath}/resources/icon/edit.png"
+                             class="img-thumbnail" width="30px" height="30px"
+                             style="background-color: #c4c3c0;"
+                        >
+                    </a>
+                    <a href="${pageContext.request.contextPath}/deletepost">
+                        <img src="${pageContext.request.contextPath}/resources/icon/delete.png"
+                             class="img-thumbnail" width="30px" height="30px"
+                             style="background-color: #c4c3c0;"
+                        >
+                    </a>
                 </div>
                 <br/>
             </c:forEach>
