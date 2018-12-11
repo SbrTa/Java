@@ -5,10 +5,9 @@
 <script src="/resources/js/lib/bootstrap.min.js"></script>
 <div id="footer" class="text-center">
     <footer class="footer text-center">
-        <blockquote class="blockquote text-center border-0">
-            <p>Hardle is easier when you have the right key.</p>
+        <blockquote class="blockquote text-center border-0 margin-0 padding-0">
+            <p class="margin-0 border-0">Hardle is easier when you have the right key.</p>
             <footer class="blockquote-footer">Some famous one</footer>
         </blockquote>
-        <p>SpringMvcWithTiles &copy; 2018</p>
     </footer>
 </div>

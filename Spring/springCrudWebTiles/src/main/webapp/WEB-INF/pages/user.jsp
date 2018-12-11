@@ -11,11 +11,11 @@
 
 
 
-
-<div class="row">
+<div>
     <%
         User user = (User) session.getAttribute("user");
     %>
+<%--
     <div class="col-xs-6 col-sm-3">
 
         <div class="profile-pic">
@@ -64,8 +64,8 @@
                 </div>
                 <br/>
                 <div>
-                    <%--<label class="col-sm-5">Bio</label>--%>
-                    <blockquote class="blockquote text-center">
+                    &lt;%&ndash;<label class="col-sm-5">Bio</label>&ndash;%&gt;
+                    <blockquote class="blockquote text-center border-0">
                         <p>${userDetails.bio}</p>
                         <footer class="blockquote-footer">${userDetails.name}</footer>
                     </blockquote>
@@ -94,7 +94,7 @@
                 </div>
                 <div>
                     <label class="col-sm-7">Gender</label>
-                    <%--<input class="col-sm-4" type="text" name="relation"/>--%>
+                    &lt;%&ndash;<input class="col-sm-4" type="text" name="relation"/>&ndash;%&gt;
                     <select name="gender" class="col-sm-4 custom-form-control" id="gender" >
                         <option value="">Choose</option>
                         <option value="Male">Male</option>
@@ -112,7 +112,7 @@
                 </div>
                 <div>
                     <label class="col-sm-7">Relationship Status</label>
-                    <%--<input class="col-sm-4" type="text" name="relation"/>--%>
+                    &lt;%&ndash;<input class="col-sm-4" type="text" name="relation"/>&ndash;%&gt;
                     <select name="relation" class="col-sm-4 custom-form-control" id="relation">
                         <option value="">Choose</option>
                         <option value="Single">Single</option>
@@ -135,8 +135,11 @@
         </div>
 
     </div>
+--%>
+<%--
     <div class="col-xs-6 col-sm-1"></div>
-    <div class="col-xs-6 col-sm-6" >
+--%>
+    <div>
         <div>
             <h2>Welcome ${userDetails.name}</h2>
             <form action="${pageContext.request.contextPath}/logout">
@@ -160,21 +163,16 @@
             <h4>News feed </h4>
         </div>
 
-        <div class="news-feed" style="  /*background-image: url('/resources/img/bg5.png');*/
-                                        background-color: #c4c3c0;
-                                        background-size: cover;
-                                        opacity: 0.5;
-                                        background-repeat: no-repeat;
-                                        padding: 10px;
-                                        border-style: solid; border-radius: 1%; border-color: #c4c3c0;"">
+        <div class="news-feed">
             <c:forEach var="req" items="${finalPost}">
                 <div class="col-sm-12" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px">${req.userName}</label>
                     <label class="col-sm-5" style="padding-left: 0px">${req.time}</label>
                 </div>
                 <div class="col-sm-12 beforeEditPost" style="padding-left: 0px">
-                    <label class="col-sm-2" style="padding-left: 0px"></label>
-                    <label class="col-sm-9" style="padding-left: 0px">${req.content}</label>
+                    <label class="col-sm-2" style="padding-left: 0px"></label><%--
+                    <label class="col-sm-9" style="padding-left: 0px" >${req.content}</label>--%>
+                    <p class="col-sm-9" style="padding-left: 0px" align="justify">${req.content}</p>
                 </div>
                 <%--<div class="col-sm-12" style="padding-left: 0px">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
@@ -184,19 +182,19 @@
                     <label class="">edit</label>
                     <label class="">delete</label>
                 </div>--%>
-                <div class="beforeEditPost" style="display: flex">
+                <div class="beforeEditPost col-sm-12" style="display: flex; margin-bottom: 20px">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
                     <a href="${pageContext.request.contextPath}/likepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/like.png"
                              class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0; border:0px;"
+                             style="background-color: inherit; border:0px;"
                         >
                     </a>
                     <label style="padding-right: 10px">${likers.get(req.id).size()-1}</label>
                     <a href="${pageContext.request.contextPath}/dislikepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/dislike.png"
                              class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0; border:0px;"
+                             style="background-color: inherit; border:0px;"
                         >
                     </a>
                     <label style="padding-right: 10px">${dislikers.get(req.id).size()-1}</label>
@@ -204,7 +202,7 @@
                     <a href="${pageContext.request.contextPath}/editpost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/edit.png"
                              class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0; border:0px;"
+                             style="background-color: inherit; border:0px;"
                         >
                     </a>
                     <label style="padding-right: 10px"></label>
@@ -212,7 +210,7 @@
                     <a href="${pageContext.request.contextPath}/deletepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/delete.png"
                              class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: #c4c3c0; border:0px;"
+                             style="background-color: inherit; border:0px;"
                         >
                     </a>
                 </div>
@@ -224,11 +222,11 @@
 
                     <label>disliker = ${dislikers.get(req.id).size()-1}</label>
                 </div>--%>
-                <br/>
+
             </c:forEach>
         </div>
     </div>
-    <div class="col-xs-6 col-sm-2"></div>
+    <%--<div class="col-xs-6 col-sm-1"></div>--%>
 </div>
 
 

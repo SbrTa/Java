@@ -6,8 +6,6 @@
 
 <div class="row" style=""><div class="col-sm-4"><h3></h3></div><div class="col-sm-4 col-5"><h3></h3></div><div class="col-sm-4"><h3></h3></div></div>
 
-<br/>
-
 <div class="container">
     <%--<div class="header clearfix">
         <nav>
@@ -33,10 +31,6 @@
         </nav>
     </div>--%>
 
-
-        <br/>
-        <br/>
-        <br/>
     <div class="float-right">
         <span style="color:red;">${password}</span>
     </div>    <br/>

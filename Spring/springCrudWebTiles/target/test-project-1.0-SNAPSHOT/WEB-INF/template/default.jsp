@@ -53,8 +53,13 @@
     <div>
         <tiles:insertAttribute name="header"></tiles:insertAttribute>
     </div>
-    <div class="container">
-        <tiles:insertAttribute name="content"></tiles:insertAttribute>
+    <div class="col-sm-12" style="display: flex">
+        <div class="col-sm-4" style="margin-top: 80px;" <%--class="container body-margin"--%>>
+            <tiles:insertAttribute name="manu"></tiles:insertAttribute>
+        </div>
+        <div class="col-sm-8" style="margin-top: 80px" <%--class="container body-margin"--%>>
+            <tiles:insertAttribute name="content"></tiles:insertAttribute>
+        </div>
     </div>
     <div>
         <tiles:insertAttribute name="footer"></tiles:insertAttribute>

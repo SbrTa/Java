@@ -52,6 +52,11 @@ public class UserController {
         return "signup";
     }
 
+    @RequestMapping(value = "/loginpage")
+    public String loginPage(){
+        return "loginpage";
+    }
+
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
     public String doCreate(Model model, @Valid User user, BindingResult result){
 
@@ -110,6 +115,14 @@ public class UserController {
     public String logout(){
         System.out.println("loging out...");
         return "home";
+    }
+
+    @RequestMapping(value = "/edituserdetailspage")
+    public String editUserDetailsPage(HttpSession session, Model model){
+        User user = (User) session.getAttribute("user");
+        UserDetails userDetails = userService.getUserDetails(user.getUserName());
+        model.addAttribute("userDetails",userDetails);
+        return "edituserdetailspage";
     }
 
 

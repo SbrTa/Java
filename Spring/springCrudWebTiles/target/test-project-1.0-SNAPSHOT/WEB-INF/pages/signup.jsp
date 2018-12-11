@@ -1,40 +1,26 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: BS-033
-  Date: 12/5/2018
-  Time: 1:25 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Registration</title><%--
-  Created by IntelliJ IDEA.
-  User: BS-033
-  Date: 12/3/2018
-  Time: 8:13 PM
-  To change this template use File | Settings | File Templates.
---%>
-        <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
 <div class="row">
 
-    <br/>
-    <br/>
+
     <br/>
     <br/>
     <br/>
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
-        <form:form class="form-horizontal" commandName="user"
+        <form:form class="form-horizontal form-signin" commandName="user"
                    action="${pageContext.request.contextPath}/createUser" method="post">
             <fieldset>
 
                 <!-- Form Name -->
-                <h2 class="text-center">Sign up</h2>
+                <%--<h2 class="text-center">Sign up</h2>--%>
+                <div>
+                    <h2 class="form-signin-heading">Please sign up</h2>
+                </div>
                 <br/>
                 <br/>
 

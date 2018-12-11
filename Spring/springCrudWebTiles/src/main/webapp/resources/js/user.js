@@ -1,6 +1,6 @@
 $(document).ready(function(){
     console.log("ready for go...");
-    $("#editdetails").click(function(){
+    /*$("#editdetails").click(function(){
         $("#viewInfo").hide();
         $("#editInfo").show();
     })
@@ -9,7 +9,7 @@ $(document).ready(function(){
     $("#editdetails2").click(function(){
         $("#viewInfo").show();
         $("#editInfo").hide();
-    })
+    })*/
 
 
 })
