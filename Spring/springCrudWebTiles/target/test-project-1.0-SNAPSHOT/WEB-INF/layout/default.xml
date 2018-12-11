@@ -15,12 +15,6 @@
         <put-attribute name="content" value="/WEB-INF/pages/home.jsp"></put-attribute>
     </definition>
 
-    <definition name="user" extends="spring.base">
-        <put-attribute name="title" value="User"></put-attribute>
-        <put-attribute name="content" value="/WEB-INF/pages/user.jsp"></put-attribute>
-        <put-attribute name="manu" value="/WEB-INF/pages/userdetails.jsp"></put-attribute>
-    </definition>
-
     <definition name="admin" extends="spring.base">
         <put-attribute name="title" value="Admin"></put-attribute>
         <put-attribute name="content" value="/WEB-INF/pages/admin.jsp"></put-attribute>
@@ -39,6 +33,18 @@
     <definition name="edituserdetailspage" extends="spring.base">
         <put-attribute name="title" value="Edit user details"></put-attribute>
         <put-attribute name="content" value="/WEB-INF/pages/edituserdetailspage.jsp"></put-attribute>
+    </definition>
+
+    <definition name="user" extends="spring.base">
+        <put-attribute name="title" value="User"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/pages/user.jsp"></put-attribute>
+        <put-attribute name="manu" value="/WEB-INF/pages/userdetails.jsp"></put-attribute>
+    </definition>
+
+    <definition name="editpost" extends="spring.base">
+        <put-attribute name="title" value="Edit post"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/pages/editpost.jsp"></put-attribute>
+        <put-attribute name="manu" value="/WEB-INF/pages/userdetails.jsp"></put-attribute>
     </definition>
 
 </tiles-definitions>
