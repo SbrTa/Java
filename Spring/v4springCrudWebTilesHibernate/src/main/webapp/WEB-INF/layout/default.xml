@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="spring.base" template="/WEB-INF/template/default.jsp">
+        <put-attribute name="title" value="home"></put-attribute>
+        <put-attribute name="header" value="/WEB-INF/pages/header.jsp"></put-attribute>
+        <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/pages/content.jsp"></put-attribute>
+        <put-attribute name="manu" value="/WEB-INF/pages/manu.jsp"></put-attribute>
+    </definition>
+
+    <definition name="home" extends="spring.base">
+        <put-attribute name="title" value="Home"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/pages/home.jsp"></put-attribute>
+    </definition>
+
+    <definition name="admin" extends="spring.base">
+        <put-attribute name="title" value="Admin"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/pages/admin.jsp"></put-attribute>
+    </definition>
+
+    <definition name="signup" extends="spring.base">
+        <put-attribute name="title" value="Sign up"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/pages/signup.jsp"></put-attribute>
+    </definition>
+
+    <definition name="loginpage" extends="spring.base">
+        <put-attribute name="title" value="Login"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/pages/login.jsp"></put-attribute>
+    </definition>
+
+    <definition name="edituserdetailspage" extends="spring.base">
+        <put-attribute name="title" value="Edit user details"></put-attribute>
+        <put-attribute name="manu" value="/WEB-INF/pages/userdetails.jsp"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/pages/edituserdetailspage.jsp"></put-attribute>
+    </definition>
+
+    <definition name="user" extends="spring.base">
+        <put-attribute name="title" value="User"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/pages/user.jsp"></put-attribute>
+        <put-attribute name="manu" value="/WEB-INF/pages/userdetails.jsp"></put-attribute>
+    </definition>
+
+    <definition name="editpost" extends="spring.base">
+        <put-attribute name="title" value="Edit post"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/pages/editpost.jsp"></put-attribute>
+        <put-attribute name="manu" value="/WEB-INF/pages/userdetails.jsp"></put-attribute>
+    </definition>
+
+</tiles-definitions>
