@@ -57,6 +57,40 @@ public class UserController {
         return "loginpage";
     }
 
+    @RequestMapping(value = "/gohome")
+    public String goHome(HttpSession session, Model model){
+        if(session.getAttribute("user")==null){
+            return "home";
+        }
+        User user = (User) session.getAttribute("user");
+        if(user.getRole().equals("admin")){
+            List<UserPost> pending = userPostService.getPending();
+            model.addAttribute("pending",pending);
+            return "admin";
+        }
+
+
+
+        UserDetails userDetails = userService.getUserDetails(user.getUserName());
+        model.addAttribute("userDetails",userDetails);
+        List<UserPost> finalPost = userPostService.getFinal();
+        model.addAttribute("finalPost",finalPost);
+        Map<Integer,List<Integer>> likers = new HashMap<Integer, List<Integer>>();
+        Map<Integer,List<Integer>> dislikers = new HashMap<Integer, List<Integer>>();
+        List<Counter> counters = counterService.getCounterList();
+        for(Counter x:counters){
+            List<Integer> lll = counterService.getIntList(x.getLiker());
+            List<Integer> ddd = counterService.getIntList(x.getDisliker());
+            likers.put(x.getPost(),lll);
+            dislikers.put(x.getPost(),ddd);
+        }
+        model.addAttribute("likers",likers);
+        model.addAttribute("dislikers",dislikers);
+        return "user";
+    }
+
+
+
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
     public String doCreate(Model model, @Valid User user, BindingResult result){
 
@@ -77,13 +111,13 @@ public class UserController {
         System.out.println(userName);
         System.out.println(password);
         User user = userService.getUser(userName);
+        System.out.println("user nul;l..");
         System.out.println(user);
-        session.setAttribute("user",user);
         if(!user.getPassword().equals(password)){
             model.addAttribute("password","Incorrect user name or password");
-            return "home";
+            return "loginpage";
         }
-
+        session.setAttribute("user",user);
         if(user.getRole().equals("admin")){
             List<UserPost> pending = userPostService.getPending();
             model.addAttribute("pending",pending);
@@ -112,8 +146,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/logout")
-    public String logout(){
+    public String logout(HttpSession session){
         System.out.println("loging out...");
+        session.removeAttribute("user");
+        session.invalidate();
         return "home";
     }
 

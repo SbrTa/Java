@@ -8,24 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
-<head>
-    <link href="${pageContext.request.contextPath}/resources/lib/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/resources/css/background.css" rel="stylesheet" type="text/css">
 
-    <title>Admin</title>
-</head>
-<body >
 
 
 <div class="row">
 
-    <div class="col-xs-6 col-sm-2"></div>
-    <div class="col-xs-6 col-sm-8">
+    <div>
         <h2>Admin panel......</h2>
-        <form action="${pageContext.request.contextPath}/logout">
+        <%--<form action="${pageContext.request.contextPath}/logout">
             <button class="btn btn-danger" type="submit">Log Out</button>
-        </form>
+        </form>--%>
         <br/>
         <br/>
         <h4>Pending Requests : </h4>
@@ -66,9 +58,5 @@
             </tbody>
         </table>
     </div>
-    <div class="col-xs-6 col-sm-2"></div>
 </div>
 
-
-</body>
-</html>

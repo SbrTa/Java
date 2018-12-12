@@ -13,7 +13,6 @@
             <h2>Welcome ${userDetails.name}</h2>
 
             <br/>
-            <h4>News feed </h4>
         </div>
 
         <div class="news-feed">
@@ -35,7 +34,7 @@
                             <!-- Button -->
                             <div class="form-group text-center">
                                 <label class="col-sm-5"></label>
-                                <input class="col-sm-2 btn-block btn btn-primary text-center" type="submit" value="Save"/>
+                                <input class="col-sm-2 btn btn-primary text-center" type="submit" value="Save"/>
                             </div>
                         </form>
                     </div>

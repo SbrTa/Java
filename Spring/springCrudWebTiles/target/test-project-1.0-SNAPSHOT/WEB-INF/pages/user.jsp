@@ -1,5 +1,8 @@
 <%@ page import="com.test.dto.User" %>
-<%@ page import="com.test.dto.UserDetails" %><%--
+<%@ page import="com.test.dto.UserDetails" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %><%--
   Created by IntelliJ IDEA.
   User: BS-033
   Date: 12/5/2018
@@ -11,9 +14,11 @@
 
 
 
-<div>
+<div style="margin-bottom: 70px">
     <%
         User user = (User) session.getAttribute("user");
+        int userId = user.getId();
+        request.setAttribute("userId",userId);
     %>
 <%--
     <div class="col-xs-6 col-sm-3">
@@ -142,9 +147,9 @@
     <div>
         <div>
             <h2>Welcome ${userDetails.name}</h2>
-            <form action="${pageContext.request.contextPath}/logout">
+            <%--<form action="${pageContext.request.contextPath}/logout">
                 <button class="btn btn-danger" type="submit">Log Out</button>
-            </form>
+            </form>--%>
             <br/>
             <div>
                 <form class="row" action="${pageContext.request.contextPath}/createPost" method="post">
@@ -160,7 +165,7 @@
                 </form>
             </div>
             <br/>
-            <h4>News feed </h4>
+            <h2 class="text-center text-primary">News feed </h2>
         </div>
 
         <div class="news-feed">
@@ -182,37 +187,55 @@
                     <label class="">edit</label>
                     <label class="">delete</label>
                 </div>--%>
+                <c:set var="likerList" value='${likers.get(req.id)}' />
+                <c:set var="dislikerList" value='${dislikers.get(req.id)}' />
+
                 <div class="beforeEditPost col-sm-12" style="display: flex; margin-bottom: 20px">
                     <label class="col-sm-2" style="padding-left: 0px"></label>
                     <a href="${pageContext.request.contextPath}/likepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/like.png"
                              class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: inherit; border:0px;"
+                             <%--style="background-color: inherit; color: red; border:0px;"--%>
+                            <c:if test="${likerList.indexOf(userId)<=0}">
+                                 style="background-color: inherit; border:0px;"
+                            </c:if>
+                            <c:if test="${likerList.indexOf(userId)>0}">
+                                style="background-color: #738aba; border:0px;"
+                            </c:if>
                         >
                     </a>
                     <label style="padding-right: 10px">${likers.get(req.id).size()-1}</label>
                     <a href="${pageContext.request.contextPath}/dislikepost?postid=${req.id}">
                         <img src="${pageContext.request.contextPath}/resources/icon/dislike.png"
                              class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: inherit; border:0px;"
+                            <c:if test="${dislikerList.indexOf(userId)>0}">
+                                 style="background-color: #738aba; border:0px;"
+                            </c:if>
+                            <c:if test="${dislikerList.indexOf(userId)<=0}">
+                                 style="background-color: inherit; border:0px;"
+                            </c:if>
                         >
                     </a>
                     <label style="padding-right: 10px">${dislikers.get(req.id).size()-1}</label>
 
-                    <a href="${pageContext.request.contextPath}/editpost?postid=${req.id}">
-                        <img src="${pageContext.request.contextPath}/resources/icon/edit.png"
-                             class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: inherit; border:0px;"
-                        >
-                    </a>
-                    <label style="padding-right: 10px"></label>
+                    <c:if test="${req.userName == sessionScope.user.getUserName()}">
+                        <a href="${pageContext.request.contextPath}/editpost?postid=${req.id}">
+                            <img src="${pageContext.request.contextPath}/resources/icon/edit.png"
+                                 class="img-thumbnail" width="30px" height="30px"
+                                 style="background-color: inherit; border:0px;"
+                            >
+                        </a>
+                        <label style="padding-right: 10px"></label>
 
-                    <a href="${pageContext.request.contextPath}/deletepost?postid=${req.id}">
-                        <img src="${pageContext.request.contextPath}/resources/icon/delete.png"
-                             class="img-thumbnail" width="30px" height="30px"
-                             style="background-color: inherit; border:0px;"
-                        >
-                    </a>
+                        <a href="${pageContext.request.contextPath}/deletepost?postid=${req.id}">
+                            <img src="${pageContext.request.contextPath}/resources/icon/delete.png"
+                                 class="img-thumbnail" width="30px" height="30px"
+                                 style="background-color: inherit; border:0px;"
+                            >
+                        </a>
+                    </c:if>
+
+
                 </div>
 
                 <%--<div>
@@ -226,6 +249,9 @@
             </c:forEach>
         </div>
     </div>
+    <br/>
+    <br/>
+    <p>.</p>
     <%--<div class="col-xs-6 col-sm-1"></div>--%>
 </div>
 
