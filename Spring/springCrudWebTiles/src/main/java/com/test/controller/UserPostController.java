@@ -5,9 +5,12 @@ import com.test.dto.Counter;
 import com.test.dto.User;
 import com.test.dto.UserDetails;
 import com.test.dto.UserPost;
+import com.test.service.CommonService;
 import com.test.service.CounterService;
 import com.test.service.UserPostService;
 import com.test.service.UserService;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,63 +24,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Data
+@NoArgsConstructor
 @Controller
 public class UserPostController {
-
-    private UserService userService;
-
-    @Autowired
-    public void setUserService(UserService userService){
-        this.userService=userService;
-    }
-
-    private UserPostService userPostService;
-
-    @Autowired
-    public void setUserPostService(UserPostService userPostService){
-        this.userPostService = userPostService;
-    }
-
-    private CounterService counterService;
-
-    @Autowired
-    public void setCounterService(CounterService counterService){
-        this.counterService = counterService;
-    }
+    @Autowired private UserService userService;
+    @Autowired private UserPostService userPostService;
+    @Autowired private CounterService counterService;
+    @Autowired private CommonService commonService;
 
 
     @RequestMapping(value = "/createPost")
     public String createPost(Model model, HttpSession session, @RequestParam("content") String content){
-
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date = format.format(new Date());
 
         User user = (User)session.getAttribute("user");
         UserPost post = new UserPost(1,date,user.getUserName(),user.getEmail(),content);
-
-        System.out.println(post);
-
         userPostService.createPending(post);
 
-        List<UserPost> finalPost = userPostService.getFinal();
-        model.addAttribute("finalPost",finalPost);
-        UserDetails userDetails = userService.getUserDetails(user.getUserName());
-        model.addAttribute("userDetails",userDetails);
-        Map<Integer,List<Integer>> likers = new HashMap<Integer, List<Integer>>();
-        Map<Integer,List<Integer>> dislikers = new HashMap<Integer, List<Integer>>();
-        List<Counter> counters = counterService.getCounterList();
-        for(Counter x:counters){
-            List<Integer> lll = counterService.getIntList(x.getLiker());
-            List<Integer> ddd = counterService.getIntList(x.getDisliker());
-            likers.put(x.getPost(),lll);
-            dislikers.put(x.getPost(),ddd);
-        }
-        model.addAttribute("likers",likers);
-        model.addAttribute("dislikers",dislikers);
+        model.addAttribute("userDetails",commonService.getUserDetails(user.getUserName()));
+        model.addAttribute("finalPost",commonService.getPostList());
+        model.addAttribute("likers",commonService.getLikers());
+        model.addAttribute("dislikers",commonService.getDislikers());
         return "user";
     }
-
-
-
 
 }

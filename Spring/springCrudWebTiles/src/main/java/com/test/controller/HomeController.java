@@ -13,7 +13,4 @@ public class HomeController {
     public String getHome(Model model, HttpSession session){
         return "home";
     }
-
-
-
 }
