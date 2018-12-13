@@ -220,7 +220,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../v4springCrudWebTiles/pom.xml" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -435,12 +435,12 @@
       <workItem from="1544612250327" duration="123000" />
       <workItem from="1544699929976" duration="101000" />
       <workItem from="1544700155962" duration="156000" />
-      <workItem from="1544705844456" duration="3000" />
+      <workItem from="1544705844456" duration="93000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126275000" />
+    <option name="totallyTimeSpent" value="126365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
