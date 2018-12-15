@@ -1,0 +1,31 @@
+body#body-img{
+    background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+    padding:10px;
+}
+.table-borderless{
+    border: 0px;
+}
+/*
+.profile-pic{
+    padding-left: 5%;
+    padding-right: 7%;
+}
+
+.pro-pic{
+    border-style: solid;
+    border-width: 5px;
+    border-color: darkgrey;
+    object-fit: fill;
+    border-radius: 50%;
+}*/
+/*
+
+.details-border{
+    border-style: solid;
+    border-width: 5px;
+    border-color: ghostwhite;
+    border-radius: 5%;
+}*/
