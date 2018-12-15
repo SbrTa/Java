@@ -19,7 +19,7 @@ public class pdfGeneratorController {
     @GetMapping("/start")
     public void pdfGenerator()throws IOException, DocumentException{
         System.out.println("ready ... 1...... 2....... 3...... go.......");
-        String dest = "G:/others/okk.pdf";
+        String dest = "C:\\Users\\Subrata Roy\\Documents\\iTextPdf/okk.pdf";
         com.itextpdf.text.Document pdf = new com.itextpdf.text.Document();
         PdfWriter writer = PdfWriter.getInstance(pdf, new FileOutputStream(dest));
         //PdfContentByte canvas = writer.getDirectContent();
