@@ -7,7 +7,8 @@
        xmlns:jee="http://www.springframework.org/schema/jee"
        xsi:schemaLocation="http://www.springframework.org/schema/mvc
                             http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
-                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+                            http://www.springframework.org/schema/util
+                            http://www.springframework.org/schema/util/spring-util-4.0.xsd
                             http://www.springframework.org/schema/beans
                             http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
                             http://www.springframework.org/schema/context
@@ -40,7 +41,7 @@
                 <value>/WEB-INF/layout/default.xml</value>
             </list>
         </property>
-    </bean>
+</bean>
 
     <!-- resources -->
     <mvc:resources mapping="/resources/**" location="/resources/"/>
