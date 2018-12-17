@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="SpringHibernateTest:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="SpringHibernateTest.war">
-      <element id="artifact" artifact-name="SpringHibernateTest:war exploded" />
-    </root>
-  </artifact>
-</component>
