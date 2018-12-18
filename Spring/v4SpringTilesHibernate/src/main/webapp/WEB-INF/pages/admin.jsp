@@ -33,13 +33,13 @@
                     <td>${req.email}</td>
                     <td>${req.content}</td>
                     <td>
-                        <form action="${pageContext.request.contextPath}/pendingAction" method="post">
+                        <form action="${pageContext.request.contextPath}/admin/pendingAction" method="post">
                             <input type="hidden" name="id" value="${req.id}"/>
                             <input class="btn btn-success" type="submit" value="accept" name="action"/>
                         </form>
                     </td>
                     <td>
-                        <form action="${pageContext.request.contextPath}/pendingAction" method="post">
+                        <form action="${pageContext.request.contextPath}/admin/pendingAction" method="post">
                             <input type="hidden" name="id" value="${req.id}"/>
                             <input class="btn btn-danger" type="submit" value="ignore" name="action"/>
                         </form>

@@ -21,6 +21,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Controller("counterController")
+@RequestMapping(value = "/user/post")
 public class CounterController {
     @Autowired
     private UserService userService;
@@ -31,11 +32,9 @@ public class CounterController {
     @Autowired
     private CommonService commonService;
 
-    @RequestMapping(value = "/likepost")
+    @RequestMapping(value = "/like")
     public String likepost(Model model, HttpSession session, @RequestParam("postid") int postid){
         User user = (User) session.getAttribute("user");
-        model.addAttribute("userDetails",commonService.getUserDetails(user.getUserName()));
-        model.addAttribute("finalPost",commonService.getPostList());
 
         Counter counter = counterService.getCounter(postid);
         List<Integer> liker = counterService.getIntList(counter.getLiker());
@@ -60,16 +59,12 @@ public class CounterController {
             counterService.updateCounter(counter);
         }
 
-        model.addAttribute("likers",commonService.getLikers());
-        model.addAttribute("dislikers",commonService.getDislikers());
-        return "user";
+        return "redirect:/user/home";
     }
 
-    @RequestMapping(value = "/dislikepost")
+    @RequestMapping(value = "/dislike")
     public String dislikepost(Model model, HttpSession session, @RequestParam("postid") int postid){
         User user = (User) session.getAttribute("user");
-        model.addAttribute("userDetails",commonService.getUserDetails(user.getUserName()));
-        model.addAttribute("finalPost",commonService.getPostList());
 
         Counter counter = counterService.getCounter(postid);
         List<Integer> liker = counterService.getIntList(counter.getLiker());
@@ -93,46 +88,9 @@ public class CounterController {
             counterService.updateCounter(counter);
         }
 
-        model.addAttribute("likers",commonService.getLikers());
-        model.addAttribute("dislikers",commonService.getDislikers());
-        return "user";
-    }
-
-    @RequestMapping(value = "/editpost")
-    public String editpost(Model model, HttpSession session, @RequestParam("postid") int postid){
-        User user = (User) session.getAttribute("user");
-        model.addAttribute("userDetails",commonService.getUserDetails(user.getUserName()));
-        model.addAttribute("userPost",commonService.getUserPost(postid));
-        return "editpost";
-    }
-
-    @RequestMapping(value = "/saveEditedPost")
-    public String saveEditedPost(Model model, HttpSession session, @RequestParam("postid") int postid, @RequestParam("content") String content){
-        UserPost userPost = userPostService.getFinal(postid);
-        userPost.setContent(content);
-        userPostService.updateFinal(userPost);
-
-        User user = (User) session.getAttribute("user");
-        model.addAttribute("userDetails",commonService.getUserDetails(user.getUserName()));
-        model.addAttribute("finalPost",commonService.getPostList());
-        model.addAttribute("likers",commonService.getLikers());
-        model.addAttribute("dislikers",commonService.getDislikers());
-        return "user";
+        return "redirect:/user/home";
     }
 
 
-    @RequestMapping(value = "/deletepost")
-    public String deletepost(Model model, HttpSession session, @RequestParam("postid") int postid){
-        User user = (User) session.getAttribute("user");
-        UserPost deletePost = userPostService.getFinal(postid);
-        userPostService.deleteFinal(postid);
-        counterService.deleteCounter(postid);
-
-        model.addAttribute("userDetails",commonService.getUserDetails(user.getUserName()));
-        model.addAttribute("finalPost",commonService.getPostList());
-        model.addAttribute("likers",commonService.getLikers());
-        model.addAttribute("dislikers",commonService.getDislikers());
-        return "user";
-    }
 
 }

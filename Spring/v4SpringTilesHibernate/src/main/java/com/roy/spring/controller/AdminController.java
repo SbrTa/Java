@@ -14,7 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 @Controller("adminController")
+@RequestMapping(value = "/admin")
 public class AdminController {
     @Autowired
     private UserService userService;
@@ -24,6 +27,12 @@ public class AdminController {
     private CounterService counterService;
     @Autowired
     private CommonService commonService;
+
+    @RequestMapping(value = "/home")
+    public String home(Model model, HttpSession session){
+        model.addAttribute("pending",commonService.getPendingList());
+        return "admin";
+    }
 
     @RequestMapping(value = "/pendingAction")
     public String pendingAction(@RequestParam("id")int id, @RequestParam("action")String action, Model model){
@@ -36,7 +45,6 @@ public class AdminController {
             counterService.createCounter(counter);
         }
         userPostService.deletePending(id);
-        model.addAttribute("pending",commonService.getPendingList());
-        return "admin";
+        return "redirect:/admin/home";
     }
 }
