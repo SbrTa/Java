@@ -64,8 +64,14 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/login")
-    public String loginPage(){
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginPage(Model model,
+            @RequestParam(value = "error", required = false) String error){
+        System.out.println("login method.............");
+        if (error!=null){
+            model.addAttribute("error","invalid username and password");
+        }
+
         return "loginpage";
     }
 
@@ -78,11 +84,13 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/login/done", method = RequestMethod.POST)
-    public String login(HttpSession session, @RequestParam("userName") String userName, @RequestParam("password") String password, Model model){
+    public String login(HttpSession session, Model model,
+                        @RequestParam("userName") String userName,
+                        @RequestParam("password") String password){
         System.out.println("in user controller : "+userName +"   "+password);
         User user = userService.getUser(userName);
         if(!user.getPassword().equals(password)){
-            model.addAttribute("password","Incorrect user name or password");
+            model.addAttribute("password","Incorrect user name or password. Plz try again.");
             return "loginpage";
         }
         session.setAttribute("user",user);

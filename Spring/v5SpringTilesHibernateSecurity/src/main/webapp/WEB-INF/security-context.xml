@@ -34,23 +34,34 @@
              http://www.springframework.org/schema/security
              http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 
-    <!--<http auto-config="true" >
+    <http auto-config="true" >
+        <form-login
+                login-page="/login"
+                default-target-url="/login/done"
+                login-processing-url="/j_spring_security_check"
+                authentication-failure-url="/login?error=true"
+                username-parameter="userName"
+                password-parameter="password"
+        />
+        <csrf disabled="true"/>
+        <intercept-url pattern="/resources/**" access="permitAll" />
         <intercept-url pattern="/" access="permitAll" />
-        <intercept-url pattern="/home" access="permitAll" />
-        <intercept-url pattern="/admin**" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/dba**" access="hasRole('ADMIN') and hasRole('DBA')" />
-        <form-login  authentication-failure-url="/Access_Denied" />
+        <intercept-url pattern="/login" access="permitAll" />
+        <intercept-url pattern="/login/done" access="permitAll" />
+        <intercept-url pattern="/signup" access="permitAll" />
+        <intercept-url pattern="/admin/**" access="isAuthenticated()" />
+        <intercept-url pattern="/user/**" access="isAuthenticated()" />
     </http>
 
     <authentication-manager >
         <authentication-provider>
             <user-service>
                 <user name="bill"  password="abc123"  authorities="ROLE_USER" />
-                <user name="admin" password="root123" authorities="ROLE_ADMIN" />
-                <user name="dba"   password="root123" authorities="ROLE_ADMIN,ROLE_DBA" />
+                <user name="SbrTa"  password="7827282"  authorities="ROLE_USER" />
+                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
             </user-service>
         </authentication-provider>
-    </authentication-manager>-->
+    </authentication-manager>
 
 
 </beans:beans>
