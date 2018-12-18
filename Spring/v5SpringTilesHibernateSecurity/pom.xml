@@ -18,6 +18,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <spring.version>4.1.5.RELEASE</spring.version>
+    <springsecurity.version>4.0.1.RELEASE</springsecurity.version>
     <spring.context.support.version>2.5.6.SEC01</spring.context.support.version>
     <hibernate.version>4.3.8.Final</hibernate.version>
     <mysql.version>5.1.10</mysql.version>
@@ -72,18 +73,26 @@
       <scope>test</scope>
     </dependency>
 
+
     <!--Adding spring Security-->
-    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>${springsecurity.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-web</artifactId>
-      <version>${spring.version}</version>
+      <version>${springsecurity.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-config</artifactId>
-       <version>${spring.version}</version>
+       <version>${springsecurity.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-logging</groupId>

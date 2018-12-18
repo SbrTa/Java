@@ -7,29 +7,6 @@
 <div class="row" style=""><div class="col-sm-4"><h3></h3></div><div class="col-sm-4 col-5"><h3></h3></div><div class="col-sm-4"><h3></h3></div></div>
 
 <div class="container">
-    <%--<div class="header clearfix">
-        <nav>
-            <ul class="nav nav-pills float-left">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-            <form class="nav nav-pills float-right" action="${pageContext.request.contextPath}/login" onsubmit="return loginValidate()" method="post">
-                <div class="nav-item">
-                    <input id="userName" name="userName" type="text" placeholder="user name" class="form-control input-md"/>
-                </div>
-                <div class="nav-item">
-                    <input id="password" name="password" type="password" placeholder="password" class="form-control input-md"/>
-                </div>
-                    <div class="nav-item">
-                    <input id="loginbtn" type="submit" style="padding: 5.8px" value="login"/>
-                </div>
-            </form>
-        </nav>
-    </div>--%>
 
     <br/>
     <div class="jumbotron">
@@ -53,7 +30,7 @@
                      style="background-color:inherit; border:0px;"
                 >
             </a>
-            <a href="${pageContext.request.contextPath}/loginpage">
+            <a href="${pageContext.request.contextPath}/login">
                 <img src="${pageContext.request.contextPath}/resources/icon/login.png"
                      class="img-thumbnail" width="250px" height="250px"
                      style="background-color:inherit; border:0px;"

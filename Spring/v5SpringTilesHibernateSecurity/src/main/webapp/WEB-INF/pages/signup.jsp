@@ -17,7 +17,7 @@
             <fieldset>
 
                 <!-- Form Name -->
-                <%--<h2 class="text-center">Sign up</h2>--%>
+                    <%--<h2 class="text-center">Sign up</h2>--%>
                 <div>
                     <h2 class="form-signin-heading">Please sign up</h2>
                 </div>

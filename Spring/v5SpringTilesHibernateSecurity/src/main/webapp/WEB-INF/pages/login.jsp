@@ -11,7 +11,7 @@
     <br/>
     <br/>
     <div class="text-center">
-        <form class="form-signin" action="${pageContext.request.contextPath}/login" onsubmit="return loginValidate()" method="post">
+        <form class="form-signin" action="${pageContext.request.contextPath}/login/done" onsubmit="return loginValidate()" method="post">
             <div class="float-right">
                 <span style="color:red;">${password}</span>
             </div>
