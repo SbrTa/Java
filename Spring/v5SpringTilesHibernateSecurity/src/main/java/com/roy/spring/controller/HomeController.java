@@ -110,24 +110,7 @@ public class HomeController {
         model.addAttribute(new User());
         return "signup";
     }
-
-    /*@RequestMapping(value = "/login/done", method = RequestMethod.POST)
-    public String login(HttpSession session, Model model,
-                        @RequestParam("userName") String userName,
-                        @RequestParam("password") String password){
-        System.out.println("in user controller : "+userName +"   "+password);
-        User user = userService.getUser(userName);
-        if(!user.getPassword().equals(password)){
-            model.addAttribute("password","Incorrect user name or password. Plz try again.");
-            return "loginpage";
-        }
-        session.setAttribute("user",user);
-        if(user.getRole().equals("admin")){
-            return "redirect:/admin/home";
-        }
-        return "redirect:/user/home";
-    }*/
-
+    
     @RequestMapping(value = "/login/done")
     public String login(HttpSession session, Principal principal){
         System.out.println("in user controller : "+principal.getName());

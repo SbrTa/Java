@@ -43,19 +43,17 @@
                 username-parameter="userName"
                 password-parameter="password"
         />
-        <logout logout-success-url="/logout"/>
+        <!--<logout logout-success-url="/logout"/>-->
         <csrf disabled="true"/>
         <intercept-url pattern="/resources/**" access="permitAll" />
-        <intercept-url pattern="/" access="permitAll" />
-        <intercept-url pattern="/login" access="permitAll" />
-        <intercept-url pattern="/signup" access="permitAll" />
+        <intercept-url pattern="/" access="isAnonymous()" />
+        <intercept-url pattern="/signup" access="isAnonymous()" />
+        <intercept-url pattern="/login" access="isAnonymous()" />
 
-        <intercept-url pattern="/logintest" access="isAuthenticated()" />
-        <intercept-url pattern="/logintest/done" access="isAuthenticated()" />
-        <intercept-url pattern="/logout" access="isAuthenticated()" />
         <intercept-url pattern="/login/done" access="isAuthenticated()" />
         <intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
         <intercept-url pattern="/user/**" access="hasRole('USER')" />
+        <intercept-url pattern="/logout" access="permitAll" />
     </http>
     <!--<user-service>
                     <user name="bill"  password="abc123"  authorities="ROLE_USER" />
