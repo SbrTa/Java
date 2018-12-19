@@ -32,25 +32,31 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getHome(Model model, HttpSession session){
+        if(session.getAttribute("user")!=null){
+            User user = (User) session.getAttribute("user");
+            if(user.getRole().equals("ROLE_ADMIN")){
+                return "redirect:/admin/home";
+            }
+            return "redirect:/user/home";
+        }
         return "home";
     }
 
 
     @RequestMapping(value = "/gohome")
     public String goHome(HttpSession session, Model model){
-        if(session.getAttribute("user")==null){
-            return "redirect:/";
-        }
-        User user = (User) session.getAttribute("user");
-        if(user.getRole().equals("ROLE_ADMIN")){
-            model.addAttribute("pending",commonService.getPendingList());
-            return "admin";
-        }
-        return "redirect:/user/home";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/signup")
-    public String signUp(Model model){
+    public String signUp(HttpSession session, Model model){
+        if(session.getAttribute("user")!=null){
+            User user = (User) session.getAttribute("user");
+            if(user.getRole().equals("ROLE_ADMIN")){
+                return "redirect:/admin/home";
+            }
+            return "redirect:/user/home";
+        }
         System.out.println("sign up now..");
         model.addAttribute(new User());
         return "signup";
@@ -79,8 +85,17 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginPage(Model model,
+    public String loginPage(HttpSession session, Model model,
             @RequestParam(value = "error", required = false) String error){
+
+        if(session.getAttribute("user")!=null){
+            User user = (User) session.getAttribute("user");
+            if(user.getRole().equals("ROLE_ADMIN")){
+                return "redirect:/admin/home";
+            }
+            return "redirect:/user/home";
+        }
+
         System.out.println("login method.............");
         if (error!=null){
             model.addAttribute("error","Incorrect user name or password. Plz try again.");
@@ -97,20 +112,6 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/logintest")
-    public String loginTest(Model model, Principal principal){
-        System.out.println("Login Test :  Loged in successfullty...............");
-        System.out.println(principal.getName());
-        return "redirect:/login/done";
-    }
-
-    @RequestMapping(value = "/logintest/done")
-    public String loginTest(Model model){
-        System.out.println("ok.. logged in.....");
-        model.addAttribute(new User());
-        return "signup";
-    }
-    
     @RequestMapping(value = "/login/done")
     public String login(HttpSession session, Principal principal){
         System.out.println("in user controller : "+principal.getName());

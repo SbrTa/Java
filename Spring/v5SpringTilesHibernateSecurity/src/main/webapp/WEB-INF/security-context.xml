@@ -46,14 +46,14 @@
         <!--<logout logout-success-url="/logout"/>-->
         <csrf disabled="true"/>
         <intercept-url pattern="/resources/**" access="permitAll" />
-        <intercept-url pattern="/" access="isAnonymous()" />
-        <intercept-url pattern="/signup" access="isAnonymous()" />
-        <intercept-url pattern="/login" access="isAnonymous()" />
+        <intercept-url pattern="/" access="permitAll" />
+        <intercept-url pattern="/signup" access="permitAll" />
+        <intercept-url pattern="/login" access="permitAll" />
 
         <intercept-url pattern="/login/done" access="isAuthenticated()" />
         <intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
         <intercept-url pattern="/user/**" access="hasRole('USER')" />
-        <intercept-url pattern="/logout" access="permitAll" />
+        <intercept-url pattern="/logout" access="isAuthenticated()" />
     </http>
     <!--<user-service>
                     <user name="bill"  password="abc123"  authorities="ROLE_USER" />
