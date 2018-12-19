@@ -18,7 +18,8 @@ public class UserService {
     }
 
     public void create(User user) {
-        user.setRole("user");
+        user.setRole("ROLE_USER");
+        user.setEnabled(true);
         userDAO.create(user);
     }
 

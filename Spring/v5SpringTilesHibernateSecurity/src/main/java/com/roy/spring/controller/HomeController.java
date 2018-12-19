@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -49,10 +47,21 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/signup")
-    public String signUp(Model model){
+    public String signUp(Model model, @ModelAttribute("user") User user){
+        System.out.println("sign up now..");
+        System.out.println(user.getUserName());
+        System.out.println(user.getPassword());
+
+
         model.addAttribute(new User());
         return "signup";
     }
+
+    /*@RequestMapping(value = "/signup")
+    public String signUp(){
+        System.out.println("sign up now..");
+        return "signup";
+    }*/
 
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
     public String doCreate(Model model, @Valid User user, BindingResult result){
@@ -81,6 +90,12 @@ public class HomeController {
         session.removeAttribute("user");
         session.invalidate();
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "/logintest")
+    public String loginTest(){
+        System.out.println("Login Test :  Loged in successfullty...............");
+        return "redirect:/signup";
     }
 
     @RequestMapping(value = "/login/done", method = RequestMethod.POST)
