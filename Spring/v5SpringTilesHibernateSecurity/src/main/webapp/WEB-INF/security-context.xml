@@ -38,12 +38,12 @@
         <form-login
                 login-page="/login"
                 default-target-url="/login/done"
-                login-processing-url="/j_spring_security_check"
+                login-processing-url="/perform_login"
                 authentication-failure-url="/login?error=true"
                 username-parameter="userName"
                 password-parameter="password"
         />
-        <!--<logout logout-success-url="/logout"/>-->
+        <logout logout-url="/perform_logout" logout-success-url="/login" invalidate-session="true" delete-cookies="JSESSIONID" />
         <csrf disabled="true"/>
         <intercept-url pattern="/resources/**" access="permitAll" />
         <intercept-url pattern="/" access="permitAll" />

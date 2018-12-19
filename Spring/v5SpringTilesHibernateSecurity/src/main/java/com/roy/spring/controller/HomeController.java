@@ -104,13 +104,13 @@ public class HomeController {
         return "loginpage";
     }
 
-    @RequestMapping(value = "/logout")
+    /*@RequestMapping(value = "/logout")
     public String logout(HttpSession session){
         System.out.println("loging out...");
         session.removeAttribute("user");
         session.invalidate();
         return "redirect:/";
-    }
+    }*/
 
     @RequestMapping(value = "/login/done")
     public String login(HttpSession session, Principal principal){

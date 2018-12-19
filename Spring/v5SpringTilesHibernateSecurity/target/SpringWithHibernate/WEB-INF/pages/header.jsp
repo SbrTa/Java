@@ -12,7 +12,10 @@
                 <li><a href="#">Contact</a></li>
 
                 <c:if test="${!empty sessionScope.user}" >
-                    <li><a style="color: red;" href="${pageContext.request.contextPath}/logout">Log out</a></li>
+                    <li>
+                        <%--<a style="color: red;" href="${pageContext.request.contextPath}/logout">Log out</a>--%>
+                        <a href="<c:url value="/perform_logout" />">Log out</a>
+                    </li>
                 </c:if>
 
             </ul>

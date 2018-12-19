@@ -45,7 +45,7 @@
                 <span style="color:blue;">${msg}</span>
             </c:if>
         <form name="f" class="form-signin"
-              action="<c:url value='j_spring_security_check' />" onsubmit="return loginValidate()" method="POST">
+              action="<c:url value='perform_login' />" onsubmit="return loginValidate()" method="POST">
             <%--<div class="float-right">
                 <span style="color:red;">${password}</span>
             </div>--%>
