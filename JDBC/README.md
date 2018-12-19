@@ -1,1 +1,1 @@
-Basic CRUD using # JDBC
+Basic CRUD using JDBC
