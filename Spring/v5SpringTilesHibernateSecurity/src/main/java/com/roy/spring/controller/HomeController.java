@@ -7,6 +7,7 @@ import com.roy.spring.service.CounterService;
 import com.roy.spring.service.UserPostService;
 import com.roy.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -61,11 +62,17 @@ public class HomeController {
         return "signup";
     }*/
 
+    public static String encodePasswordWithBCrypt(String plainPassword){
+        return new BCryptPasswordEncoder().encode(plainPassword);
+    }
+
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
     public String doCreate(Model model, @Valid User user, BindingResult result){
         if (result.hasErrors()){
             return "signup";
         }
+        System.out.println(user.getPassword()+" => "+encodePasswordWithBCrypt(user.getPassword()));
+        user.setPassword(encodePasswordWithBCrypt(user.getPassword()));
         userService.create(user);
         userService.createUserDetails(new UserDetails(user.getUserName(),user.getName(),"","","","","","",""));
         return "redirect:/";

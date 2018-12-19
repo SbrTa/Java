@@ -64,8 +64,8 @@
                     <input name="submit" type="submit" class="btn btn-primary" value="Login">
                     <%--<csrf disabled="true"/>--%>
                     <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">--%>
-                    <input type="hidden" name="${_csrf.parameterName}"
-                           value="${_csrf.token}" />
+                    <%--<input type="hidden" name="${_csrf.parameterName}"--%>
+                           <%--value="${_csrf.token}" />--%>
             </div>
         </form>
     </div>
