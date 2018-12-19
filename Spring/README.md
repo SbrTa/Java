@@ -6,3 +6,6 @@ I'm noobie at Spring. But now i'm learning spring step by step. Here's step wise
   - Replace jndi to Hibernate
   - Added Spring security form login
   - To be continued......
+
+
+@BS23
