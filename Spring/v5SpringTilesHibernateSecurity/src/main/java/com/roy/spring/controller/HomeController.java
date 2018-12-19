@@ -9,11 +9,13 @@ import com.roy.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 public class HomeController {
@@ -39,7 +41,7 @@ public class HomeController {
             return "redirect:/";
         }
         User user = (User) session.getAttribute("user");
-        if(user.getRole().equals("admin")){
+        if(user.getRole().equals("ROLE_ADMIN")){
             model.addAttribute("pending",commonService.getPendingList());
             return "admin";
         }
@@ -47,12 +49,8 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/signup")
-    public String signUp(Model model, @ModelAttribute("user") User user){
+    public String signUp(Model model){
         System.out.println("sign up now..");
-        System.out.println(user.getUserName());
-        System.out.println(user.getPassword());
-
-
         model.addAttribute(new User());
         return "signup";
     }
@@ -78,7 +76,7 @@ public class HomeController {
             @RequestParam(value = "error", required = false) String error){
         System.out.println("login method.............");
         if (error!=null){
-            model.addAttribute("error","invalid username and password");
+            model.addAttribute("error","Incorrect user name or password. Plz try again.");
         }
 
         return "loginpage";
@@ -93,12 +91,20 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/logintest")
-    public String loginTest(){
+    public String loginTest(Model model, Principal principal){
         System.out.println("Login Test :  Loged in successfullty...............");
-        return "redirect:/signup";
+        System.out.println(principal.getName());
+        return "redirect:/login/done";
     }
 
-    @RequestMapping(value = "/login/done", method = RequestMethod.POST)
+    @RequestMapping(value = "/logintest/done")
+    public String loginTest(Model model){
+        System.out.println("ok.. logged in.....");
+        model.addAttribute(new User());
+        return "signup";
+    }
+
+    /*@RequestMapping(value = "/login/done", method = RequestMethod.POST)
     public String login(HttpSession session, Model model,
                         @RequestParam("userName") String userName,
                         @RequestParam("password") String password){
@@ -113,7 +119,17 @@ public class HomeController {
             return "redirect:/admin/home";
         }
         return "redirect:/user/home";
-    }
+    }*/
 
+    @RequestMapping(value = "/login/done")
+    public String login(HttpSession session, Principal principal){
+        System.out.println("in user controller : "+principal.getName());
+        User user = userService.getUser(principal.getName());
+        session.setAttribute("user",user);
+        if(user.getRole().equals("ROLE_ADMIN")){
+            return "redirect:/admin/home";
+        }
+        return "redirect:/user/home";
+    }
 
 }

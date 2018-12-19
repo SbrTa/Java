@@ -37,21 +37,25 @@
     <http auto-config="true" >
         <form-login
                 login-page="/login"
-                default-target-url="/logintest"
+                default-target-url="/login/done"
                 login-processing-url="/j_spring_security_check"
                 authentication-failure-url="/login?error=true"
                 username-parameter="userName"
                 password-parameter="password"
         />
-        <csrf disabled="true"/>
+        <logout logout-success-url="/logout"/>
+        <!--<csrf disabled="true"/>-->
         <intercept-url pattern="/resources/**" access="permitAll" />
         <intercept-url pattern="/" access="permitAll" />
         <intercept-url pattern="/login" access="permitAll" />
-        <intercept-url pattern="/signup" access="hasRole('USER')" />
+        <intercept-url pattern="/signup" access="permitAll" />
 
         <intercept-url pattern="/logintest" access="isAuthenticated()" />
-        <intercept-url pattern="/admin/**" access="isAuthenticated()" />
-        <intercept-url pattern="/user/**" access="isAuthenticated()" />
+        <intercept-url pattern="/logintest/done" access="isAuthenticated()" />
+        <intercept-url pattern="/logout" access="isAuthenticated()" />
+        <intercept-url pattern="/login/done" access="isAuthenticated()" />
+        <intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/user/**" access="hasRole('USER')" />
     </http>
     <!--<user-service>
                     <user name="bill"  password="abc123"  authorities="ROLE_USER" />

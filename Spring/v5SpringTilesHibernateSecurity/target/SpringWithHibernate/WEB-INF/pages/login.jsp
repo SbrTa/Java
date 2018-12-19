@@ -36,18 +36,19 @@
     </div>--%>
 
     <div onload="document.f.username.focus();" class="text-center">
-            <h3>Login with Username and Password</h3>
             <c:if test="${not empty error}">
-                <div class="error">${error}</div>
+                <div class="error">
+                    <span style="color:red;">${error}</span>
+                </div>
             </c:if>
             <c:if test="${not empty msg}">
-                <div class="msg">${msg}</div>
+                <span style="color:blue;">${msg}</span>
             </c:if>
         <form name="f" class="form-signin"
               action="<c:url value='j_spring_security_check' />" onsubmit="return loginValidate()" method="POST">
-            <div class="float-right">
+            <%--<div class="float-right">
                 <span style="color:red;">${password}</span>
-            </div>
+            </div>--%>
             <div>
                 <h2 class="form-signin-heading">Please sign in</h2>
             </div>
@@ -63,6 +64,8 @@
                     <input name="submit" type="submit" class="btn btn-primary" value="Login">
                     <%--<csrf disabled="true"/>--%>
                     <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">--%>
+                    <input type="hidden" name="${_csrf.parameterName}"
+                           value="${_csrf.token}" />
             </div>
         </form>
     </div>
