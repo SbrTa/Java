@@ -14,7 +14,7 @@
                 <c:if test="${!empty sessionScope.user}" >
                     <li>
                         <%--<a style="color: red;" href="${pageContext.request.contextPath}/logout">Log out</a>--%>
-                        <a href="<c:url value="/perform_logout" />">Log out</a>
+                        <a style="color: red; font-weight: bold;" href="<c:url value="/perform_logout" />">Log out</a>
                     </li>
                 </c:if>
 

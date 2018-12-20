@@ -97,6 +97,9 @@
         <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/signup" role="button">Sign up today</a></p>
     </div>
 
+    <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/testjson"
+          role="button">Test Json Now</a></p>
+
     <div class="row marketing">
         <div class="col-lg-6">
         </div>
