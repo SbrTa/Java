@@ -8,4 +8,10 @@ I'm noobie at Spring. But now i'm learning spring step by step. Here's step wise
   - To be continued......
 
 
+
+To study:
+  -bcrypt: https://auth0.com/blog/hashing-in-action-understanding-bcrypt/
+  
+
+
 @BS23
