@@ -5,7 +5,7 @@ I'm noobie at Spring. But now i'm learning spring step by step. Here's step wise
   - v3: Introduction of Tiles
   - v4: Replace jndi to Hibernate
   - v5: Added Spring security form login
-  - v6: Passing data between to application
+  - v6: Passing data between two application
   - To be continued......
 
 
