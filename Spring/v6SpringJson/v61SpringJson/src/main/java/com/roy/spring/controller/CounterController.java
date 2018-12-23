@@ -2,11 +2,6 @@ package com.roy.spring.controller;
 
 import com.roy.spring.dto.Counter;
 import com.roy.spring.dto.User;
-import com.roy.spring.dto.UserPost;
-import com.roy.spring.service.CommonService;
-import com.roy.spring.service.CounterService;
-import com.roy.spring.service.UserPostService;
-import com.roy.spring.service.UserService;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

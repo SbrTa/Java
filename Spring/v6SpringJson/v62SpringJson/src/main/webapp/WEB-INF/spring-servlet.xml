@@ -29,10 +29,10 @@
     <mvc:resources mapping="/resources/**" location="/resources/" />
 
     <!-- View Resolver -->
-    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/" />
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/" />
         <property name="suffix" value=".jsp" />
-    </bean>-->
+    </bean>
 
     <!-- DataSource -->
     <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
@@ -65,20 +65,4 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
-    <tx:annotation-driven transaction-manager="transactionManager" />
-
-
-    <!--Tiles3-->
-    <bean id="tilesViewResolver"
-          class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
-    </bean>
-
-    <bean id="tilesConfigurer"
-          class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-        <property name="definitions">
-            <list>
-                <value>/WEB-INF/layout/default.xml</value>
-            </list>
-        </property>
-    </bean>
-</beans>
+    <tx:annotation-driven transaction-manager="transactionManager" /></beans>

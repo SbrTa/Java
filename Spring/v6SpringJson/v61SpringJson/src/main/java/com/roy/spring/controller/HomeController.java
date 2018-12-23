@@ -1,15 +1,6 @@
 package com.roy.spring.controller;
 
 import com.roy.spring.dto.User;
-import com.roy.spring.dto.UserDetails;
-import com.roy.spring.service.CommonService;
-import com.roy.spring.service.CounterService;
-import com.roy.spring.service.UserPostService;
-import com.roy.spring.service.UserService;
-import jdk.nashorn.internal.parser.JSONParser;
-import netscape.javascript.JSObject;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;

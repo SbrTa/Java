@@ -39,7 +39,7 @@ public class HomeController {
 
     @RequestMapping(value = "/")
     public String getHome(){
-        return "home";
+        return "index";
     }
 
     public static String encodePasswordWithBCrypt(String plainPassword){
