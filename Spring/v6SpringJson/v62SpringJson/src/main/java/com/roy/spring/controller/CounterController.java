@@ -14,17 +14,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 @Data
 @NoArgsConstructor
 @Controller("counterController")
-@RequestMapping(value = "/counter")
 public class CounterController {
     @Autowired
     private UserService userService;
@@ -40,77 +41,36 @@ public class CounterController {
         return new ResponseEntity<>(counterService.getCounter(postid), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/getIntListLiker", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<List<Integer>> getIntListLiker(@RequestParam String liker){
+    @RequestMapping(value = "/getIntListLiker", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<List<Integer>> getIntListLiker(@RequestBody String liker){
         return new ResponseEntity<>(counterService.getIntList(liker),HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/getIntListDisLiker", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<List<Integer>> getIntListDisLiker(@RequestParam String disLiker){
+    @RequestMapping(value = "/getIntListDisLiker", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<List<Integer>> getIntListDisLiker(@RequestBody String disLiker){
         return new ResponseEntity<>(counterService.getIntList(disLiker),HttpStatus.OK);
     }
 
-/*
-    @RequestMapping(value = "/like")
-    public String likepost(Model model, HttpSession session, @RequestParam("postid") int postid){
-        User user = (User) session.getAttribute("user");
 
-        Counter counter = counterService.getCounter(postid);
-        List<Integer> liker = counterService.getIntList(counter.getLiker());
-        List<Integer> disliker = counterService.getIntList(counter.getDisliker());
-
-        if(liker.contains(user.getId())){
-            String newLiker = counterService.remove(liker, user.getId());
-            counter.setLiker(newLiker);
-            counterService.updateCounter(counter);
-        }
-        else if(disliker.contains(user.getId())){
-            String newDisliker = counterService.remove(disliker, user.getId());
-            counter.setDisliker(newDisliker);
-            String newLiker = counterService.add(liker, counter.getLiker(), user.getId());
-            counter.setLiker(newLiker);
-            counterService.updateCounter(counter);
-        }
-        else{
-            String newLiker = counterService.add(liker, counter.getLiker(), user.getId());
-            System.out.println(newLiker);
-            counter.setLiker(newLiker);
-            counterService.updateCounter(counter);
-        }
-
-        return "redirect:/user/home";
+    @RequestMapping(value = "/removeLikerOrDisLiker", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<String> removeLikerOrDisLiker(@RequestBody Map<String,Object> data){
+        List<Integer> exist = (List<Integer>) data.get("exist");
+        int id = (int) data.get("id");
+        return new ResponseEntity<>(counterService.remove(exist, id),HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/dislike")
-    public String dislikepost(Model model, HttpSession session, @RequestParam("postid") int postid){
-        User user = (User) session.getAttribute("user");
-
-        Counter counter = counterService.getCounter(postid);
-        List<Integer> liker = counterService.getIntList(counter.getLiker());
-        List<Integer> disliker = counterService.getIntList(counter.getDisliker());
-
-        if(disliker.contains(user.getId())){
-            String newDisliker = counterService.remove(disliker, user.getId());
-            counter.setDisliker(newDisliker);
-            counterService.updateCounter(counter);
-        }
-        else if(liker.contains(user.getId())){
-            String newLiker = counterService.remove(liker, user.getId());
-            counter.setLiker(newLiker);
-            String newDisliker = counterService.add(disliker, counter.getDisliker(), user.getId());
-            counter.setDisliker(newDisliker);
-            counterService.updateCounter(counter);
-        }
-        else{
-            String newDisliker = counterService.add(disliker, counter.getDisliker(), user.getId());
-            counter.setDisliker(newDisliker);
-            counterService.updateCounter(counter);
-        }
-
-        return "redirect:/user/home";
+    @RequestMapping(value = "/updateCounter", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<String > updateCounter(@RequestBody Counter counter){
+        counterService.updateCounter(counter);
+        return new ResponseEntity<>("",HttpStatus.OK);
     }
 
-*/
-
-
+    @RequestMapping(value = "/addLikerOrDisLiker", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<String> addLikerOrDisLiker(@RequestBody Map<String,Object> data){
+        List<Integer> exist = (List<Integer>) data.get("exist");
+        String counterStr = (String) data.get("counterStr");
+        int id = (int) data.get("id");
+        System.out.println("still okay........");
+        return new ResponseEntity<>(counterService.add(exist, counterStr, id),HttpStatus.OK);
+    }
 }
