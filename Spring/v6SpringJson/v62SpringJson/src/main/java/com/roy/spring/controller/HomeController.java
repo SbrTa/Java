@@ -10,6 +10,7 @@ import com.roy.spring.service.UserService;
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -130,10 +131,11 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/testBack", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<User> testJson(/*HttpServletRequest request*/ @RequestParam("id") int id) throws IOException{
-        System.out.println("in back end test json.."+id);
+    public ResponseEntity<User> testJson(@RequestBody User user1) throws IOException{
+        //System.out.println("in back end test json.."+id);
         /*String JSON = IOUtils.toString(request.getInputStream(),"UTF-8");
         System.out.println("request entity : "+JSON);*/
+        System.out.println(user1);
         User user = new User("Jackson","jackson@json.net","jsonn","password","Anonymus",true);
         user.setId(555);
         System.out.println(user);

@@ -146,17 +146,22 @@ public class HomeController {
         user.setId(111);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<User> httpEntity = new HttpEntity<>(user,headers);
-
+        HttpEntity httpEntity = new HttpEntity(user,headers);
+        String url = "http://localhost:8080/testBack";
 
         System.out.println("in front end test json..");
-        String jsonString = template.exchange("http://localhost:8080/testBack?id={id}",
-                HttpMethod.POST,null, String.class, 789).getBody();
+
+        User user1 = template.exchange(url, HttpMethod.POST,
+                httpEntity, User.class).getBody();
+        System.out.println(user1);
+        /*String jsonString = template.exchange(url, HttpMethod.POST,
+                httpEntity, String.class).getBody();
+
         System.out.println("json test : "+jsonString);
         ObjectMapper mapper = new ObjectMapper();
         user = mapper.readValue(jsonString,User.class);
         System.out.println("User Object = "+user);
-        System.out.println("User Name = "+user.getName());
+        System.out.println("User Name = "+user.getName());*/
 
         return "redirect:/";
     }
