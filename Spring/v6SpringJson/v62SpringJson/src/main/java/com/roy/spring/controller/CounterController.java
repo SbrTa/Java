@@ -41,28 +41,22 @@ public class CounterController {
         return new ResponseEntity<>(counterService.getCounter(postid), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/getIntListLiker", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<List<Integer>> getIntListLiker(@RequestBody String liker){
-        return new ResponseEntity<>(counterService.getIntList(liker),HttpStatus.OK);
+    @RequestMapping(value = "/updateCounter", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<String > updateCounter(@RequestBody Counter counter){
+        counterService.updateCounter(counter);
+        return new ResponseEntity<>("",HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/getIntListDisLiker", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<List<Integer>> getIntListDisLiker(@RequestBody String disLiker){
-        return new ResponseEntity<>(counterService.getIntList(disLiker),HttpStatus.OK);
+    @RequestMapping(value = "/getIntListLikerOrDisLiker", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<List<Integer>> getIntListLiker(@RequestBody String string){
+        return new ResponseEntity<>(counterService.getIntList(string),HttpStatus.OK);
     }
-
 
     @RequestMapping(value = "/removeLikerOrDisLiker", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<String> removeLikerOrDisLiker(@RequestBody Map<String,Object> data){
         List<Integer> exist = (List<Integer>) data.get("exist");
         int id = (int) data.get("id");
         return new ResponseEntity<>(counterService.remove(exist, id),HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "/updateCounter", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<String > updateCounter(@RequestBody Counter counter){
-        counterService.updateCounter(counter);
-        return new ResponseEntity<>("",HttpStatus.OK);
     }
 
     @RequestMapping(value = "/addLikerOrDisLiker", method = RequestMethod.POST, produces = "application/json")

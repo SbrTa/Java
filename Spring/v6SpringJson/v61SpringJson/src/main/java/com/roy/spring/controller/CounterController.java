@@ -31,15 +31,6 @@ import java.util.Map;
 @Controller("counterController")
 @RequestMapping(value = "/user/post")
 public class CounterController {
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private UserPostService userPostService;
-    @Autowired
-    private CounterService counterService;
-    @Autowired
-    private CommonService commonService;
-
     RestTemplate template = new RestTemplate();
     String baseUrl = "http://localhost:8080";
 
@@ -51,9 +42,9 @@ public class CounterController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity entity = new HttpEntity(counter.getLiker(),headers);
-        List<Integer> liker = template.exchange(baseUrl + "/getIntListLiker", HttpMethod.POST, entity, new ParameterizedTypeReference<List<Integer>>(){}).getBody();
+        List<Integer> liker = template.exchange(baseUrl + "/getIntListLikerOrDisLiker", HttpMethod.POST, entity, new ParameterizedTypeReference<List<Integer>>(){}).getBody();
         HttpEntity entity1 = new HttpEntity(counter.getDisliker(),headers);
-        List<Integer> disliker = template.exchange(baseUrl + "/getIntListDisLiker", HttpMethod.POST, entity1, new ParameterizedTypeReference<List<Integer>>(){}).getBody();
+        List<Integer> disliker = template.exchange(baseUrl + "/getIntListLikerOrDisLiker", HttpMethod.POST, entity1, new ParameterizedTypeReference<List<Integer>>(){}).getBody();
 
         if(liker.contains(user.getId())){
             System.out.println("like if");
@@ -119,9 +110,9 @@ public class CounterController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity entity = new HttpEntity(counter.getLiker(),headers);
-        List<Integer> liker = template.exchange(baseUrl + "/getIntListLiker", HttpMethod.POST, entity, new ParameterizedTypeReference<List<Integer>>(){}).getBody();
+        List<Integer> liker = template.exchange(baseUrl + "/getIntListLikerOrDisLiker", HttpMethod.POST, entity, new ParameterizedTypeReference<List<Integer>>(){}).getBody();
         HttpEntity entity1 = new HttpEntity(counter.getDisliker(),headers);
-        List<Integer> disliker = template.exchange(baseUrl + "/getIntListDisLiker", HttpMethod.POST, entity1, new ParameterizedTypeReference<List<Integer>>(){}).getBody();
+        List<Integer> disliker = template.exchange(baseUrl + "/getIntListLikerOrDisLiker", HttpMethod.POST, entity1, new ParameterizedTypeReference<List<Integer>>(){}).getBody();
 
         if(disliker.contains(user.getId())){
             System.out.println("dislike if");
@@ -131,6 +122,7 @@ public class CounterController {
             HttpEntity entity2 = new HttpEntity(data,headers);
             String newDisliker = template.exchange(baseUrl+"/removeLikerOrDisLiker",HttpMethod.POST,entity2,String.class).getBody();
             System.out.println("1111111111111111");
+
             counter.setDisliker(newDisliker);
             HttpEntity entity3 = new HttpEntity(counter,headers);
             template.exchange(baseUrl+"/updateCounter",HttpMethod.POST,entity3,String.class).getBody();
@@ -168,6 +160,7 @@ public class CounterController {
             HttpEntity entity3 = new HttpEntity(data,headers);
             String newDisliker = template.exchange(baseUrl+"/addLikerOrDisLiker",HttpMethod.POST,entity3,String.class).getBody();
             System.out.println("111111111111111");
+
             counter.setDisliker(newDisliker);
             HttpEntity entity4 = new HttpEntity(counter,headers);
             template.exchange(baseUrl+"/updateCounter",HttpMethod.POST,entity4,String.class).getBody();;

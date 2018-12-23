@@ -9,15 +9,20 @@ import com.roy.spring.service.CounterService;
 import com.roy.spring.service.UserPostService;
 import com.roy.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.Map;
 
 @Controller("adminController")
-@RequestMapping(value = "/admin")
 public class AdminController {
     @Autowired
     private UserService userService;
@@ -28,23 +33,36 @@ public class AdminController {
     @Autowired
     private CommonService commonService;
 
-/*    @RequestMapping(value = "/home")
-    public String home(Model model, HttpSession session){
-        model.addAttribute("pending",commonService.getPendingList());
-        return "admin";
+    @RequestMapping(value = "/getPendingList", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<List<Pending>> getPendingList(){
+        return new ResponseEntity<>(commonService.getPendingList(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/pendingAction")
-    public String pendingAction(@RequestParam("id")int id, @RequestParam("action")String action, Model model){
-        Pending post = userPostService.getPending(id);
-        UserPost userPost = new UserPost(post.getTime(),post.getUserName(),post.getEmail(),post.getContent());
-        if(action.equals("accept")){
-            userPostService.createFinal(userPost);
-            UserPost finalPost = userPostService.getFinal(post.getTime());
-            Counter counter = new Counter(finalPost.getId(),"0","0");
-            counterService.createCounter(counter);
-        }
+    @RequestMapping(value = "/getPendingById", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Pending> getPendingById(@RequestParam int id){
+        return new ResponseEntity<>(userPostService.getPending(id), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/createFinal", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<String> createFinal(@RequestBody UserPost userPost){
+        userPostService.createFinal(userPost);
+        return new ResponseEntity<>("", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/createCounter", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<String> createCounter(@RequestBody Counter counter){
+        counterService.createCounter(counter);
+        return new ResponseEntity<>("", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/getFinalByTime", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<UserPost> getFinalByTime(@RequestParam String time){
+        return new ResponseEntity<>(userPostService.getFinal(time), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/deletePending", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<String> deletePending(@RequestParam int id){
         userPostService.deletePending(id);
-        return "redirect:/admin/home";
-    }*/
+        return new ResponseEntity<>("", HttpStatus.OK);
+    }
 }
