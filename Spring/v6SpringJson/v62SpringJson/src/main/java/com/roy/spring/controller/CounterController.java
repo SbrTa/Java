@@ -10,9 +10,12 @@ import com.roy.spring.service.UserService;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
@@ -21,7 +24,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Controller("counterController")
-@RequestMapping(value = "/user/post")
+@RequestMapping(value = "/counter")
 public class CounterController {
     @Autowired
     private UserService userService;
@@ -32,6 +35,22 @@ public class CounterController {
     @Autowired
     private CommonService commonService;
 
+    @RequestMapping(value = "/getCounterById", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Counter> getCounterById(@RequestParam int postid){
+        return new ResponseEntity<>(counterService.getCounter(postid), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/getIntListLiker", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<List<Integer>> getIntListLiker(@RequestParam String liker){
+        return new ResponseEntity<>(counterService.getIntList(liker),HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/getIntListDisLiker", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<List<Integer>> getIntListDisLiker(@RequestParam String disLiker){
+        return new ResponseEntity<>(counterService.getIntList(disLiker),HttpStatus.OK);
+    }
+
+/*
     @RequestMapping(value = "/like")
     public String likepost(Model model, HttpSession session, @RequestParam("postid") int postid){
         User user = (User) session.getAttribute("user");
@@ -91,6 +110,7 @@ public class CounterController {
         return "redirect:/user/home";
     }
 
+*/
 
 
 }

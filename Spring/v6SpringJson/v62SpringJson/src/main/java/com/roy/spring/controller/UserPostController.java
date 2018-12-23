@@ -23,7 +23,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @Controller
-@RequestMapping(value = "/user/post")
+@RequestMapping(value = "/post")
 public class UserPostController {
     @Autowired
     private UserService userService;
@@ -35,41 +35,5 @@ public class UserPostController {
     private CommonService commonService;
 
 
-    @RequestMapping(value = "/create")
-    public String createPost(Model model, HttpSession session, @RequestParam("content") String content){
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String date = format.format(new Date());
-
-        User user = (User)session.getAttribute("user");
-        Pending post = new Pending(date,user.getUserName(),user.getEmail(),content);
-        userPostService.createPending(post);
-
-        return "redirect:/user/home";
-    }
-
-    @RequestMapping(value = "/edit")
-    public String editpost(Model model, HttpSession session, @RequestParam("postid") int postid){
-        User user = (User) session.getAttribute("user");
-        model.addAttribute("userDetails",commonService.getUserDetails(user.getUserName()));
-        model.addAttribute("userPost",commonService.getUserPost(postid));
-        return "editpost";
-    }
-
-    @RequestMapping(value = "/edit/done")
-    public String saveEditedPost(Model model, HttpSession session, @RequestParam("postid") int postid, @RequestParam("content") String content){
-        UserPost userPost = userPostService.getFinal(postid);
-        userPost.setContent(content);
-        userPostService.updateFinal(userPost);
-        return "redirect:/user/home";
-    }
-
-
-    @RequestMapping(value = "/delete")
-    public String deletepost(Model model, HttpSession session, @RequestParam("postid") int postid){
-        UserPost deletePost = userPostService.getFinal(postid);
-        userPostService.deleteFinal(postid);
-        counterService.deleteCounter(postid);
-        return "redirect:/user/home";
-    }
 
 }

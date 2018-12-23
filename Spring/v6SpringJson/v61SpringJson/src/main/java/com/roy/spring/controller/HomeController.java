@@ -29,14 +29,8 @@ import java.security.Principal;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private UserPostService userPostService;
-    @Autowired
-    private CounterService counterService;
-    @Autowired
-    private CommonService commonService;
+    RestTemplate template = new RestTemplate();
+    String baseUrl = "http://localhost:8080";
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getHome(Model model, HttpSession session){
@@ -85,17 +79,16 @@ public class HomeController {
         if (result.hasErrors()){
             return "signup";
         }
-        System.out.println(user.getPassword()+" => "+encodePasswordWithBCrypt(user.getPassword()));
-        user.setPassword(encodePasswordWithBCrypt(user.getPassword()));
-        userService.create(user);
-        userService.createUserDetails(new UserDetails(user.getUserName(),user.getName(),"","","","","","",""));
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity entity = new HttpEntity(user,headers);
+        template.exchange(baseUrl+"/createUser",HttpMethod.POST,entity,User.class);
         return "redirect:/";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(HttpSession session, Model model,
             @RequestParam(value = "error", required = false) String error){
-
         if(session.getAttribute("user")!=null){
             User user = (User) session.getAttribute("user");
             if(user.getRole().equals("ROLE_ADMIN")){
@@ -103,7 +96,6 @@ public class HomeController {
             }
             return "redirect:/user/home";
         }
-
         System.out.println("login method.............");
         if (error!=null){
             model.addAttribute("error","Incorrect user name or password. Plz try again.");
@@ -123,7 +115,8 @@ public class HomeController {
     @RequestMapping(value = "/login/done")
     public String login(HttpSession session, Principal principal){
         System.out.println("in user controller : "+principal.getName());
-        User user = userService.getUser(principal.getName());
+        User user = template.exchange(baseUrl+"/getUserByUserName?userName={name}",HttpMethod.GET,null,User.class,principal.getName()).getBody();
+        System.out.println("Exchange = "+user);
         session.setAttribute("user",user);
         if(user.getRole().equals("ROLE_ADMIN")){
             return "redirect:/admin/home";
@@ -137,8 +130,6 @@ public class HomeController {
         System.out.println("json test : "+user);
         return user;
     }
-
-    RestTemplate template = new RestTemplate();
 
     @RequestMapping(value = "/testFront")
     public String testJson() throws IOException{
@@ -154,15 +145,6 @@ public class HomeController {
         User user1 = template.exchange(url, HttpMethod.POST,
                 httpEntity, User.class).getBody();
         System.out.println(user1);
-        /*String jsonString = template.exchange(url, HttpMethod.POST,
-                httpEntity, String.class).getBody();
-
-        System.out.println("json test : "+jsonString);
-        ObjectMapper mapper = new ObjectMapper();
-        user = mapper.readValue(jsonString,User.class);
-        System.out.println("User Object = "+user);
-        System.out.println("User Name = "+user.getName());*/
-
         return "redirect:/";
     }
 

@@ -28,7 +28,7 @@ public class AdminController {
     @Autowired
     private CommonService commonService;
 
-    @RequestMapping(value = "/home")
+/*    @RequestMapping(value = "/home")
     public String home(Model model, HttpSession session){
         model.addAttribute("pending",commonService.getPendingList());
         return "admin";
@@ -46,5 +46,5 @@ public class AdminController {
         }
         userPostService.deletePending(id);
         return "redirect:/admin/home";
-    }
+    }*/
 }
