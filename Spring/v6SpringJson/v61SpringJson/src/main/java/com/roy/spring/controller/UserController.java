@@ -46,6 +46,7 @@ public class UserController {
         model.addAttribute("likers",likers);
         Map<Integer,List<Integer>> disLikers = template.exchange(baseUrl + "/getDislikers", HttpMethod.GET, null, new ParameterizedTypeReference<Map<Integer,List<Integer>>>(){}).getBody();
         model.addAttribute("dislikers",disLikers);
+        model.addAttribute("showEditBtn","yes");
         System.out.println(user);
         return "user";
     }
@@ -55,6 +56,7 @@ public class UserController {
         User user = (User) session.getAttribute("user");
         UserDetails userDetails = template.exchange(baseUrl+"/getUserDetailsByUserName?userName={userName}",HttpMethod.GET,null,UserDetails.class,user.getUserName()).getBody();
         model.addAttribute("userDetails",userDetails);
+        model.addAttribute("showEditBtn","no");
         return "edituserdetailspage";
     }
 

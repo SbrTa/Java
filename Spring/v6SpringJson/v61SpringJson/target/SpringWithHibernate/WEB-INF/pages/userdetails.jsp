@@ -67,7 +67,7 @@
                             <footer class="blockquote-footer">${userDetails.name}</footer>
                         </blockquote>
                     </div>
-                    <div class="col-sm-12 ">
+                <div class="col-sm-12" <c:if test="${showEditBtn=='no'}"> style="display: none" </c:if>>
                         <label class="col-sm-3"></label>
                         <form action="${pageContext.request.contextPath}/user/details/edit">
                             <input id="editdetails" type="submit" class="btn btn-danger text-center" value="Edit Details"/>
