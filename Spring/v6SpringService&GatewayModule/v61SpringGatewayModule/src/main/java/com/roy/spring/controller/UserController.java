@@ -1,5 +1,6 @@
 package com.roy.spring.controller;
 
+import com.jayway.jsonpath.JsonPath;
 import com.roy.spring.dto.User;
 import com.roy.spring.dto.UserDetails;
 import com.roy.spring.dto.UserPost;
@@ -40,6 +41,16 @@ public class UserController {
         System.out.println("user home processing....");
         UserDetails userDetails = template.exchange(baseUrl+"/getUserDetailsByUserName?userName={userName}",HttpMethod.GET,null,UserDetails.class,user.getUserName()).getBody();
         model.addAttribute("userDetails",userDetails);
+
+        /*
+        String jsonUserDetails = template.exchange(baseUrl+"/getUserDetailsByUserName?userName={userName}",HttpMethod.GET,null,String.class,user.getUserName()).getBody();
+        System.out.println("JSONPATH TESTING:  USER DETAILS");
+        System.out.println(jsonUserDetails);
+        String jsonUsername = JsonPath.parse(jsonUserDetails).read("$.userName");
+        System.out.println(jsonUsername);
+        System.out.println("JSONPATH TESTING:  USER DETAILS ENDS");
+        */
+
         List<UserPost> finalPost = template.exchange(baseUrl + "/getPostList", HttpMethod.GET, null, new ParameterizedTypeReference<List<UserPost>>(){}).getBody();
         model.addAttribute("finalPost",finalPost);
         Map<Integer,List<Integer>> likers = template.exchange(baseUrl + "/getLikers", HttpMethod.GET, null, new ParameterizedTypeReference<Map<Integer,List<Integer>>>(){}).getBody();
