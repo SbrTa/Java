@@ -2,6 +2,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import = "java.io.*,java.util.*" %>
+
 
 
 <div class="row" style=""><div class="col-sm-4"><h3></h3></div><div class="col-sm-4 col-5"><h3></h3></div><div class="col-sm-4"><h3></h3></div></div>
@@ -37,6 +39,27 @@
                 >
             </a>
         </p>
+    </div>
+    <div>
+        <%
+            // Set refresh, autoload time as 5 seconds
+            response.setIntHeader("Refresh", 5);
+
+            // Get current time
+            Calendar calendar = new GregorianCalendar();
+
+            String am_pm;
+            int hour = calendar.get(Calendar.HOUR);
+            int minute = calendar.get(Calendar.MINUTE);
+            int second = calendar.get(Calendar.SECOND);
+
+            if(calendar.get(Calendar.AM_PM) == 0)
+                am_pm = "AM";
+            else
+                am_pm = "PM";
+            String CT = hour+":"+ minute +":"+ second +" "+ am_pm;
+            out.println("Current Time is: " + CT + "\n");
+        %>
     </div>
 
     <div class="row marketing">
