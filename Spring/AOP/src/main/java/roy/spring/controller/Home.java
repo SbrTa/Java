@@ -14,6 +14,12 @@ public class Home {
     @RequestMapping("/")
     public String inHome(){
         System.out.println("In home now.....");
+        return "home";
+    }
+
+    @RequestMapping("/tester")
+    public String tester(){
+        System.out.println("In tester now.....");
         kamla.doIt();
         return "home";
     }
