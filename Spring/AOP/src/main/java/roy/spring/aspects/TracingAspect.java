@@ -19,7 +19,7 @@ public class TracingAspect {
         System.out.println(joinPoint.getSignature().getName()+" method STARTED..");
     }
 
-    @After("execution(void doIt())")
+    @After("execution(* roy.spring.service.*.*(..))")
     public void exit(JoinPoint joinPoint){
         System.out.println(joinPoint.getSignature().getName()+" method ENDED..");
     }
