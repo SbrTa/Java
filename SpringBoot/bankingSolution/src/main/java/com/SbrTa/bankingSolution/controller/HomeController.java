@@ -1,7 +1,9 @@
 package com.SbrTa.bankingSolution.controller;
 
 
+import com.SbrTa.bankingSolution.dao.RoleDao;
 import com.SbrTa.bankingSolution.domain.User;
+import com.SbrTa.bankingSolution.domain.security.UserRole;
 import com.SbrTa.bankingSolution.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,10 +12,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.HashSet;
+import java.util.Set;
+
+
 @Controller
 public class HomeController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RoleDao roleDao;
+
 
     @RequestMapping("/")
     public String home(){
@@ -50,7 +60,9 @@ public class HomeController {
             return "signup";
         }
 
-        userService.save(user);
+        Set< UserRole > userRoles = new HashSet<>();
+        userRoles.add(new UserRole(user, roleDao.findByName("ROLE_USER")));
+        userService.createUser(user, userRoles);
         return "redirect:/";
     }
 
