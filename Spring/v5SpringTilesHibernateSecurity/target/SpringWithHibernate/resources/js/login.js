@@ -4,7 +4,7 @@ $(document).ready(function(){
 })
 
 function loginValidate() {
-   if($("#userName").val()==""){
+   if($("#userName").val()==null){
         $("#userName").focus();
         document.getElementById('userName').style.borderColor = "red";
         return false;
