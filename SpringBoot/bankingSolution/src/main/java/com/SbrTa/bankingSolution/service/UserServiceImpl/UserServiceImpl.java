@@ -16,16 +16,16 @@ public class UserServiceImpl implements UserService {
         dao.save(user);
     }
 
-    public User findByUserName(String userName){
-        return dao.findByUserName(userName);
+    public User findByUsername(String username){
+        return dao.findByUsername(username);
     }
 
     public User findByEmail(String email){
         return dao.findByEmail(email);
     }
 
-    public boolean checkUserNameExists(String userName){
-        if (findByUserName(userName)==null){
+    public boolean checkUsernameExists(String username){
+        if (findByUsername(username)==null){
             return false;
         }
         return true;
@@ -38,8 +38,8 @@ public class UserServiceImpl implements UserService {
         return true;
     }
 
-    public boolean checkUserExists(String userName, String email){
-        return (checkUserNameExists(userName) || checkEmailExists(email));
+    public boolean checkUserExists(String username, String email){
+        return (checkUsernameExists(username) || checkEmailExists(email));
     }
 
 

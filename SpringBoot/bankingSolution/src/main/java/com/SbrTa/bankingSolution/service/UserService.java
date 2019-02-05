@@ -5,10 +5,10 @@ import com.SbrTa.bankingSolution.domain.User;
 import javax.print.DocFlavor;
 
 public interface UserService {
-    User findByUserName(String userName);
+    User findByUsername(String username);
     User findByEmail(String email);
-    boolean checkUserNameExists(String userName);
+    boolean checkUsernameExists(String username);
     boolean checkEmailExists(String email);
-    boolean checkUserExists(String userName, String email);
+    boolean checkUserExists(String username, String email);
     void save(User user);
 }

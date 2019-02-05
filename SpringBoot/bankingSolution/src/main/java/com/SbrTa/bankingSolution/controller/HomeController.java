@@ -35,14 +35,14 @@ public class HomeController {
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String doSignUp(@ModelAttribute("user") User user, Model model){
         System.out.println(user);
-        if (userService.checkUserNameExists(user.getUserName())
+        if (userService.checkUsernameExists(user.getUsername())
                 && userService.checkEmailExists(user.getEmail())){
-            model.addAttribute("userNameExists",true);
+            model.addAttribute("usernameExists",true);
             model.addAttribute("emailExists",true);
             return "signup";
         }
-        if(userService.checkUserNameExists(user.getUserName())){
-            model.addAttribute("userNameExists",true);
+        if(userService.checkUsernameExists(user.getUsername())){
+            model.addAttribute("usernameExists",true);
             return "signup";
         }
         if (userService.checkEmailExists(user.getEmail())){
@@ -52,5 +52,10 @@ public class HomeController {
 
         userService.save(user);
         return "redirect:/";
+    }
+
+    @RequestMapping("/userFront")
+    public String userFront(){
+        return "userFront";
     }
 }
