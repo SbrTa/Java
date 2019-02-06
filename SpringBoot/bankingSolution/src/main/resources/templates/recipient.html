@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-6">
             <h3>Recipient Information</h3>
-            <form th:action="@{/transfer/recipient/save}" method="post">
+            <form th:action="@{/transfer/recipient/save}" method="post" onsubmit="return Validation()">
                 <input type="hidden" name="id" th:value="${recipient.id}" />
 
                 <div class="form-group">
@@ -81,4 +81,44 @@
 <div th:replace="common/header :: body-bottom-scripts"/>
 
 </body>
+
+<script>
+    function Validation() {
+        var value;
+        value = $("#recipientName").val();
+        if (value==null || value==""){
+            $("#recipientName").focus();
+            document.getElementById("recipientName").style.borderColor="red";
+            return false;
+        }
+        value = $("#recipientEmail").val();
+        if (value==null || value==""){
+            $("#recipientEmail").focus();
+            document.getElementById("recipientEmail").style.borderColor="red";
+            return false;
+        }
+        value = $("#recipientPhone").val();
+        if (value==null || value==""){
+            $("#recipientPhone").focus();
+            document.getElementById("recipientPhone").style.borderColor="red";
+            return false;
+        }
+        value = $("#recipientAccountNumber").val();
+        if (value==null || value==""){
+            $("#recipientAccountNumber").focus();
+            document.getElementById("recipientAccountNumber").style.borderColor="red";
+            return false;
+        }
+        value = $("#recipientDescription").val();
+        if (value==null || value==""){
+            $("#recipientDescription").focus();
+            document.getElementById("recipientDescription").style.borderColor="red";
+            return false;
+        }
+
+
+
+    }
+
+</script>
 </html>
