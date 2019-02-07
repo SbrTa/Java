@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class TransferController {
         model.addAttribute("transferFrom","");
         model.addAttribute("transferTo","");
         model.addAttribute("amount","");
+        model.addAttribute("error","");
         return "betweenAccounts";
     }
 
@@ -41,8 +43,18 @@ public class TransferController {
             @ModelAttribute("transferFrom") String transferFrom,
             @ModelAttribute("transferTo") String transferTo,
             @ModelAttribute("amount") String amount,
-            Principal principal) throws Exception {
+            Principal principal, Model model) throws Exception {
         User user = userService.findByUsername(principal.getName());
+
+        if ((transferFrom.equalsIgnoreCase("primary") && user.getPrimaryAccount().getAccountBalance().compareTo(new BigDecimal(amount))<0) ||
+                (transferFrom.equalsIgnoreCase("savings") && user.getSavingsAccount().getAccountBalance().compareTo(new BigDecimal(amount))<0)){
+            model.addAttribute("transferFrom",transferFrom);
+            model.addAttribute("transferTo",transferTo);
+            model.addAttribute("amount",amount);
+            model.addAttribute("error","Insufficient fund.");
+            return "betweenAccounts";
+        }
+
         PrimaryAccount primaryAccount = user.getPrimaryAccount();
         SavingsAccount savingsAccount = user.getSavingsAccount();
         transactionService.transferBetweenAccounts(transferFrom, transferTo, amount, primaryAccount, savingsAccount);
@@ -91,6 +103,7 @@ public class TransferController {
         List<Recipient> recipientList = transactionService.findRecipientList(principal);
         model.addAttribute("recipientList",recipientList);
         model.addAttribute("accountType","");
+        model.addAttribute("error","");
         return "toSomeoneElse";
     }
 
@@ -98,8 +111,18 @@ public class TransferController {
     public String doTransferToSomeoneElse(@ModelAttribute("recipientName") String recipientName,
                                           @ModelAttribute("accountType") String accountType,
                                           @ModelAttribute("amount") String amount,
-                                          Principal principal){
+                                          Principal principal, Model model){
         User user = userService.findByUsername(principal.getName());
+
+        if ((accountType.equalsIgnoreCase("primary") && user.getPrimaryAccount().getAccountBalance().compareTo(new BigDecimal(amount))<0) ||
+            (accountType.equalsIgnoreCase("savings") && user.getSavingsAccount().getAccountBalance().compareTo(new BigDecimal(amount))<0)){
+            List<Recipient> recipientList = transactionService.findRecipientList(principal);
+            model.addAttribute("recipientList",recipientList);
+            model.addAttribute("amount",amount);
+            model.addAttribute("error","Insufficient fund.");
+            return "toSomeoneElse";
+        }
+
         Recipient recipient = transactionService.findRecipientByName(recipientName);
         transactionService.transferToSomeoneElse(recipient, accountType, amount,
                 user.getPrimaryAccount(), user.getSavingsAccount());
