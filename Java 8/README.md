@@ -5,6 +5,8 @@
   - Predefined Functional Interfaces
     - Predicates
     - Functions
+    - Supplier
+    - Consumer
   - Double Colon Operator (Constructor and Method Reference)
   - Stream API
   - Date and Time API (Joda Time API)
