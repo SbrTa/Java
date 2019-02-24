@@ -16,11 +16,11 @@ public class Stream01EvenOddList {
         System.out.println("\nGENERAL APPROACH : TILL 1.7");
         List<Integer> odd = new ArrayList<>();
         List<Integer> even = new ArrayList<>();
-        for(int i=0;i<numbers.size();i++){
-            if(numbers.get(i)%2==0){
-                even.add(numbers.get(i));
+        for(Integer i : numbers){
+            if(i%2==0){
+                even.add(i);
             }else {
-                odd.add(numbers.get(i));
+                odd.add(i);
             }
         }
         System.out.println("EVEN -> "+even);
