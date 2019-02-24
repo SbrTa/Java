@@ -1,3 +1,4 @@
+package Lambda;
 
 @FunctionalInterface
 interface Abc{
