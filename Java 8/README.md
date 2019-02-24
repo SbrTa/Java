@@ -13,4 +13,13 @@
 
 
 # Lambda Expression
-  Came into picture to enable functonal programming in java. Lambda Expression is just an annonymus function. Lambda's can be also be classified as a clouser. Functional Interface is the must have requirement to invoke Lambda expression. 
+  - Came into picture to enable functonal programming in java.
+  - Lambda Expression is just an annonymus function.
+  - Lambda's can be also be classified as a clouser. 
+  - Functional Interface is the must have requirement to invoke Lambda expression. 
+
+
+# Stream API
+  - The main purpose of stream is to process elements present inside collection. 
+  - Best suited to perform bulk operation on the collection. 
+  - stream() is a default method present on the collection interface.
