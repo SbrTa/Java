@@ -22,4 +22,10 @@
 # Stream API
   - The main purpose of stream is to process elements present inside collection. 
   - Best suited to perform bulk operation on the collection. 
-  - stream() is a default method present on the collection interface.
+  - stream() method is a default method present on the collection interface.
+  
+  # Example:
+  **Filter** - ```numbers.stream().filter(i->i%2==1).collect(Collectors.toList());```
+  **Map** - ```numbers.stream().map(i->i*n).collect(Collectors.toList());```
+  
+  
