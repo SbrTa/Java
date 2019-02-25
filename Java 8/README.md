@@ -24,8 +24,9 @@
   - Best suited to perform bulk operation on the collection. 
   - stream() method is a default method present on the collection interface.
   
-  # Example:
+  ## Example:
   **Filter** - ```numbers.stream().filter(i->i%2==1).collect(Collectors.toList());```
+  
   **Map** - ```numbers.stream().map(i->i*n).collect(Collectors.toList());```
   
   
