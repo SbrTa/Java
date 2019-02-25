@@ -28,8 +28,16 @@
   
   ```numbers = [1,2,3,4,5,6,7,8,9,10]```
   
-  **Filter** - ```numbers.stream().filter(i->i%2==1).collect(Collectors.toList());```
+  **Filter**: Filter only odd numbers -
+  ```numbers.stream().filter(i->i%2==1).collect(Collectors.toList());```
   
-  **Map** - ```numbers.stream().map(i->i*n).collect(Collectors.toList());```
+  **Map**: Multiply all numbers by n - 
+  ```numbers.stream().map(i->i*n).collect(Collectors.toList());```
+  
+  **Filter + Map**: multiply all odd numbers by n -
+  ```numbers.stream().filter(i->i%2==1).map(i->i*n).collect(Collectors.toList());```
+  
+  
+  
   
   
