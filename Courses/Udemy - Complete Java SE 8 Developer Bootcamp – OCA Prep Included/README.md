@@ -10,3 +10,6 @@
         System.out.println(square(3));
    }
 ```
+   Here, n in ```square(int n)``` is called **parameter** or formal parameter and 3 in ```square(3)``` is called **argument** or actual parameter.
+   
+   
