@@ -7,7 +7,23 @@
           .read("$.data[?(@.category_name == '"+request.getCategoryCode()+"')]"+
           ".data[*].['utility_code','utility_value','utility_image']")
 ```
+## Sample Query 1 output
 
+
+```
+    [
+        {
+            "utility_code": "BGDCL",
+            "utility_value": "BGDCL",
+            "utility_image": "http://api.sslwireless.com/uploads/utility_logo/bgdcl.png"
+        },
+        {
+            "utility_code": "DESCO",
+            "utility_value": "DESCO",
+            "utility_image": "http://api.sslwireless.com/uploads/utility_logo/desco.png"
+        }
+    ]
+```
 
 ## Sample Query 2
 ```
