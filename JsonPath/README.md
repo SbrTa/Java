@@ -10,3 +10,5 @@ JsonPath is available at the Central Maven Repository.
     <version>2.4.0</version>
   </dependency>
 ```
+
+Official documentation: https://github.com/json-path/JsonPath
