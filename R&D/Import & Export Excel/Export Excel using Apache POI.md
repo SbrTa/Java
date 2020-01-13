@@ -1,48 +1,3 @@
-### Sample Controller
-```
-@RestController
-@RequestMapping("${v1.api.prefix}")
-@Api(tags = "Export", value = "Export")
-public class DataExportControllerTestPurpose {
-    @Autowired
-    DataExportService dataExportService;
-    @ApiOperation(
-            value = "Excel",
-            httpMethod = "GET"
-    )
-
-    @GetMapping("/download/excel")
-    public void downloadExcel(HttpServletResponse response) {
-        List<Student> students = new ArrayList<>();
-        for (int i=1; i<=10; i++){
-            Student student = new Student();
-            student.setId(i);
-            student.setName("Name-"+i);
-            student.setDept("Dept-"+i);
-            student.setShift("Shift-"+i);
-            student.setDue(10*1.123*i);
-            student.setActive(true);
-            student.setBd(new BigDecimal("123456789.123456789"));
-            if (i==5) {
-                student.setName(null);
-                student.setDue(null);
-            }
-            students.add(student);
-        }
-
-        List<ExcelColumnDetails> columns = new ArrayList<>();
-        columns.add(new ExcelColumnDetails("id","ID"));
-        columns.add(new ExcelColumnDetails("name","Student Name"));
-        columns.add(new ExcelColumnDetails("dept","Department"));
-        columns.add(new ExcelColumnDetails("shift","Shift"));
-        columns.add(new ExcelColumnDetails("due","Due"));
-        columns.add(new ExcelColumnDetails("bd","BD"));
-
-        dataExportService.exportAsExcel(response,"report",columns,students);
-    }
-}
-```
-
 
 ### DataExportService
 ```
@@ -98,5 +53,73 @@ public class DataExportService {
             e.printStackTrace();
         }
     }
+}
+```
+
+### Sample Controller
+```
+@RestController
+public class DataExportControllerTestPurpose {
+    @Autowired
+    DataExportService dataExportService;
+   
+    @GetMapping("/download/excel")
+    public void downloadExcel(HttpServletResponse response) {
+        List<Student> students = new ArrayList<>();
+        for (int i=1; i<=10; i++){
+            Student student = new Student();
+            student.setId(i);
+            student.setName("Name-"+i);
+            student.setDept("Dept-"+i);
+            student.setShift("Shift-"+i);
+            student.setDue(10*1.123*i);
+            student.setActive(true);
+            student.setBd(new BigDecimal("123456789.123456789"));
+            if (i==5) {
+                student.setName(null);
+                student.setDue(null);
+            }
+            students.add(student);
+        }
+
+        List<ExcelColumnDetails> columns = new ArrayList<>();
+        columns.add(new ExcelColumnDetails("id","ID"));
+        columns.add(new ExcelColumnDetails("name","Student Name"));
+        columns.add(new ExcelColumnDetails("dept","Department"));
+        columns.add(new ExcelColumnDetails("shift","Shift"));
+        columns.add(new ExcelColumnDetails("due","Due"));
+        columns.add(new ExcelColumnDetails("bd","BD"));
+
+        dataExportService.exportAsExcel(response,"report",columns,students);
+    }
+}
+```
+
+### Student Class
+```
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Student implements Serializable {
+    private int id;
+    private String name;
+    private String dept;
+    private String shift;
+    private Double due;
+    private boolean isActive;
+    private BigDecimal bd;
+}
+```
+
+### ExcelColumnDetails Class
+```
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class ExcelColumnDetails implements Serializable {
+    private String parameter;
+    private String header;
 }
 ```
