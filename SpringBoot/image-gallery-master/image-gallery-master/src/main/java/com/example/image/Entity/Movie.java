@@ -1,4 +1,4 @@
-package com.example.image;
+package com.example.image.Entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,16 +10,12 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @Entity
-public class Image {
-	
-	@Id
-	@GeneratedValue
-	private Long id;
-	
-	private String name;
+public class Movie{
+    @Id
+    @GeneratedValue
+    private Long id;
 
-
-	public Image(String name) {
-		this.name = name;
-	}
+    private String movieName;
+    private String moviePath;
+    private String type;
 }

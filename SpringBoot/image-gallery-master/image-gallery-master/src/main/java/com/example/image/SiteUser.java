@@ -1,6 +1,7 @@
 package com.example.image;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
@@ -13,6 +14,7 @@ import javax.persistence.OneToMany;
 
 
 @Data
+@NoArgsConstructor
 @Entity
 public class SiteUser {
 
