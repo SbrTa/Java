@@ -1,7 +1,8 @@
-package com.example.image.Entity;
+package com.example.image.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,8 @@ public class Movie{
     @GeneratedValue
     private Long id;
 
-    private String movieName;
-    private String moviePath;
+    private String name;
+    @Type(type="text")
+    private String logo;
     private String type;
 }

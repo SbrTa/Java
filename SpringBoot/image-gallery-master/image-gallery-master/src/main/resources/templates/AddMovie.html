@@ -27,7 +27,7 @@ div.gallery img {
 
 
 	<div>
-		<form method="POST" enctype="multipart/form-data" action="/movie/add">
+		<form method="POST" enctype="multipart/form-data" action="/app/movie">
 			<table>
 				<tr>
 					<td>File to upload:</td>
@@ -45,22 +45,20 @@ div.gallery img {
 		</form>
 	</div>
 
-	<!--<div th:each="file : ${files}">
+	<div th:each="movie : ${movies}">
 		<div class="gallery">
-			<a target="_blank" th:href="${file}"> <img th:src="${file}"
-				height="200" />
-			</a>
+			<img th:src="${movie.getLogo()}" height="200"/>
 			<div>
-				<form action="/delete" method="POST">
+				<form action="/app/movie/remove" method="POST">
 					<table>
-						<input type="text" th:value="*{file}" name="text" readonly="true" />
-						&lt;!&ndash;<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />&ndash;&gt;
-						<td><input type="submit" value="Delete" /></td>
+						<input th:type="hidden" type="text" th:value="${movie.getId()}" name="id" />
+						<label th:value="${movie.getName()}"></label>
+						<td><input type="submit" value="Remove" /></td>
 					</table>
 				</form>
 			</div>
 		</div>
-	</div>-->
+	</div>
 
 </body>
 </html>

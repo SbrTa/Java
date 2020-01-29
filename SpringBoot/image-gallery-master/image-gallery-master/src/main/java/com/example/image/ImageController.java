@@ -37,7 +37,7 @@ public class ImageController {
 		this.imageRepository = imageRepository;
 	}
 
-	@GetMapping("/dummy")
+	@GetMapping("/")
 	public String listUploadedFiles(Model model, Principal principal) throws Exception {
 
 		if (principal == null) {
@@ -96,7 +96,7 @@ public class ImageController {
 
 	@GetMapping("/find")
 	public String findPhotos(Model model) {
-		return "AddMovie";
+		return "findphoto";
 	}
 	
 	@GetMapping("/search")

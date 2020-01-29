@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    @GetMapping("/")
+    @GetMapping("/app")
     public String index(){
-        return "AddMovie";
+        return "redirect:/app/movie";
     }
 }

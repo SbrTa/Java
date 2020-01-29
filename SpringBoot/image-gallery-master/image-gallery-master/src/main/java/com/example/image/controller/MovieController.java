@@ -1,37 +1,39 @@
 package com.example.image.controller;
 
-import com.example.image.Entity.Movie;
-import com.example.image.Repository.MovieRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.image.service.MovieService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.nio.file.Path;
-import java.util.UUID;
+import java.io.IOException;
 
 @Controller
+@RequestMapping("/app")
 public class MovieController {
-    private Path rootLocation;
-    private MovieRepository movieRepository;
+    private MovieService movieService;
 
-    public MovieController(Path rootLocation, MovieRepository movieRepository) {
-        this.rootLocation = rootLocation;
-        this.movieRepository = movieRepository;
+    public MovieController(MovieService movieService) {
+        this.movieService = movieService;
     }
 
-    @PostMapping("/movie/add")
-    public String addMovie(@RequestParam("file") MultipartFile image,
-                            @RequestParam("name") String name, RedirectAttributes redirectAttributes){
-        String uuid = UUID.randomUUID().toString();
-        String imagePath = this.rootLocation.resolve(uuid + image.getOriginalFilename()).toString();
-
-        Movie movie = new Movie();
-        movie.setMovieName(name);
-        movie.setMoviePath(imagePath);
-        movieRepository.save(movie);
-        return "redirect:/";
+    @GetMapping("/movie")
+    public String getMovie(Model model) {
+        model.addAttribute("movies", movieService.getAllMovieLogos());
+        return "AddMovie";
     }
+
+    @PostMapping("/movie")
+    public String addMovie(@RequestParam("file") MultipartFile logo,
+                           @RequestParam("name") String name) throws IOException {
+        movieService.saveMovie(name,logo);
+        return "redirect:/app/movie";
+    }
+
+    @PostMapping("/movie/remove")
+    public String removeMovie(@RequestParam("id") Long id)  {
+        movieService.removeMovie(id);
+        return "redirect:/app/movie";
+    }
+
 }
