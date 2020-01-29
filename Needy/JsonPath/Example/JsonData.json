@@ -1,0 +1,428 @@
+{
+    "status": "success",
+    "data": [
+        {
+            "category_name": "Utility",
+            "category_value": "Utility Service",
+            "category_image": "http://api.sslwireless.com/uploads/category_logo/utility.png",
+            "data": [
+                {
+                    "utility_code": "BGDCL",
+                    "utility_value": "BGDCL",
+                    "utility_image": "http://api.sslwireless.com/uploads/utility_logo/bgdcl.png",
+                    "data": [
+                        {
+                            "utility_bill_type": "NON-METERED",
+                            "utility_auth_key": "BG15650661022290",
+                            "utility_secret_key": "DVBODGYa3fJuKZm5",
+                            "bill_payment": {
+                                "action_url": "http://api.sslwireless.com/api/bill-payment",
+                                "request_parameter": [
+                                    {
+                                        "name": "mobileNo",
+                                        "type": "text",
+                                        "required": "required",
+                                        "data_type": "text",
+                                        "min": null,
+                                        "max": null,
+                                        "level": "mobileNo"
+                                    },
+                                    {
+                                        "name": "bankName",
+                                        "type": "text",
+                                        "required": "required",
+                                        "data_type": "text",
+                                        "min": null,
+                                        "max": null,
+                                        "level": "bankName"
+                                    }
+                                ]
+                            },
+                            "bill_cancel": {
+                                "action_url": "http://api.sslwireless.com/api/bill-cancel",
+                                "request_parameter": null
+                            }
+                        },
+                        {
+                            "utility_bill_type": "DEMAND-NOTE",
+                            "utility_auth_key": "BG15650660381148",
+                            "utility_secret_key": "mfOxzaTBWl0pM8wC",
+                            "bill_payment": {
+                                "action_url": "http://api.sslwireless.com/api/bill-payment",
+                                "request_parameter": [
+                                    {
+                                        "name": "custCode",
+                                        "type": "text",
+                                        "required": "required",
+                                        "data_type": "text",
+                                        "min": null,
+                                        "max": null,
+                                        "level": "custCode"
+                                    },
+                                    {
+                                        "name": "mobileNo",
+                                        "type": "text",
+                                        "required": "required",
+                                        "data_type": "text",
+                                        "min": null,
+                                        "max": null,
+                                        "level": "mobileNo"
+                                    }
+                                ]
+                            },
+                            "bill_cancel": {
+                                "action_url": "http://api.sslwireless.com/api/bill-cancel",
+                                "request_parameter": null
+                            }
+                        },
+                        {
+                            "utility_bill_type": "METERED",
+                            "utility_auth_key": "BG15650909253030",
+                            "utility_secret_key": "xdtDeg65HgUjA6SZ",
+                            "bill_payment": {
+                                "action_url": "http://api.sslwireless.com/api/bill-payment",
+                                "request_parameter": [
+                                    {
+                                        "name": "mobileNo",
+                                        "type": "text",
+                                        "required": "required",
+                                        "data_type": "text",
+                                        "min": null,
+                                        "max": null,
+                                        "level": "Mobile Number"
+                                    },
+                                    {
+                                        "name": "bankName",
+                                        "type": "text",
+                                        "required": "required",
+                                        "data_type": "text",
+                                        "min": null,
+                                        "max": null,
+                                        "level": "Bank Name"
+                                    }
+                                ]
+                            },
+                            "bill_cancel": {
+                                "action_url": "http://api.sslwireless.com/api/bill-cancel",
+                                "request_parameter": null
+                            },
+                            "bill_status": {
+                                "action_url": "http://api.sslwireless.com/api/bill-status",
+                                "request_parameter": null
+                            }
+                        },
+                        {
+                            "utility_bill_type": "NON-METERED",
+                            "utility_auth_key": "BG15650661022290",
+                            "utility_secret_key": "DVBODGYa3fJuKZm5",
+                            "bill_status": {
+                                "action_url": "http://api.sslwireless.com/api/bill-status",
+                                "request_parameter": null
+                            }
+                        },
+                        {
+                            "utility_bill_type": "DEMAND-NOTE",
+                            "utility_auth_key": "BG15650660381148",
+                            "utility_secret_key": "mfOxzaTBWl0pM8wC",
+                            "bill_status": {
+                                "action_url": "http://api.sslwireless.com/api/bill-status",
+                                "request_parameter": null
+                            }
+                        }
+                    ]
+                },
+                {
+                    "utility_code": "DESCO",
+                    "utility_value": "DESCO",
+                    "utility_image": "http://api.sslwireless.com/uploads/utility_logo/desco.png",
+                    "data": [
+                        {
+                            "utility_bill_type": "Bill",
+                            "utility_auth_key": "DE15174600689427",
+                            "utility_secret_key": "fYg9kr9XZDyAENuF",
+                            "bill_payment": {
+                                "action_url": "http://api.sslwireless.com/api/bill-payment",
+                                "request_parameter": [
+                                    {
+                                        "name": "transaction_id",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "16",
+                                        "max": "50",
+                                        "sequence": "1",
+                                        "level": "Transaction ID"
+                                    },
+                                    {
+                                        "name": "remarks",
+                                        "type": "text",
+                                        "required": "optional",
+                                        "data_type": "text",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": "2",
+                                        "level": "Remarks"
+                                    }
+                                ]
+                            },
+                            "bill_cancel": {
+                                "action_url": "http://api.sslwireless.com/api/bill-cancel",
+                                "request_parameter": [
+                                    {
+                                        "name": "transaction_id",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "16",
+                                        "max": "50",
+                                        "sequence": "1",
+                                        "level": "Transaction ID"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "category_name": "Topup",
+            "category_value": "Mobile Operators",
+            "category_image": "http://api.sslwireless.com/uploads/category_logo/topup.png",
+            "data": [
+                {
+                    "utility_code": "VR",
+                    "utility_value": "Grameenphone",
+                    "utility_image": "http://api.sslwireless.com/uploads/utility_logo/vr.png",
+                    "data": [
+                        {
+                            "utility_bill_type": "Grameenphone",
+                            "utility_auth_key": "VR15208384253881",
+                            "utility_secret_key": "zKDSu0MJ2qWcRiI8",
+                            "bill_payment": {
+                                "action_url": "http://api.sslwireless.com/api/bill-payment",
+                                "request_parameter": [
+                                    {
+                                        "name": "transaction_id",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "16",
+                                        "max": "50",
+                                        "sequence": "1",
+                                        "level": "Transaction ID"
+                                    },
+                                    {
+                                        "name": "utility_auth_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 2,
+                                        "level": "Utility Auth Key"
+                                    },
+                                    {
+                                        "name": "utility_secret_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 3,
+                                        "level": "Utility Secret Key"
+                                    }
+                                ]
+                            },
+                            "bill_cancel": {
+                                "action_url": "http://api.sslwireless.com/api/bill-cancel",
+                                "request_parameter": [
+                                    {
+                                        "name": "transaction_id",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "text",
+                                        "min": "16",
+                                        "max": "50",
+                                        "sequence": "1",
+                                        "level": "Transaction ID"
+                                    },
+                                    {
+                                        "name": "utility_auth_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 2,
+                                        "level": "Utility Auth Key"
+                                    },
+                                    {
+                                        "name": "utility_secret_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 3,
+                                        "level": "Utility Secret Key"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "utility_bill_type": "Robi",
+                            "utility_auth_key": "VR15310354922071",
+                            "utility_secret_key": "fXJ0gotvoVHnyY3M",
+                            "bill_payment": {
+                                "action_url": "http://api.sslwireless.com/api/bill-payment",
+                                "request_parameter": [
+                                    {
+                                        "name": "transaction_id",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "16",
+                                        "max": "50",
+                                        "sequence": "1",
+                                        "level": "Transaction ID"
+                                    },
+                                    {
+                                        "name": "utility_auth_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 2,
+                                        "level": "Utility Auth Key"
+                                    },
+                                    {
+                                        "name": "utility_secret_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 3,
+                                        "level": "Utility Secret Key"
+                                    }
+                                ]
+                            },
+                            "bill_cancel": {
+                                "action_url": "http://api.sslwireless.com/api/bill-cancel",
+                                "request_parameter": [
+                                    {
+                                        "name": "transaction_id",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "16",
+                                        "max": "50",
+                                        "sequence": "1",
+                                        "level": "Transaction ID"
+                                    },
+                                    {
+                                        "name": "utility_auth_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 2,
+                                        "level": "Utility Auth Key"
+                                    },
+                                    {
+                                        "name": "utility_secret_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 3,
+                                        "level": "Utility Secret Key"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "utility_bill_type": "TeleTalk",
+                            "utility_auth_key": "VR15310355096848",
+                            "utility_secret_key": "szbrpaBFunmpNBZ0",
+                            "bill_payment": {
+                                "action_url": "http://api.sslwireless.com/api/bill-payment",
+                                "request_parameter": [
+                                    {
+                                        "name": "transaction_id",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "16",
+                                        "max": "50",
+                                        "sequence": "1",
+                                        "level": "Transaction ID"
+                                    },
+                                    {
+                                        "name": "utility_auth_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 2,
+                                        "level": "Utility Auth Key"
+                                    },
+                                    {
+                                        "name": "utility_secret_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 3,
+                                        "level": "Utility Secret Key"
+                                    }
+                                ]
+                            },
+                            "bill_cancel": {
+                                "action_url": "http://api.sslwireless.com/api/bill-cancel",
+                                "request_parameter": [
+                                    {
+                                        "name": "transaction_id",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "16",
+                                        "max": "50",
+                                        "sequence": "1",
+                                        "level": "Transaction ID"
+                                    },
+                                    {
+                                        "name": "utility_auth_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 2,
+                                        "level": "Utility Auth Key"
+                                    },
+                                    {
+                                        "name": "utility_secret_key",
+                                        "type": "hidden",
+                                        "required": "required",
+                                        "data_type": "alphanumeric",
+                                        "min": "1",
+                                        "max": "50",
+                                        "sequence": 3,
+                                        "level": "Utility Secret Key"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
