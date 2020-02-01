@@ -15,10 +15,12 @@ public class UserChoiceService extends BaseService{
 
     public void saveUserChoice(int talkativeLevel, int findFaultLevel, int thoroughJobLevel, int depressionLevel) {
         UserChoice userChoice = new UserChoice();
+        userChoice.setUserId(getCurrentUser().getId());
         userChoice.setTalkativeLevel(talkativeLevel);
         userChoice.setFindFaultLevel(findFaultLevel);
         userChoice.setThoroughJobLevel(thoroughJobLevel);
         userChoice.setDepressionLevel(depressionLevel);
-        userChoiceRepository.save(userChoice);
+        UserChoice choice = userChoiceRepository.save(userChoice);
+        System.out.println(choice);
     }
 }

@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="/css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="/css/style.css"/>
+	<link rel="stylesheet" href="/css/style2.css"/>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,12 +32,12 @@
 			<!-- fieldsets -->
 			<fieldset>
 				<h2 class="fs-title">Movie Gallery</h2>
-				<h3 class="fs-subtitle">Please select movies you want to rate.</h3>
+				<h3 class="fs-subtitle">Please select movies you want to rate. (Minimum 5 movies and Maximum 20 movies)</h3>
 
 				<form action="/app/movie/gallery" method="POST">
 					<div class="movie-items">
 						<div th:each="movie : ${movies}">
-							<label class="itemCheckBox">
+							<label class="itemCheckBox movie-items-each">
 								<input name="selectedMovie" th:value="${movie.getId()}" type="checkbox" class="checkboxInput"/>
 								<span class="item-wap">
                             		<img th:src="${movie.getLogo()}" alt="" class="img-responsive"/>
@@ -49,7 +50,7 @@
 					</div>
 					<div class="clearfix"></div>
 					<!--<input type="button" name="previous" class="previous action-button-previous" value="Previous" />-->
-					<input type="submit" class="next action-button"/>
+					<input id="btnSubmitMovies" type="submit" class="next action-button" value="next"/>
 				</form>
 			</fieldset>
 		</div>
@@ -67,14 +68,21 @@
 <script>
     $(document).ready(function() {
 
+        $("#btnSubmitMovies").attr("disabled", true);
         var checkboxes = $('.itemCheckBox input[type="checkbox"]');
 
-        var limit = 5;
+        var min = 1;
+        var max = 20;
+
         $(checkboxes).on('change', function(evt) {
-            //console.log($('.checkboxInput:checked').length);
-            if ($('.checkboxInput:checked').length >= limit) {
+
+
+
+            if ($('.checkboxInput:checked').length >= min) {
+                $("#btnSubmitMovies").attr("disabled", false);
+            }
+            if ($('.checkboxInput:checked').length > max) {
                 this.checked = false;
-                alert('allowed only 5');
             }
         });
 

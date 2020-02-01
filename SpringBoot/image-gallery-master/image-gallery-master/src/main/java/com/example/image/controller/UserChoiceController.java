@@ -26,7 +26,7 @@ public class UserChoiceController {
                              @RequestParam("findFaultLevel") int findFaultLevel,
                              @RequestParam("thoroughJobLevel") int thoroughJobLevel,
                              @RequestParam("depressionLevel") int depressionLevel)  {
-        userChoiceService.saveUserChoice(talkativeLevel,thoroughJobLevel,thoroughJobLevel,depressionLevel);
+        userChoiceService.saveUserChoice(talkativeLevel,findFaultLevel,thoroughJobLevel,depressionLevel);
         return "redirect:/app/movie/gallery";
     }
 }

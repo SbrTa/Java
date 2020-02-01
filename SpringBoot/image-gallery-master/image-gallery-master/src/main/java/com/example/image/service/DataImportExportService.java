@@ -1,17 +1,22 @@
 package com.example.image.service;
 
 import com.example.image.model.ExcelColumnDetails;
+import com.example.image.model.MovieSourceModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -24,12 +29,12 @@ import java.util.Map;
 @Service
 public class DataImportExportService {
 
-
-    private static final String FILE_NAME = "classpath:MovieGallery.xlsx";
-
-    public void readFromExcel() {
+    public List<MovieSourceModel> readFromExcel() {
+        List<MovieSourceModel> movieSources = new ArrayList<>();
         try {
-            FileInputStream excelFile = new FileInputStream(new File(FILE_NAME));
+            File file = ResourceUtils.getFile("classpath:MovieList.xlsx");
+
+            FileInputStream excelFile = new FileInputStream(file);
             XSSFWorkbook workbook = new XSSFWorkbook(excelFile);
             Sheet datatypeSheet = workbook.getSheetAt(0);
             Iterator<Row> iterator = datatypeSheet.iterator();
@@ -38,28 +43,27 @@ public class DataImportExportService {
 
                 Row currentRow = iterator.next();
                 Iterator<Cell> cellIterator = currentRow.iterator();
-
+                MovieSourceModel movieSourceModel = new MovieSourceModel();
+                boolean i = true;
                 while (cellIterator.hasNext()) {
-
                     Cell currentCell = cellIterator.next();
-                    //getCellTypeEnum shown as deprecated for version 3.15
-                    //getCellTypeEnum ill be renamed to getCellType starting from version 4.0
-                    if (currentCell.getCellTypeEnum() == CellType.STRING) {
-                        System.out.print(currentCell.getStringCellValue() + "--");
-                    } else if (currentCell.getCellTypeEnum() == CellType.NUMERIC) {
-                        System.out.print(currentCell.getNumericCellValue() + "--");
+                    if (i){
+                        movieSourceModel.setName(currentCell.getStringCellValue());
+                    }else {
+                        movieSourceModel.setPath(currentCell.getStringCellValue());
                     }
-
+                    i=false;
                 }
-                System.out.println();
-
+                if (movieSourceModel.getName()!=null && movieSourceModel.getPath()!=null){
+                    movieSources.add(movieSourceModel);
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return movieSources;
     }
 
 

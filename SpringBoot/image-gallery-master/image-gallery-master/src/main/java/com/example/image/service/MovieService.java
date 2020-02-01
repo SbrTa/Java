@@ -1,29 +1,38 @@
 package com.example.image.service;
 
+import com.example.image.entity.RateRatingSystem;
+import com.example.image.enums.RatingSystem;
 import com.example.image.entity.Movie;
-import com.example.image.model.ExcelColumnDetails;
+import com.example.image.entity.Rating;
+import com.example.image.model.MovieSourceModel;
+import com.example.image.model.MovieToRate;
 import com.example.image.repository.MovieRepository;
+import com.example.image.repository.RateRatingSystemRepository;
+import com.example.image.repository.RatingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
-public class MovieService extends BaseService{
+public class MovieService extends BaseService {
 
+    @Autowired
     private MovieRepository movieRepository;
+    @Autowired
     private DataImportExportService dataExportService;
-
-    public MovieService(MovieRepository movieRepository, DataImportExportService dataExportService) {
-        this.movieRepository = movieRepository;
-        this.dataExportService = dataExportService;
-    }
+    @Autowired
+    private RatingRepository ratingRepository;
+    @Autowired
+    private RateRatingSystemRepository rateRatingSystemRepository;
 
     public void saveMovie(String name, MultipartFile logo) throws IOException {
         Movie movie = new Movie();
@@ -36,32 +45,126 @@ public class MovieService extends BaseService{
         movieRepository.delete(id);
     }
 
-    public List<Movie> getAllMovies(){
+    public List<Movie> getAllMovies() {
         List<Movie> movies = movieRepository.findAll();
         return movies;
     }
 
-    public void exportMoviesToExcel(HttpServletResponse response){
-        List<Movie> movies = this.getAllMovies();
-        List<ExcelColumnDetails> columns = new ArrayList<>();
-        columns.add(new ExcelColumnDetails("name", "name"));
-        columns.add(new ExcelColumnDetails("logo", "logo"));
-        dataExportService.exportAsExcel(response,"MovieData",columns,movies);
+    public void importMoviesFromExcel() throws IOException {
+        List<MovieSourceModel> movieSources = dataExportService.readFromExcel();
+        movieSources.remove(0);
+        for (MovieSourceModel model : movieSources) {
+            this.addMovieFromResource(model);
+        }
     }
 
-    public void importMoviesFromExcel(){
-        dataExportService.readFromExcel();
-    }
-
-    public void addMovieFromResource() throws IOException {
-        Resource resource = new ClassPathResource("posters/react-square.png");
+    private void addMovieFromResource(MovieSourceModel model) throws IOException {
+        Resource resource = new ClassPathResource("posters/" + model.getPath());
         InputStream input = resource.getInputStream();
-
         Movie movie = new Movie();
-        movie.setName("android.png");
+        movie.setName(model.getName());
         movie.setLogo(this.convertInputStreamToBase64Img(input));
         movieRepository.save(movie);
+    }
+
+    public void addSelectedMovies(List<Long> selectedIds) {
+        List<Movie> movies = movieRepository.findAll();
+        List<Movie> selected = new ArrayList<>();
+        for (Movie movie : movies) {
+            for (Long id : selectedIds) {
+                if (movie.getId().equals(id)) {
+                    selected.add(movie);
+                }
+            }
+        }
+
+        List<Rating> prevRatings = ratingRepository.findAllByUserId(getCurrentUser().getId());
+
+        for (Rating rating : prevRatings) {
+            ratingRepository.delete(rating);
+        }
+
+        Long serial = 1L;
+        for (Movie movie : selected) {
+            for (RatingSystem system : RatingSystem.values()) {
+                Rating rating = new Rating();
+                rating.setUserId(getCurrentUser().getId());
+                rating.setMovieId(movie.getId());
+                rating.setRatingSystem((long) system.getRatingSystem());
+                rating.setRatingSystemName(system.getRatingSystemName());
+                rating.setIsRated(false);
+                rating.setSerial(serial++);
+                ratingRepository.save(rating);
+            }
+        }
+
+        List<Rating> ratings = ratingRepository.findAllByUserId(getCurrentUser().getId());
+        for (Rating rating : ratings) {
+            System.out.println(rating);
+        }
+    }
+
+    public Movie getNextMovieToRate() {
 
 
+        return null;
+    }
+
+    public MovieToRate getMovieToRate(Long serial) {
+        Rating rating = ratingRepository.findByUserIdAndSerial(getCurrentUser().getId(), serial);
+        Movie movie = movieRepository.findOne(rating.getMovieId());
+        MovieToRate movieToRate = new MovieToRate();
+        movieToRate.setId(movie.getId());
+        movieToRate.setName(movie.getName());
+        movieToRate.setLogo(movie.getLogo());
+        movieToRate.setRatingId(rating.getId());
+        movieToRate.setRatingSystem(rating.getRatingSystem());
+        movieToRate.setSerial(rating.getSerial());
+        return movieToRate;
+    }
+
+    public Long saveRating(Long ratingId, Long rate) {
+        Rating rating = ratingRepository.getOne(ratingId);
+        rating.setRating(rate);
+
+        Long next = rating.getSerial() + 1;
+        if (ratingRepository.findByUserIdAndSerial(getCurrentUser().getId(),next) == null) {
+            next = null;
+        }
+        return next;
+    }
+
+    public List<Movie> getSelectedMovies() {
+        List<Rating> ratings = ratingRepository.findAllByUserId(getCurrentUser().getId());
+        Map<Long, Boolean> isSelected = new HashMap<>();
+        List<Long> selected = new ArrayList<>();
+        for (Rating rating : ratings) {
+            if (isSelected.get(rating.getMovieId()) == null) {
+                isSelected.put(rating.getMovieId(), true);
+                selected.add(rating.getMovieId());
+            }
+        }
+        List<Movie> movies = new ArrayList<>();
+        for (Long movieId : selected) {
+            Movie movie = movieRepository.getOne(movieId);
+            movies.add(movie);
+        }
+        return movies;
+    }
+
+    public void saveRatingOfRatingSystems(Long colorCircle, Long colorStar, Long colorEmo, Long gradient, Long bwCircle, Long bwEmo, Long bwStar) {
+        RateRatingSystem model = new RateRatingSystem();
+        model.setColorCircle(colorCircle);
+        model.setColorStar(colorStar);
+        model.setColorEmo(colorEmo);
+        model.setGradient(gradient);
+        model.setBwCircle(bwCircle);
+        model.setBwEmo(bwEmo);
+        model.setBwStar(bwStar);
+        model.setUserId(getCurrentUser().getId());
+
+        RateRatingSystem system = rateRatingSystemRepository.save(model);
+        System.out.println("\n\n\nUser Rating on rating system saved : ");
+        System.out.println(system);
     }
 }

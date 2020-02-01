@@ -80,7 +80,7 @@ $(".submit").click(function() {
     return false;
 })
 
-$(document).ready(function() {
+/*$(document).ready(function() {
 
     var checkboxes = $('.itemCheckBox input[type="checkbox"]');
 
@@ -93,7 +93,7 @@ $(document).ready(function() {
         }
     });
 
-});
+});*/
 
 $("label.movie-rate").click(function() {
     $(this).parent().find("label.movie-rate").removeClass('active');

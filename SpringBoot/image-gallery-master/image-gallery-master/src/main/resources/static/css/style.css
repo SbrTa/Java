@@ -358,7 +358,7 @@
 
 .rating.image-rating label img {
     width: 24px;
-    opacity: .6;
+    opacity: .3;
 }
 
 .rating.image-rating:not(:checked) label img:hover,
