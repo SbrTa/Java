@@ -3,7 +3,15 @@
   - Buzzwords 
     - Spring cloud
     - Monolithic
-    - 
+    - RestTemplate
+    - WebClient
+    - Bean
+    - Load Balancing
+    - Discovery Server
+    - Client side service discovery
+    - Server side service discovery
+    - Eureka
+    - @LoadBalanced
   
   - Pre requisite
     - Java
@@ -19,4 +27,6 @@
     - Bean initialization: Eager, Lazy. What is default for spring?
     - Eager Bean Initialization: Default in Spring. All the defined beans, and their dependencies, are created when the application context is created.
     - Lazy Bean Initialization: The bean will only be created, and its dependencies injected, once they're needed.
+    - Spring cloud uses client side service discovery.
+  
     
