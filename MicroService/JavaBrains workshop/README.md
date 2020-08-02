@@ -1,3 +1,10 @@
-# Java
+# Micro services
 
-Steps to Mountain of Java...
+  - Buzzwords 
+    - Spring cloud
+    - Monolithic
+    - 
+    
+  - Facts
+    - Service discovery is a pattern. Eureka is a technology wich implements service discovery patterns.
+    - Microservices are designed to solve specific problems for specific application. Yes, it can be re used in other application.
