@@ -4,6 +4,10 @@
     - Spring cloud
     - Monolithic
     - 
+  
+  - Pre requisite
+    - Java
+    - Springboot
     
   - Facts
     - Service discovery is a pattern. Eureka is a technology wich implements service discovery patterns.
