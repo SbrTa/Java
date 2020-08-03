@@ -16,6 +16,7 @@
     - Resilience
     - Fault tolarance
     - Circuit breaker
+    - Hystrix
   
   - Pre requisite
     - Java
@@ -39,6 +40,11 @@
       - Through exception
       - Default dummy data
       - Return session data
-      
+    - Circuit breaker pattern
+      - Fail fast
+      - Fallback functionality
+      - Automatic recovery
+    - Histrix: It implements circuit breaker pattern. Created by netflix.
+    
   
     
