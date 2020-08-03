@@ -12,10 +12,14 @@
     - Server side service discovery
     - Eureka
     - @LoadBalanced
+    -
+    - Resilience
+    - Fault tolarance
   
   - Pre requisite
     - Java
     - Springboot
+    
     
   - Facts
     - Service discovery is a pattern. Eureka is a technology wich implements service discovery patterns.
@@ -28,5 +32,7 @@
     - Eager Bean Initialization: Default in Spring. All the defined beans, and their dependencies, are created when the application context is created.
     - Lazy Bean Initialization: The bean will only be created, and its dependencies injected, once they're needed.
     - Spring cloud uses client side service discovery.
+    - Fault tolarance: How much can a system tolarance for a particular fault.
+    - Resilience: How many fault can a system tolarance.
   
     
