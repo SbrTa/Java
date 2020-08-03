@@ -15,6 +15,7 @@
     -
     - Resilience
     - Fault tolarance
+    - Circuit breaker
   
   - Pre requisite
     - Java
@@ -34,5 +35,10 @@
     - Spring cloud uses client side service discovery.
     - Fault tolarance: How much can a system tolarance for a particular fault.
     - Resilience: How many fault can a system tolarance.
+    - Handale fallback
+      - Through exception
+      - Default dummy data
+      - Return session data
+      
   
     
