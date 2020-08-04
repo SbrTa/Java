@@ -19,9 +19,14 @@
     - Hystrix
     - Hystrix Dashboard
     - Bulkhead pattern
+    -
     - Configuration server
     - Externalized Configuration
     - Spring Expression Language (SPEL)
+    - @Value
+    - @ConfigurationProperties
+    - Spring boot actuator
+    - YAML (.yml)
   
   - Pre requisite
     - Java
@@ -50,6 +55,7 @@
       - Fallback functionality
       - Automatic recovery
     - Hystrix: It implements circuit breaker pattern. Created by netflix.
+    - `YAML` supports the concept of nesting and is a better alternative of `.properties' file
     
   - Hystrix 
     - Add netflix hystrix dependency
@@ -65,12 +71,12 @@
   - Externalized Configuration 
     - https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config
     
-  - @value()
-    - Set value to variable: `@value("your value")`
-    - Set value to variable from property file: `@value("${propertyName}")`
+  - @Value
+    - Set value to variable: `@Value("your value")`
+    - Set value to variable from property file: `@Value("${propertyName}")`
     - If property is not exists, application run will fail. 
-    - Set default value in case of missing property: `@value("${propertyName : defaultValue}")`
-    - @value can assign list too. Let `property.list.value = one, two, three`. `@value("${property.list.value}") List<String> list;`
-    - For `SPEL` use `#`. Let, `properties.dbValue = {connectionString:'http://___', userName:'foo', password:'1234'}`. `@value("#{${properties.dbValue}}") Map<String, String> dbValue;`
-    
+    - Set default value in case of missing property: `@Value("${propertyName : defaultValue}")`
+    - @Value can assign list too. Let `property.list.value = one, two, three`. `@Value("${property.list.value}") List<String> list;`
+    - For `SPEL` use `#`. Let, `properties.dbValue = {connectionString:'http://___', userName:'foo', password:'1234'}`. `@Value("#{${properties.dbValue}}") Map<String, String> dbValue;`
+    - `@ConfigurationProperties` is a powerful replacement of `@Value`    
     
