@@ -74,6 +74,13 @@
   - Config server
     - Create spring boot project with spring cloud config server dependency
     - Add `@EnableConfigServer` to main class
+    - Add configuration repo in application properties - `spring.cloud.config.server.git.uri=https://github.com/SbrTa/ConfigServer`
+  
+  - Config server client
+    - Add `spring-cloud-starter-config` dependancy
+    - Add `spring.cloud.config.uri: http://localhost:8888` in application properties
+    - Add `@RefreshScope` to the class that need to update dynamically whenever config file is updated.
+    - After updating configuration properties in repo, place a post request to `http://[client]/actuator/refresh`. It will update the class that are annotated with `@RefreshScope`.
     
   
   - @Value
