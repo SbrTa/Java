@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: "MOVIE-CATALOG-SERVICE"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#        include: "hystrix.stream"
