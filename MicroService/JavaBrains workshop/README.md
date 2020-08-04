@@ -70,7 +70,12 @@
   
   - Externalized Configuration 
     - https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config
+  
+  - Config server
+    - Create spring boot project with spring cloud config server dependency
+    - Add `@EnableConfigServer` to main class
     
+  
   - @Value
     - Set value to variable: `@Value("your value")`
     - Set value to variable from property file: `@Value("${propertyName}")`
