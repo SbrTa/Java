@@ -19,6 +19,8 @@
     - Hystrix
     - Hystrix Dashboard
     - Bulkhead pattern
+    - Configuration server
+    - Externalized Configuration
   
   - Pre requisite
     - Java
@@ -58,5 +60,14 @@
     - Add netflix hystrix dashboard and spring boot actuator dependency
     - Enable hystrix by adding @EnableHystrixDashboard to the main class
     - Add "management.endpoints.web.exposure.include=hystrix.stream" to application.properties
+  
+  - Externalized Configuration 
+    - https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config
     
+  - @value()
+    - Set value to variable: @value("your value")
+    - Set value to variable from property file: @value("${propertyName}")
+    - If property is not exists, application run will fail. 
+    - Set default value in case of missing property: @value("${propertyName : defaultValue}")
+    - @value can assign list too. Let "property.list.value = one, two, three". `@value("${property.list.value}") List<String> list;`
     
