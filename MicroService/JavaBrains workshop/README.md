@@ -13,10 +13,12 @@
     - Eureka
     - @LoadBalanced
     -
-    - Resilience
     - Fault tolarance
+    - Resilience
     - Circuit breaker
     - Hystrix
+    - Hystrix Dashboard
+    - Bulkhead pattern
   
   - Pre requisite
     - Java
@@ -44,7 +46,17 @@
       - Fail fast
       - Fallback functionality
       - Automatic recovery
-    - Histrix: It implements circuit breaker pattern. Created by netflix.
+    - Hystrix: It implements circuit breaker pattern. Created by netflix.
     
-  
+  - Hystrix 
+    - Add netflix hystrix dependency
+    - Enable hystrix by adding @EnableCircuitBreaker to the main class
+    - Add @HystrixCommand to the method that need circuit breaker
+    - Add fallback method name as - @HystrixCommand("fallbackMathod"). The fallback method "fallbackMathod" will be called if the circuit breaks.
+        
+  - Hystrix Dashboard
+    - Add netflix hystrix dashboard and spring boot actuator dependency
+    - Enable hystrix by adding @EnableHystrixDashboard to the main class
+    - Add "management.endpoints.web.exposure.include=hystrix.stream" to application.properties
+    
     
