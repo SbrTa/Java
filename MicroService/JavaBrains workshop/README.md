@@ -21,6 +21,7 @@
     - Bulkhead pattern
     - Configuration server
     - Externalized Configuration
+    - Spring Expression Language (SPEL)
   
   - Pre requisite
     - Java
@@ -32,8 +33,8 @@
     - Microservices are designed to solve specific problems for specific application. Yes, it can be re used in other application.
     - Whitelabel error page: When the application don't find any api with inputed url, then it redirects to /error. If /error also not defined, then it shows whitelabel error. It means an error about showing an error. 
     - Reacting programming in java is asynchronous way of coding.
-    - @Autowired is a consumer. @Autowired means telling spring to give something;
-    - @Bean is a producer. @Bean means telling spring i've something that other people will need. SO execute this method, save this instance somewhere, give others when required.
+    - `@Autowired` is a consumer. `@Autowired` means telling spring to give something;
+    - `@Bean` is a producer. `@Bean` means telling spring i've something that other people will need. SO execute this method, save this instance somewhere, give others when required.
     - Bean initialization: Eager, Lazy. What is default for spring?
     - Eager Bean Initialization: Default in Spring. All the defined beans, and their dependencies, are created when the application context is created.
     - Lazy Bean Initialization: The bean will only be created, and its dependencies injected, once they're needed.
@@ -52,22 +53,24 @@
     
   - Hystrix 
     - Add netflix hystrix dependency
-    - Enable hystrix by adding @EnableCircuitBreaker to the main class
-    - Add @HystrixCommand to the method that need circuit breaker
-    - Add fallback method name as - @HystrixCommand("fallbackMathod"). The fallback method "fallbackMathod" will be called if the circuit breaks.
+    - Enable hystrix by adding `@EnableCircuitBreaker` to the main class
+    - Add `@HystrixCommand` to the method that need circuit breaker
+    - Add fallback method name as - `@HystrixCommand("fallbackMathod")`. The fallback method `fallbackMathod` will be called if the circuit breaks.
         
   - Hystrix Dashboard
     - Add netflix hystrix dashboard and spring boot actuator dependency
-    - Enable hystrix by adding @EnableHystrixDashboard to the main class
-    - Add "management.endpoints.web.exposure.include=hystrix.stream" to application.properties
+    - Enable hystrix by adding `@EnableHystrixDashboard` to the main class
+    - Add `management.endpoints.web.exposure.include=hystrix.stream` to application.properties
   
   - Externalized Configuration 
     - https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config
     
   - @value()
-    - Set value to variable: @value("your value")
-    - Set value to variable from property file: @value("${propertyName}")
+    - Set value to variable: `@value("your value")`
+    - Set value to variable from property file: `@value("${propertyName}")`
     - If property is not exists, application run will fail. 
-    - Set default value in case of missing property: @value("${propertyName : defaultValue}")
+    - Set default value in case of missing property: `@value("${propertyName : defaultValue}")`
     - @value can assign list too. Let `property.list.value = one, two, three`. `@value("${property.list.value}") List<String> list;`
+    - For `SPEL` use `#`. Let, `properties.dbValue = {connectionString:'http://___', userName:'foo', password:'1234'}`. `@value("#{${properties.dbValue}}") Map<String, String> dbValue;`
+    
     
