@@ -69,5 +69,5 @@
     - Set value to variable from property file: @value("${propertyName}")
     - If property is not exists, application run will fail. 
     - Set default value in case of missing property: @value("${propertyName : defaultValue}")
-    - @value can assign list too. Let "property.list.value = one, two, three". `@value("${property.list.value}") List<String> list;`
+    - @value can assign list too. Let `property.list.value = one, two, three`. `@value("${property.list.value}") List<String> list;`
     
