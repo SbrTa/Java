@@ -1,11 +1,12 @@
-server:
-  port: 8081
 spring:
   application:
-    name: "MOVIE-CATALOG-SERVICE"
+    name: "movie-catalog-service"
+  cloud:
+    config:
+      uri: "http://localhost:8888"
+
 management:
   endpoints:
     web:
       exposure:
         include: "*"
-#        include: "hystrix.stream"

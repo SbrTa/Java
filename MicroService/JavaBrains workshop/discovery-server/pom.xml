@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sbrta</groupId>
-	<artifactId>discovery-server</artifactId>
+	<artifactId>movie-discovery-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>discovery-server</name>
+	<name>movie-discovery-server</name>
 	<description>Demo micro service project based on java brains workshop by koushik</description>
 
 	<properties>
@@ -24,6 +24,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>

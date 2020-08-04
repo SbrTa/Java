@@ -27,7 +27,7 @@ public class MovieInfoService {
             @HystrixProperty(name = "execution.timeout.enabled", value = "false")
     })
     public CatalogItem getCatalogItem(Rating rating) {
-        Movie movie = restTemplate.getForObject("http://MOVIE-INFO-SERVICE/movies/" + rating.getMovieId(), Movie.class);
+        Movie movie = restTemplate.getForObject("http://movie-info-service/movies/" + rating.getMovieId(), Movie.class);
         /*Movie movie = webClientBuilder.build()
                 .get()
                 .uri("http://MOVIE-INFO-SERVICE/movies/" + rating.getMovieId())

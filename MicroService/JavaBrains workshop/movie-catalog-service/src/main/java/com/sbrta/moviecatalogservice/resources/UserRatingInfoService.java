@@ -28,11 +28,11 @@ public class UserRatingInfoService {
             @HystrixProperty(name = "execution.timeout.enabled", value = "false")
     })
     public UserRating getUserRating(String userId) {
-        return restTemplate.getForObject("http://RATINGS-DATA-SERVICE/ratings/user/" + userId, UserRating.class);
+        return restTemplate.getForObject("http://movie-data-service/ratings/user/" + userId, UserRating.class);
 
        /* return webClientBuilder.build()
                 .get()
-                .uri("http://RATINGS-DATA-SERVICE/ratings/user/" + userId)
+                .uri("http://movie-data-service/ratings/user/" + userId)
                 .retrieve()
                 .bodyToMono(UserRating.class)
 //                .timeout(Duration.ofMillis(1000))
