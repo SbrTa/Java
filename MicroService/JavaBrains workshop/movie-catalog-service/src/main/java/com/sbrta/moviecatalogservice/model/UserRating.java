@@ -18,5 +18,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserRating implements Serializable {
+    private String userId;
     private List<Rating> ratings;
 }

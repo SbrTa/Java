@@ -24,10 +24,16 @@ public class RatingResource {
 
     @RequestMapping("/user/{userId}")
     public UserRating getRatings(@PathVariable("userId") String userId) {
+        /*try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+        }*/
         return new UserRating(
+                userId,
                 Arrays.asList(
-                        new Rating("1", 5),
-                        new Rating("2", 4)
+                        new Rating("100", 5),
+                        new Rating("200", 4)
                 )
         );
     }
