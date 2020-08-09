@@ -6,6 +6,7 @@ import com.sbrta.moviecatalogservice.model.CatalogItem;
 import com.sbrta.moviecatalogservice.model.Movie;
 import com.sbrta.moviecatalogservice.model.Rating;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -17,6 +18,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
 public class MovieInfoService {
+    @Value("${apps.movie-info-service}")
+    private String movieInfoApp;
+
+    @Value("${apis.movie-info-service.movie-info-by-id}")
+    private String movieInfoByIdUrl;
+
     @Autowired
     private WebClient.Builder webClientBuilder;
 
@@ -27,7 +34,7 @@ public class MovieInfoService {
             @HystrixProperty(name = "execution.timeout.enabled", value = "false")
     })
     public CatalogItem getCatalogItem(Rating rating) {
-        Movie movie = restTemplate.getForObject("http://movie-info-service/movies/" + rating.getMovieId(), Movie.class);
+        Movie movie = restTemplate.getForObject(movieInfoApp + String.format(movieInfoByIdUrl, rating.getMovieId()), Movie.class);
         /*Movie movie = webClientBuilder.build()
                 .get()
                 .uri("http://MOVIE-INFO-SERVICE/movies/" + rating.getMovieId())
