@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 @SpringBootApplication
 public class MovieRatingApplication {
 //testing 1
+//testing 2
 	public static void main(String[] args) {
 		SpringApplication.run(MovieRatingApplication.class, args);
 	}
