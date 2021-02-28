@@ -11,6 +11,7 @@ import java.nio.file.Paths;
 public class MovieRatingApplication {
 //testing 1
 //testing 2
+//testing 3
 	public static void main(String[] args) {
 		SpringApplication.run(MovieRatingApplication.class, args);
 	}
