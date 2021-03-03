@@ -1,7 +1,7 @@
 package com.example.springsecurityjwt.filter;
 
-import com.example.springsecurityjwt.JwtUtil;
-import com.example.springsecurityjwt.MyUserDetailsService;
+import com.example.springsecurityjwt.util.JwtUtil;
+import com.example.springsecurityjwt.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

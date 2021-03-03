@@ -1,4 +1,4 @@
-package com.example.springsecurityjwt;
+package com.example.springsecurityjwt.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

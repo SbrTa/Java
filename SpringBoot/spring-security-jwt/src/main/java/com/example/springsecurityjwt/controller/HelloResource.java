@@ -1,5 +1,7 @@
-package com.example.springsecurityjwt;
+package com.example.springsecurityjwt.controller;
 
+import com.example.springsecurityjwt.util.JwtUtil;
+import com.example.springsecurityjwt.service.MyUserDetailsService;
 import com.example.springsecurityjwt.models.AuthenticationRequest;
 import com.example.springsecurityjwt.models.AuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
