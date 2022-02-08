@@ -11,6 +11,6 @@
 
 
 ## Config server
-  - https://medium.com/@athulravindran/spring-cloud-config-server-work-around-for-auto-refresh-53024b2a0b33
+  - https://medium.com/swlh/spring-cloud-config-bus-auto-refresh-properties-for-clients-d18fa4c036cb
   - https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-ubuntu-20-04
   - 
