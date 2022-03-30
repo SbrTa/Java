@@ -29,3 +29,9 @@ Propagate SecurityContext to Thread.
 It forces Spring to wrap its async executor with Security delegate DelegatingSecurityContextTaskExecutor. 
 Simple as that, we are safe to use @Async methods without worring about security context.
 
+
+
+
+### Reference:
+  - https://dev.to/spooz/spring-security-and-threads
+  - https://www.linkedin.com/pulse/minute-read-concurrency-spring-security-keshavram-kuduwa/?trk=articles_directory
