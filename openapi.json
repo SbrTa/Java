@@ -1,0 +1,5701 @@
+{
+  "openapi": "3.0.1",
+  "info" : {
+    "description" : "Monolith Api",
+    "version" : "1.0",
+    "title" : " Monolith Api",
+    "termsOfService" : "urn:tos",
+    "contact" : { },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host" : "SERVICE_NAME.endpoints.GOOGLE_PROJECT_ID.cloud.goog",
+  "basePath" : "/SERVICE_NAME-service",
+  "tags" : null,
+  "security" : [ {
+    "firebase" : [ ]
+  }, {
+    "move-about-public-api-key" : [ ]
+  } ],
+  "paths" : {
+    "/dashboard/whitelabels/{id}" : {
+      "get" : {
+        "tags" : [ "white-label-dashboard-controller" ],
+        "operationId" : "get_1",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WhiteLabelDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "white-label-dashboard-controller" ],
+        "operationId" : "update",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WhiteLabelDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WhiteLabelDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/{id}" : {
+      "get" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "get_2",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/VehicleDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "update_1",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/VehicleUpdateDashboardDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/VehicleDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/stations/{id}" : {
+      "get" : {
+        "tags" : [ "station-dashboard-controller" ],
+        "operationId" : "get_3",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/StationDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "station-dashboard-controller" ],
+        "operationId" : "update_2",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/StationDashboardCreateDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/StationDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/docks/{id}" : {
+      "put" : {
+        "tags" : [ "dock-dashboard-controller" ],
+        "operationId" : "update_3",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DockDashboardUpdateDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/DockDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/cities/{id}" : {
+      "get" : {
+        "tags" : [ "city-dashboard-controller" ],
+        "operationId" : "get_4",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CityDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "city-dashboard-controller" ],
+        "operationId" : "update_4",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CityDashboardUpdateDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CityDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/cities/{id}/code" : {
+      "put" : {
+        "tags" : [ "city-dashboard-controller" ],
+        "operationId" : "updateCode",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CityDashboardDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CityDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/booking/{code}/cancel" : {
+      "put" : {
+        "tags" : [ "booking-dashboard-controller" ],
+        "operationId" : "cancelBooking",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/booking/{code}/cancel" : {
+      "put" : {
+        "tags" : [ "booking-controller" ],
+        "operationId" : "cancelBooking_1",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devices/unlock" : {
+      "post" : {
+        "tags" : [ "device-controller" ],
+        "operationId" : "unlock",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DeviceUnlockRequestDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JourneyStatusDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/whitelabels" : {
+      "get" : {
+        "tags" : [ "white-label-dashboard-controller" ],
+        "operationId" : "getList",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/WhiteLabelShortDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "white-label-dashboard-controller" ],
+        "operationId" : "create",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WhiteLabelDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WhiteLabelDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/{id}/unlock" : {
+      "post" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "unlock_1",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BooleanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/{id}/lock" : {
+      "post" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "lock",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BooleanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/{id}/battery/unlock" : {
+      "post" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "batteryUnlock",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BooleanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/{id}/battery/lock" : {
+      "post" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "batteryLock",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BooleanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/{id}/alarm" : {
+      "post" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "alarm",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BooleanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/import" : {
+      "post" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "importVehicles",
+        "parameters" : [ {
+          "name" : "cityCode",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "required" : [ "file" ],
+                "type" : "object",
+                "properties" : {
+                  "file" : {
+                    "type" : "string",
+                    "format" : "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/stations" : {
+      "get" : {
+        "tags" : [ "station-dashboard-controller" ],
+        "operationId" : "getPage_1",
+        "parameters" : [ {
+          "name" : "filter",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/StationFilter"
+          }
+        }, {
+          "name" : "pageable",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/Pageable"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageStationDashboardPageDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "station-dashboard-controller" ],
+        "operationId" : "create_1",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/StationDashboardCreateDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/StationDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/stations/{id}/relogin" : {
+      "post" : {
+        "tags" : [ "station-dashboard-controller" ],
+        "operationId" : "reLogin",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BooleanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/stations/{id}/refresh" : {
+      "post" : {
+        "tags" : [ "station-dashboard-controller" ],
+        "operationId" : "refresh",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BooleanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/locks/{id}/unlock" : {
+      "post" : {
+        "tags" : [ "lock-dashboard-controller" ],
+        "operationId" : "unlock_2",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          }
+        }
+      }
+    },
+    "/dashboard/docks/{id}/unlock" : {
+      "post" : {
+        "tags" : [ "dock-dashboard-controller" ],
+        "operationId" : "unlock_3",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "201" : {
+            "description" : "Created"
+          }
+        }
+      }
+    },
+    "/dashboard/cities" : {
+      "get" : {
+        "tags" : [ "city-dashboard-controller" ],
+        "operationId" : "getPage_4",
+        "parameters" : [ {
+          "name" : "search",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "pageable",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/Pageable"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageCityDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "city-dashboard-controller" ],
+        "operationId" : "create_2",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CityDashboardCreateDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CityDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/app-version" : {
+      "post" : {
+        "tags" : [ "app-version-dashboard-controller" ],
+        "operationId" : "createOrUpdateAppVersion",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AppVersion"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/booking" : {
+      "post" : {
+        "tags" : [ "booking-controller" ],
+        "operationId" : "createBooking",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BookingRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/addLockMalfunction" : {
+      "post" : {
+        "tags" : [ "lock-malfunction-controller" ],
+        "operationId" : "addLockMalfunction",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/LockMalfunctionDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/{id}/status" : {
+      "patch" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "updateStatus",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/VehicleStatusUpdateDashboardDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BooleanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vehicles/nearest/v2" : {
+      "get" : {
+        "tags" : [ "vehicle-controller-external" ],
+        "operationId" : "getNearest2",
+        "parameters" : [ {
+          "name" : "cityId",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "latitude",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }, {
+          "name" : "longitude",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseValueObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vehicles/brands" : {
+      "get" : {
+        "tags" : [ "vehicle-controller-external" ],
+        "operationId" : "getAllVehicleBrands",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/VehicleResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stations/map" : {
+      "get" : {
+        "tags" : [ "station-controller" ],
+        "operationId" : "map",
+        "parameters" : [ {
+          "name" : "filter",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/StationFilter"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MapDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devices/info" : {
+      "get" : {
+        "tags" : [ "device-controller" ],
+        "operationId" : "get",
+        "parameters" : [ {
+          "name" : "qrCode",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "cityId",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "vehicleId",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/DeviceInfoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles" : {
+      "get" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "getPage",
+        "parameters" : [ {
+          "name" : "filter",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/VehicleFilter"
+          }
+        }, {
+          "name" : "pageable",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/Pageable"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageVehicleDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/{vehicle-code}/history" : {
+      "get" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "getByCode",
+        "parameters" : [ {
+          "name" : "vehicle-code",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "start-date",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }, {
+          "name" : "end-date",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }, {
+          "name" : "pageable",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/Pageable"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/types" : {
+      "get" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "getTypes",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "UNKNOWN", "BIKE", "E_BIKE", "SCOOTER", "E_SCOOTER", "CARGO" ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/statuses" : {
+      "get" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "getStatuses",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/one" : {
+      "get" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "getOne",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/VehicleDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/list" : {
+      "get" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "getList_1",
+        "parameters" : [ {
+          "name" : "filter",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/VehicleFilter"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/VehicleListDashboardDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/broken" : {
+      "get" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "getBrokenVehicleStatuses",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "uniqueItems" : true,
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/vehicles/brands" : {
+      "get" : {
+        "tags" : [ "vehicle-dashboard-controller" ],
+        "operationId" : "getBrands",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/stations/vehicles/statuses" : {
+      "get" : {
+        "tags" : [ "station-dashboard-controller" ],
+        "operationId" : "getVehicleStatuses",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "EMPTY", "FULL" ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/stations/statuses" : {
+      "get" : {
+        "tags" : [ "station-dashboard-controller" ],
+        "operationId" : "getStatuses_1",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION", "DISABLED", "DELETED" ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/stations/map" : {
+      "get" : {
+        "tags" : [ "station-dashboard-controller" ],
+        "operationId" : "map_1",
+        "parameters" : [ {
+          "name" : "filter",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/MapDashboardFilter"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MapDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/stations/list" : {
+      "get" : {
+        "tags" : [ "station-dashboard-controller" ],
+        "operationId" : "getList_2",
+        "parameters" : [ {
+          "name" : "filter",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/StationFilter"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/StationDashboardListDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/locks" : {
+      "get" : {
+        "tags" : [ "lock-dashboard-controller" ],
+        "operationId" : "getPage_2",
+        "parameters" : [ {
+          "name" : "filter",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/BaseFilter"
+          }
+        }, {
+          "name" : "pageable",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/Pageable"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageLockDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/locks/statuses" : {
+      "get" : {
+        "tags" : [ "lock-dashboard-controller" ],
+        "operationId" : "getStatuses_2",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION" ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/locks/brands" : {
+      "get" : {
+        "tags" : [ "lock-dashboard-controller" ],
+        "operationId" : "getBrands_1",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/docks" : {
+      "get" : {
+        "tags" : [ "dock-dashboard-controller" ],
+        "operationId" : "getPage_3",
+        "parameters" : [ {
+          "name" : "filter",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/DockFilter"
+          }
+        }, {
+          "name" : "pageable",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/Pageable"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageDockDashboardDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/docks/statuses" : {
+      "get" : {
+        "tags" : [ "dock-dashboard-controller" ],
+        "operationId" : "getStatuses_3",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION" ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/docks/list" : {
+      "get" : {
+        "tags" : [ "dock-dashboard-controller" ],
+        "operationId" : "getList_3",
+        "parameters" : [ {
+          "name" : "filter",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/DockFilter"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/DockDashboardListDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/cities/list" : {
+      "get" : {
+        "tags" : [ "city-dashboard-controller" ],
+        "operationId" : "getList_4",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/CityDashboardShortDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/booking" : {
+      "get" : {
+        "tags" : [ "booking-dashboard-controller" ],
+        "operationId" : "getPage_5",
+        "parameters" : [ {
+          "name" : "filter",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/BookingFilter"
+          }
+        }, {
+          "name" : "pageable",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/Pageable"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageBooking"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/app-version/{code}" : {
+      "get" : {
+        "tags" : [ "app-version-dashboard-controller" ],
+        "operationId" : "getAppVersion",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AppVersion"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities" : {
+      "get" : {
+        "tags" : [ "city-controller" ],
+        "operationId" : "getList_5",
+        "parameters" : [ {
+          "name" : "status",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "INACTIVE", "DELETED" ]
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/CityListDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities/{id}" : {
+      "get" : {
+        "tags" : [ "city-controller" ],
+        "operationId" : "getCity",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CityDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities/{id}/short" : {
+      "get" : {
+        "tags" : [ "city-controller" ],
+        "operationId" : "getCityShort",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CityShortDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities/{id}/short-email" : {
+      "get" : {
+        "tags" : [ "city-controller" ],
+        "operationId" : "getCityShortWithMail",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CityShortDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities/{id}/mailchimp" : {
+      "get" : {
+        "tags" : [ "city-controller" ],
+        "operationId" : "getCityMailchimpData",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CityMailchimpDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities/{id}/email/{email}/validate" : {
+      "get" : {
+        "tags" : [ "city-controller" ],
+        "operationId" : "validateEmail",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "email",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BooleanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities/one" : {
+      "get" : {
+        "tags" : [ "city-controller" ],
+        "operationId" : "getOne_1",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CityShortDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities/nearest" : {
+      "get" : {
+        "tags" : [ "city-controller" ],
+        "operationId" : "getNearest",
+        "parameters" : [ {
+          "name" : "latitude",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }, {
+          "name" : "longitude",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseValueCityListDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/booking/{vehicle-id}/booked-dates" : {
+      "get" : {
+        "tags" : [ "booking-controller" ],
+        "operationId" : "getBookedDates",
+        "parameters" : [ {
+          "name" : "vehicle-id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string",
+                    "format" : "date-time"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/booking/{code}" : {
+      "get" : {
+        "tags" : [ "booking-controller" ],
+        "operationId" : "getBookingByCode",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Booking"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/booking/active" : {
+      "get" : {
+        "tags" : [ "booking-controller" ],
+        "operationId" : "getActiveBookings",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/BookingDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app-version" : {
+      "get" : {
+        "tags" : [ "app-version-controller" ],
+        "operationId" : "getAppVersion_1",
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AppVersion"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ ]
+      }
+    },
+    "/dashboard/devices/cache" : {
+      "delete" : {
+        "tags" : [ "device-dashboard-controller" ],
+        "operationId" : "deleteDeviceCache",
+        "parameters" : [ {
+          "name" : "qr-code",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorInfoDto"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BooleanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actuator/health" : {
+      "get" : {
+        "security" : [ ],
+        "operationId" : "health",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "ErrorInfoDto" : {
+        "type" : "object",
+        "properties" : {
+          "statusCode" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "message" : {
+            "type" : "object"
+          }
+        }
+      },
+      "CityEntity" : {
+        "required" : [ "name" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "color" : {
+            "type" : "string"
+          },
+          "iconUrl" : {
+            "type" : "string"
+          },
+          "bikeIconUrl" : {
+            "type" : "string"
+          },
+          "electricBikeIconUrl" : {
+            "type" : "string"
+          },
+          "scooterIconUrl" : {
+            "type" : "string"
+          },
+          "cargoBikeIconUrl" : {
+            "type" : "string"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED", "DELETED", "INACTIVE" ]
+          },
+          "privacyUrl" : {
+            "type" : "string"
+          },
+          "termsUrl" : {
+            "type" : "string"
+          },
+          "supportUrl" : {
+            "type" : "string"
+          },
+          "supportEmail" : {
+            "type" : "string"
+          },
+          "faqUrl" : {
+            "type" : "string"
+          },
+          "howItWorksUrl" : {
+            "type" : "string"
+          },
+          "contactPhone" : {
+            "type" : "string"
+          },
+          "contactAddress" : {
+            "type" : "string"
+          },
+          "vat" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "operationalHourStartsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "operationalHourEndsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "company" : {
+            "$ref" : "#/components/schemas/Company"
+          },
+          "domains" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "closeMessage" : {
+            "type" : "string"
+          },
+          "photoFinish" : {
+            "type" : "boolean"
+          },
+          "timezone" : {
+            "type" : "string"
+          },
+          "rentalUri" : {
+            "$ref" : "#/components/schemas/RentalUri"
+          },
+          "publicAccessEnabled" : {
+            "type" : "boolean"
+          },
+          "mailVerificationRequired" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "Company" : {
+        "required" : [ "address", "email", "name", "phone" ],
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "address" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "phone" : {
+            "type" : "string"
+          }
+        }
+      },
+      "LocalTime" : {
+        "type" : "object",
+        "properties" : {
+          "hour" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "minute" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "second" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "nano" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "RentalUri" : {
+        "type" : "object",
+        "properties" : {
+          "android" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "ios" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "WhiteLabelDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "iconUrl" : {
+            "type" : "string"
+          },
+          "cities" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/CityEntity"
+            }
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED", "DELETED" ]
+          },
+          "mailChimpBaseUrl" : {
+            "type" : "string"
+          },
+          "mailChimpAccessKey" : {
+            "type" : "string"
+          },
+          "userAudience" : {
+            "type" : "string"
+          },
+          "marketingUserAudience" : {
+            "type" : "string"
+          }
+        }
+      },
+      "VehicleUpdateDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "BIKE", "E_BIKE", "SCOOTER", "E_SCOOTER", "CARGO" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "stationId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "linkedStationId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "battery" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "CityDashboardShortDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "DockDashboardShortDto" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "kln" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "vehicleCode" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION" ]
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "CHARGE", "DUCKT" ]
+          }
+        }
+      },
+      "LockShortDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "brand" : {
+            "type" : "string",
+            "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "GPRS", "BLUETOOTH" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION" ]
+          },
+          "open" : {
+            "type" : "boolean"
+          },
+          "gpsAvailable" : {
+            "type" : "boolean"
+          },
+          "charging" : {
+            "type" : "boolean"
+          },
+          "battery" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "lowBattery" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "StationDashboardShortDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "CHARGE", "VIRTUAL", "DUCKT" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION", "DISABLED", "DELETED" ]
+          },
+          "city" : {
+            "$ref" : "#/components/schemas/CityDashboardShortDto"
+          }
+        }
+      },
+      "VehicleDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "brand" : {
+            "type" : "string",
+            "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "BIKE", "E_BIKE", "SCOOTER", "E_SCOOTER", "CARGO" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+          },
+          "lastSeenOnline" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "googleMapLink" : {
+            "type" : "string"
+          },
+          "battery" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "distance" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "userId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "journeyId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "userName" : {
+            "type" : "string"
+          },
+          "lock" : {
+            "$ref" : "#/components/schemas/LockShortDashboardDto"
+          },
+          "dock" : {
+            "$ref" : "#/components/schemas/DockDashboardShortDto"
+          },
+          "station" : {
+            "$ref" : "#/components/schemas/StationDashboardShortDto"
+          },
+          "linkedStation" : {
+            "$ref" : "#/components/schemas/StationDashboardShortDto"
+          },
+          "city" : {
+            "$ref" : "#/components/schemas/CityDashboardShortDto"
+          }
+        }
+      },
+      "StationDashboardCreateDto" : {
+        "required" : [ "address", "cityId", "name", "status", "type" ],
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "CHARGE", "VIRTUAL", "DUCKT" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION", "DISABLED", "DELETED" ]
+          },
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "address" : {
+            "type" : "string"
+          },
+          "minBattery" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "geometry" : {
+            "type" : "array",
+            "items" : {
+              "type" : "array",
+              "items" : {
+                "type" : "number",
+                "format" : "double"
+              }
+            }
+          },
+          "linkedStation" : {
+            "type" : "boolean"
+          },
+          "parkingArea" : {
+            "type" : "array",
+            "items" : {
+              "type" : "array",
+              "items" : {
+                "type" : "number",
+                "format" : "double"
+              }
+            }
+          }
+        }
+      },
+      "CityShortDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "iconUrl" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED", "DELETED", "INACTIVE" ]
+          },
+          "vat" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "company" : {
+            "$ref" : "#/components/schemas/Company"
+          },
+          "domains" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "privacyUrl" : {
+            "type" : "string"
+          },
+          "termsUrl" : {
+            "type" : "string"
+          },
+          "supportUrl" : {
+            "type" : "string"
+          },
+          "howItWorksUrl" : {
+            "type" : "string"
+          },
+          "faqUrl" : {
+            "type" : "string"
+          },
+          "photoFinish" : {
+            "type" : "boolean"
+          },
+          "operationalHourStartsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "operationalHourEndsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "validEmail" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "StationDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "address" : {
+            "type" : "string"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "geometry" : {
+            "type" : "array",
+            "items" : {
+              "type" : "array",
+              "items" : {
+                "type" : "number",
+                "format" : "double"
+              }
+            }
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "CHARGE", "VIRTUAL", "DUCKT" ]
+          },
+          "dockCount" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "vehicleCount" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION", "DISABLED", "DELETED" ]
+          },
+          "city" : {
+            "$ref" : "#/components/schemas/CityShortDto"
+          },
+          "linkedStation" : {
+            "type" : "boolean"
+          },
+          "parkingArea" : {
+            "type" : "array",
+            "items" : {
+              "type" : "array",
+              "items" : {
+                "type" : "number",
+                "format" : "double"
+              }
+            }
+          }
+        }
+      },
+      "DockDashboardUpdateDto" : {
+        "required" : [ "status" ],
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION" ]
+          }
+        }
+      },
+      "DockDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "kln" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "vehicleCode" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION" ]
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "CHARGE", "DUCKT" ]
+          },
+          "station" : {
+            "$ref" : "#/components/schemas/StationDashboardShortDto"
+          },
+          "vehicle" : {
+            "$ref" : "#/components/schemas/VehicleShortDashboardDto"
+          }
+        }
+      },
+      "VehicleShortDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "brand" : {
+            "type" : "string",
+            "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "BIKE", "E_BIKE", "SCOOTER", "E_SCOOTER", "CARGO" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "battery" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "distance" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "CityDashboardUpdateDto" : {
+        "required" : [ "color", "company", "iconUrl", "name", "status" ],
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "color" : {
+            "type" : "string"
+          },
+          "iconUrl" : {
+            "type" : "string"
+          },
+          "bikeIconUrl" : {
+            "type" : "string"
+          },
+          "electricBikeIconUrl" : {
+            "type" : "string"
+          },
+          "scooterIconUrl" : {
+            "type" : "string"
+          },
+          "cargoBikeIconUrl" : {
+            "type" : "string"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED", "DELETED", "INACTIVE" ]
+          },
+          "privacyUrl" : {
+            "type" : "string"
+          },
+          "termsUrl" : {
+            "type" : "string"
+          },
+          "supportUrl" : {
+            "type" : "string"
+          },
+          "supportEmail" : {
+            "type" : "string"
+          },
+          "faqUrl" : {
+            "type" : "string"
+          },
+          "howItWorksUrl" : {
+            "type" : "string"
+          },
+          "contactPhone" : {
+            "type" : "string"
+          },
+          "contactAddress" : {
+            "type" : "string"
+          },
+          "operationalHourStartsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "operationalHourEndsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "vat" : {
+            "maximum" : 100,
+            "minimum" : 0,
+            "type" : "number",
+            "format" : "float"
+          },
+          "company" : {
+            "$ref" : "#/components/schemas/Company"
+          },
+          "domains" : {
+            "type" : "string"
+          },
+          "closeReason" : {
+            "type" : "string"
+          },
+          "photoFinish" : {
+            "type" : "boolean"
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "walletMinTopUpAmount" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "walletRentFine" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "walletWithdrawFine" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "timezone" : {
+            "type" : "string"
+          },
+          "rentalUri" : {
+            "$ref" : "#/components/schemas/RentalUri"
+          },
+          "publicAccessEnabled" : {
+            "type" : "boolean"
+          },
+          "mailVerificationRequired" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "CityDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "color" : {
+            "type" : "string"
+          },
+          "iconUrl" : {
+            "type" : "string"
+          },
+          "bikeIconUrl" : {
+            "type" : "string"
+          },
+          "electricBikeIconUrl" : {
+            "type" : "string"
+          },
+          "scooterIconUrl" : {
+            "type" : "string"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED", "DELETED", "INACTIVE" ]
+          },
+          "stationCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "vehicleCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "privacyUrl" : {
+            "type" : "string"
+          },
+          "termsUrl" : {
+            "type" : "string"
+          },
+          "supportUrl" : {
+            "type" : "string"
+          },
+          "supportEmail" : {
+            "type" : "string"
+          },
+          "faqUrl" : {
+            "type" : "string"
+          },
+          "howItWorksUrl" : {
+            "type" : "string"
+          },
+          "contactPhone" : {
+            "type" : "string"
+          },
+          "contactAddress" : {
+            "type" : "string"
+          },
+          "operationalHourStartsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "operationalHourEndsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "vat" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "company" : {
+            "$ref" : "#/components/schemas/Company"
+          },
+          "domains" : {
+            "type" : "string"
+          },
+          "admins" : {
+            "type" : "string"
+          },
+          "closeReason" : {
+            "type" : "string"
+          },
+          "photoFinish" : {
+            "type" : "boolean"
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "walletMinTopUpAmount" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "walletRentFine" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "walletWithdrawFine" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "timezone" : {
+            "type" : "string"
+          },
+          "rentalUri" : {
+            "$ref" : "#/components/schemas/RentalUri"
+          },
+          "publicAccessEnabled" : {
+            "type" : "boolean"
+          },
+          "cargoBikeIconUrl" : {
+            "type" : "string"
+          },
+          "mailVerificationRequired" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "DeviceUnlockRequestDto" : {
+        "required" : [ "cityId", "qrCode" ],
+        "type" : "object",
+        "properties" : {
+          "qrCode" : {
+            "type" : "string"
+          },
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "JourneyStatusDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "startTime" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "active" : {
+            "type" : "boolean"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "STARTING", "STARTING_FROM_CHARGE_STATION", "ACTIVE", "ALL_ACTIVE", "WAITING_STOP_POINT", "PAUSE", "FINISHED", "CANCELED_BY_USER_TIMEOUT", "CANCELED_BY_LOW_BATTERY", "UNPAID", "ERROR", "PAYMENT_ERROR", "AUTHENTICATING", "WALLET_DUE" ]
+          },
+          "confirmed" : {
+            "type" : "boolean"
+          },
+          "amount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "currency" : {
+            "type" : "string",
+            "enum" : [ "NOK", "SEK", "EUR", "GBP" ]
+          },
+          "duration" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "vehicle" : {
+            "$ref" : "#/components/schemas/VehicleStateDto"
+          },
+          "showStopButton" : {
+            "type" : "boolean"
+          },
+          "sendPhoneLocation" : {
+            "type" : "boolean"
+          },
+          "subscriptionClientSecret" : {
+            "type" : "string"
+          },
+          "methodId" : {
+            "type" : "string"
+          },
+          "paymentId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "hasSufficientWalletBalance" : {
+            "type" : "boolean"
+          },
+          "distance" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "VehicleStateDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "brand" : {
+            "type" : "string",
+            "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "BIKE", "E_BIKE", "SCOOTER", "E_SCOOTER", "CARGO" ]
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "battery" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "distance" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "manualBike" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "BooleanResponse" : {
+        "type" : "object",
+        "properties" : {
+          "success" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "CityDashboardCreateDto" : {
+        "required" : [ "color", "company", "iconUrl", "name", "status" ],
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "color" : {
+            "type" : "string"
+          },
+          "iconUrl" : {
+            "type" : "string"
+          },
+          "bikeIconUrl" : {
+            "type" : "string"
+          },
+          "electricBikeIconUrl" : {
+            "type" : "string"
+          },
+          "scooterIconUrl" : {
+            "type" : "string"
+          },
+          "cargoBikeIconUrl" : {
+            "type" : "string"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED", "DELETED", "INACTIVE" ]
+          },
+          "privacyUrl" : {
+            "type" : "string"
+          },
+          "termsUrl" : {
+            "type" : "string"
+          },
+          "supportUrl" : {
+            "type" : "string"
+          },
+          "supportEmail" : {
+            "type" : "string"
+          },
+          "faqUrl" : {
+            "type" : "string"
+          },
+          "howItWorksUrl" : {
+            "type" : "string"
+          },
+          "contactPhone" : {
+            "type" : "string"
+          },
+          "contactAddress" : {
+            "type" : "string"
+          },
+          "operationalHourStartsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "operationalHourEndsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "vat" : {
+            "maximum" : 100,
+            "minimum" : 0,
+            "type" : "number",
+            "format" : "float"
+          },
+          "company" : {
+            "$ref" : "#/components/schemas/Company"
+          },
+          "domains" : {
+            "type" : "string"
+          },
+          "closeReason" : {
+            "type" : "string"
+          },
+          "photoFinish" : {
+            "type" : "boolean"
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "walletMinTopUpAmount" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "walletRentFine" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "walletWithdrawFine" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "timezone" : {
+            "type" : "string"
+          },
+          "rentalUri" : {
+            "$ref" : "#/components/schemas/RentalUri"
+          },
+          "publicAccessEnabled" : {
+            "type" : "boolean"
+          },
+          "mailVerificationRequired" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "AppVersion" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "androidVersion" : {
+            "type" : "string"
+          },
+          "iosVersion" : {
+            "type" : "string"
+          },
+          "deeplinkUrl" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BookingRequest" : {
+        "type" : "object",
+        "properties" : {
+          "vehicleId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "dates" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "date-time"
+            }
+          }
+        }
+      },
+      "LockMalfunctionDto" : {
+        "type" : "object",
+        "properties" : {
+          "lockCode" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "soc" : {
+            "type" : "string"
+          },
+          "boc" : {
+            "type" : "string"
+          },
+          "flk" : {
+            "type" : "string"
+          },
+          "flc" : {
+            "type" : "string"
+          },
+          "flb" : {
+            "type" : "string"
+          },
+          "companyCode" : {
+            "type" : "string"
+          },
+          "companyName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "VehicleStatusUpdateDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "string",
+            "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+          }
+        }
+      },
+      "ResponseValueObject" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "object"
+          }
+        }
+      },
+      "VehicleResponseDto" : {
+        "type" : "object",
+        "properties" : {
+          "iotVehicles" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+            }
+          },
+          "otherVehicles" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+            }
+          }
+        }
+      },
+      "StationFilter" : {
+        "type" : "object",
+        "properties" : {
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelCityIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "search" : {
+            "type" : "string"
+          },
+          "linkedStation" : {
+            "type" : "boolean"
+          },
+          "vehicleStatuses" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+            }
+          },
+          "stationStatuses" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION", "DISABLED", "DELETED" ]
+            }
+          },
+          "stationTypes" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "CHARGE", "VIRTUAL", "DUCKT" ]
+            }
+          },
+          "stationVehiclesStatus" : {
+            "type" : "string",
+            "enum" : [ "EMPTY", "FULL" ]
+          },
+          "otherUsersBookedVehicleIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          }
+        }
+      },
+      "MapDto" : {
+        "type" : "object",
+        "properties" : {
+          "stations" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StationMapDto"
+            }
+          },
+          "rentingVehicle" : {
+            "$ref" : "#/components/schemas/VehicleMapDto"
+          }
+        }
+      },
+      "StationMapDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "CHARGE", "VIRTUAL", "DUCKT" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION", "DISABLED", "DELETED" ]
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "geometry" : {
+            "type" : "array",
+            "items" : {
+              "type" : "array",
+              "items" : {
+                "type" : "number",
+                "format" : "double"
+              }
+            }
+          },
+          "address" : {
+            "type" : "string"
+          },
+          "dockCount" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "availableDockCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "vehicleCount" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "availableVehicleCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "notAvailableVehicleCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "disabled" : {
+            "type" : "boolean"
+          },
+          "vehicles" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/VehicleMapDto"
+            }
+          },
+          "parkingArea" : {
+            "type" : "array",
+            "items" : {
+              "type" : "array",
+              "items" : {
+                "type" : "number",
+                "format" : "double"
+              }
+            }
+          }
+        }
+      },
+      "VehicleMapDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "BIKE", "E_BIKE", "SCOOTER", "E_SCOOTER", "CARGO" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+          },
+          "brand" : {
+            "type" : "string",
+            "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "battery" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "distance" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "DeviceInfoDto" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "DOCK", "VEHICLE", "LOCK" ]
+          },
+          "hasVehicle" : {
+            "type" : "boolean"
+          },
+          "unlockMessage" : {
+            "type" : "string"
+          },
+          "station" : {
+            "$ref" : "#/components/schemas/StationShortDto"
+          },
+          "dock" : {
+            "$ref" : "#/components/schemas/DockShortDto"
+          },
+          "vehicle" : {
+            "$ref" : "#/components/schemas/VehicleShortDto"
+          },
+          "lock" : {
+            "$ref" : "#/components/schemas/LockShortDto"
+          }
+        }
+      },
+      "DockShortDto" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "kln" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "LockShortDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "brand" : {
+            "type" : "string",
+            "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION" ]
+          },
+          "gpsAvailable" : {
+            "type" : "boolean"
+          },
+          "open" : {
+            "type" : "boolean"
+          },
+          "hasVehicle" : {
+            "type" : "boolean"
+          },
+          "imei" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "StationShortDto" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "minBatSoc" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "CHARGE", "VIRTUAL", "DUCKT" ]
+          }
+        }
+      },
+      "VehicleShortDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "BIKE", "E_BIKE", "SCOOTER", "E_SCOOTER", "CARGO" ]
+          },
+          "brand" : {
+            "type" : "string",
+            "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "hasLock" : {
+            "type" : "boolean"
+          },
+          "linkedToStation" : {
+            "type" : "boolean"
+          },
+          "journeyId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "city" : {
+            "$ref" : "#/components/schemas/CityShortDto"
+          }
+        }
+      },
+      "WhiteLabelShortDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "iconUrl" : {
+            "type" : "string"
+          },
+          "cityIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "cities" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/CityShortDto"
+            }
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED", "DELETED" ]
+          }
+        }
+      },
+      "VehicleFilter" : {
+        "type" : "object",
+        "properties" : {
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelCityIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "search" : {
+            "type" : "string"
+          },
+          "statuses" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+            }
+          },
+          "lockStatus" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION" ]
+          },
+          "lockOpen" : {
+            "type" : "boolean"
+          },
+          "brand" : {
+            "type" : "string",
+            "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+          },
+          "journeyId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "username" : {
+            "type" : "string"
+          },
+          "vehicleName" : {
+            "type" : "string"
+          },
+          "vehicleCode" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "lockCode" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "dockCode" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "vehicleType" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "BIKE", "E_BIKE", "SCOOTER", "E_SCOOTER", "CARGO" ]
+          },
+          "stationName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Pageable" : {
+        "type" : "object",
+        "properties" : {
+          "page" : {
+            "minimum" : 0,
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "size" : {
+            "minimum" : 1,
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "sort" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "PageVehicleDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "totalPages" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "totalElements" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "content" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/VehicleDashboardDto"
+            }
+          },
+          "number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "sort" : {
+            "$ref" : "#/components/schemas/SortObject"
+          },
+          "first" : {
+            "type" : "boolean"
+          },
+          "last" : {
+            "type" : "boolean"
+          },
+          "pageable" : {
+            "$ref" : "#/components/schemas/PageableObject"
+          },
+          "numberOfElements" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "empty" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "PageableObject" : {
+        "type" : "object",
+        "properties" : {
+          "pageNumber" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "offset" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "sort" : {
+            "$ref" : "#/components/schemas/SortObject"
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "paged" : {
+            "type" : "boolean"
+          },
+          "unpaged" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "SortObject" : {
+        "type" : "object",
+        "properties" : {
+          "empty" : {
+            "type" : "boolean"
+          },
+          "sorted" : {
+            "type" : "boolean"
+          },
+          "unsorted" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "VehicleListDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PageStationDashboardPageDto" : {
+        "type" : "object",
+        "properties" : {
+          "totalPages" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "totalElements" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "content" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StationDashboardPageDto"
+            }
+          },
+          "number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "sort" : {
+            "$ref" : "#/components/schemas/SortObject"
+          },
+          "first" : {
+            "type" : "boolean"
+          },
+          "last" : {
+            "type" : "boolean"
+          },
+          "pageable" : {
+            "$ref" : "#/components/schemas/PageableObject"
+          },
+          "numberOfElements" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "empty" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "StationDashboardPageDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "CHARGE", "VIRTUAL", "DUCKT" ]
+          },
+          "dockCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "vehicleCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION", "DISABLED", "DELETED" ]
+          },
+          "lastSeenOnline" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "MapDashboardFilter" : {
+        "type" : "object",
+        "properties" : {
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelCityIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "search" : {
+            "type" : "string"
+          },
+          "stations" : {
+            "type" : "boolean"
+          },
+          "stationType" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "CHARGE", "VIRTUAL", "DUCKT" ]
+            }
+          },
+          "vehicleSearch" : {
+            "type" : "string"
+          },
+          "vehicleType" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "UNKNOWN", "BIKE", "E_BIKE", "SCOOTER", "E_SCOOTER", "CARGO" ]
+            }
+          },
+          "vehicleStatus" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+            }
+          },
+          "vehicleMinBattery" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "vehicleMaxBattery" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "lockStatus" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION" ]
+            }
+          },
+          "lockMinBattery" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "lockMaxBattery" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "MapDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "stations" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StationMapDashboardDto"
+            }
+          },
+          "vehicles" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/VehicleMapDashboardDto"
+            }
+          }
+        }
+      },
+      "StationMapDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "CHARGE", "VIRTUAL", "DUCKT" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION", "DISABLED", "DELETED" ]
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "geometry" : {
+            "type" : "array",
+            "items" : {
+              "type" : "array",
+              "items" : {
+                "type" : "number",
+                "format" : "double"
+              }
+            }
+          },
+          "address" : {
+            "type" : "string"
+          },
+          "dockCount" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "availableDockCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "vehicleCount" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "availableVehicleCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "notAvailableVehicleCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "disabled" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "VehicleMapDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "BIKE", "E_BIKE", "SCOOTER", "E_SCOOTER", "CARGO" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+          },
+          "brand" : {
+            "type" : "string",
+            "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "battery" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "distance" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "lowBattery" : {
+            "type" : "boolean"
+          },
+          "renting" : {
+            "type" : "boolean"
+          },
+          "charging" : {
+            "type" : "boolean"
+          },
+          "warning" : {
+            "type" : "boolean"
+          },
+          "broken" : {
+            "type" : "boolean"
+          },
+          "journeyId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "city" : {
+            "$ref" : "#/components/schemas/CityShortDto"
+          },
+          "lock" : {
+            "$ref" : "#/components/schemas/LockShortDashboardDto"
+          }
+        }
+      },
+      "StationDashboardListDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "CHARGE", "VIRTUAL", "DUCKT" ]
+          }
+        }
+      },
+      "BaseFilter" : {
+        "type" : "object",
+        "properties" : {
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelCityIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "search" : {
+            "type" : "string"
+          }
+        }
+      },
+      "LockDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "brand" : {
+            "type" : "string",
+            "enum" : [ "OMNI", "KINGMETER", "ACTON_OMNI", "HONGJI", "VAIMOO", "FREEBIKE" ]
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "GPRS", "BLUETOOTH" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION" ]
+          },
+          "open" : {
+            "type" : "boolean"
+          },
+          "gpsAvailable" : {
+            "type" : "boolean"
+          },
+          "charging" : {
+            "type" : "boolean"
+          },
+          "battery" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "vehicle" : {
+            "$ref" : "#/components/schemas/VehicleDashboardDto"
+          }
+        }
+      },
+      "PageLockDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "totalPages" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "totalElements" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "content" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/LockDashboardDto"
+            }
+          },
+          "number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "sort" : {
+            "$ref" : "#/components/schemas/SortObject"
+          },
+          "first" : {
+            "type" : "boolean"
+          },
+          "last" : {
+            "type" : "boolean"
+          },
+          "pageable" : {
+            "$ref" : "#/components/schemas/PageableObject"
+          },
+          "numberOfElements" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "empty" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "DockFilter" : {
+        "type" : "object",
+        "properties" : {
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelCityIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "search" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ONLINE", "OFFLINE", "MALFUNCTION" ]
+          }
+        }
+      },
+      "PageDockDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "totalPages" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "totalElements" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "content" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/DockDashboardDto"
+            }
+          },
+          "number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "sort" : {
+            "$ref" : "#/components/schemas/SortObject"
+          },
+          "first" : {
+            "type" : "boolean"
+          },
+          "last" : {
+            "type" : "boolean"
+          },
+          "pageable" : {
+            "$ref" : "#/components/schemas/PageableObject"
+          },
+          "numberOfElements" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "empty" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "DockDashboardListDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PageCityDashboardDto" : {
+        "type" : "object",
+        "properties" : {
+          "totalPages" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "totalElements" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "content" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/CityDashboardDto"
+            }
+          },
+          "number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "sort" : {
+            "$ref" : "#/components/schemas/SortObject"
+          },
+          "first" : {
+            "type" : "boolean"
+          },
+          "last" : {
+            "type" : "boolean"
+          },
+          "pageable" : {
+            "$ref" : "#/components/schemas/PageableObject"
+          },
+          "numberOfElements" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "empty" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "BookingFilter" : {
+        "type" : "object",
+        "properties" : {
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "whiteLabelCityIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "search" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "IN_USE", "USED", "CANCELED", "EXPIRED" ]
+          }
+        }
+      },
+      "Booking" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "userId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "username" : {
+            "type" : "string"
+          },
+          "vehicle" : {
+            "$ref" : "#/components/schemas/VehicleDto"
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "endDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "IN_USE", "USED", "CANCELED", "EXPIRED" ]
+          }
+        }
+      },
+      "PageBooking" : {
+        "type" : "object",
+        "properties" : {
+          "totalPages" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "totalElements" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "content" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Booking"
+            }
+          },
+          "number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "sort" : {
+            "$ref" : "#/components/schemas/SortObject"
+          },
+          "first" : {
+            "type" : "boolean"
+          },
+          "last" : {
+            "type" : "boolean"
+          },
+          "pageable" : {
+            "$ref" : "#/components/schemas/PageableObject"
+          },
+          "numberOfElements" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "empty" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "VehicleDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "UNKNOWN", "BIKE", "E_BIKE", "SCOOTER", "E_SCOOTER", "CARGO" ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "READY", "ONLINE", "OFFLINE", "IN_STATION", "RENTING", "BROKEN_WORKSHOP", "UNKNOWN", "LOST", "PICKUP_REQUIRED", "RETIRED", "MISSING" ]
+          },
+          "lock" : {
+            "$ref" : "#/components/schemas/LockShortDto"
+          },
+          "dock" : {
+            "$ref" : "#/components/schemas/DockShortDto"
+          },
+          "journeyId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "cityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "battery" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "distance" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "CityListDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "color" : {
+            "type" : "string"
+          },
+          "iconUrl" : {
+            "type" : "string"
+          },
+          "privacyUrl" : {
+            "type" : "string"
+          },
+          "termsUrl" : {
+            "type" : "string"
+          },
+          "supportUrl" : {
+            "type" : "string"
+          },
+          "supportEmail" : {
+            "type" : "string"
+          },
+          "faqUrl" : {
+            "type" : "string"
+          },
+          "howItWorksUrl" : {
+            "type" : "string"
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "stationCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "vehicleCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "emailValidationRequired" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "CityDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "color" : {
+            "type" : "string"
+          },
+          "iconUrl" : {
+            "type" : "string"
+          },
+          "privacyUrl" : {
+            "type" : "string"
+          },
+          "termsUrl" : {
+            "type" : "string"
+          },
+          "supportUrl" : {
+            "type" : "string"
+          },
+          "supportEmail" : {
+            "type" : "string"
+          },
+          "faqUrl" : {
+            "type" : "string"
+          },
+          "howItWorksUrl" : {
+            "type" : "string"
+          },
+          "whiteLabelId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "stationCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "vehicleCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "emailValidationRequired" : {
+            "type" : "boolean"
+          },
+          "stripePublishableKey" : {
+            "type" : "string"
+          },
+          "contactPhone" : {
+            "type" : "string"
+          },
+          "contactAddress" : {
+            "type" : "string"
+          },
+          "bikeIconUrl" : {
+            "type" : "string"
+          },
+          "electricBikeIconUrl" : {
+            "type" : "string"
+          },
+          "scooterIconUrl" : {
+            "type" : "string"
+          },
+          "operationalHourStartsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "operationalHourEndsAt" : {
+            "$ref" : "#/components/schemas/LocalTime"
+          },
+          "company" : {
+            "$ref" : "#/components/schemas/Company"
+          },
+          "cargoBikeIconUrl" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CityMailchimpDto" : {
+        "type" : "object",
+        "properties" : {
+          "mailChimpBaseUrl" : {
+            "type" : "string"
+          },
+          "mailChimpAccessKey" : {
+            "type" : "string"
+          },
+          "userAudience" : {
+            "type" : "string"
+          },
+          "marketingUserAudience" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ResponseValueCityListDto" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "$ref" : "#/components/schemas/CityListDto"
+          }
+        }
+      },
+      "BookingDetails" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "userId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "username" : {
+            "type" : "string"
+          },
+          "vehicle" : {
+            "$ref" : "#/components/schemas/VehicleDto"
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "endDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "IN_USE", "USED", "CANCELED", "EXPIRED" ]
+          },
+          "station" : {
+            "$ref" : "#/components/schemas/StationClientDto"
+          }
+        }
+      },
+      "StationClientDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "longitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "latitude" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "address" : {
+            "type" : "string"
+          },
+          "cityName" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "CHARGE", "VIRTUAL", "DUCKT" ]
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "api_key" : {
+      "type" : "apiKey",
+      "name" : "key",
+      "in" : "query"
+    },
+    "firebase" : {
+      "authorizationUrl" : "",
+      "flow" : "implicit",
+      "type" : "oauth2",
+      "x-google-issuer" : "https://securetoken.google.com/GOOGLE_PROJECT_ID",
+      "x-google-jwks_uri" : "https://www.googleapis.com/service_accounts/v1/metadata/x509/securetoken@system.gserviceaccount.com",
+      "x-google-audiences" : "GOOGLE_PROJECT_ID"
+    },
+    "move-about-public-api-key" : {
+      "authorizationUrl" : "",
+      "flow" : "implicit",
+      "type" : "oauth2",
+      "x-google-issuer" : "MOVE_ABOUT_PUBLIC_API_KEY_EMAIL",
+      "x-google-jwks_uri" : "https://www.googleapis.com/robot/v1/metadata/x509/MOVE_ABOUT_PUBLIC_API_KEY_EMAIL",
+      "x-google-audiences" : "GOOGLE_PROJECT_ID"
+    }
+  }
+}
